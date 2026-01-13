@@ -18,44 +18,6 @@ add_action('wp_enqueue_scripts', function () {
   );
 
   /* =========================
-     Component CSS
-  ========================= */
-  wp_enqueue_style(
-    'leadsprint-header',
-    $uri . '/assets/css/header.css',
-    ['leadsprint-main'],
-    filemtime($dir . '/assets/css/header.css')
-  );
-
-  wp_enqueue_style(
-    'leadsprint-cards',
-    $uri . '/assets/css/cards.css',
-    ['leadsprint-main'],
-    filemtime($dir . '/assets/css/cards.css')
-  );
-
-  wp_enqueue_style(
-    'leadsprint-card',
-    $uri . '/assets/css/card.css',
-    ['leadsprint-cards'],
-    filemtime($dir . '/assets/css/card.css')
-  );
-
-  wp_enqueue_style(
-    'leadsprint-content',
-    $uri . '/assets/css/content.css',
-    ['leadsprint-main'],
-    filemtime($dir . '/assets/css/content.css')
-  );
-
-  wp_enqueue_style(
-    'leadsprint-cta',
-    $uri . '/assets/css/cta.css',
-    ['leadsprint-main'],
-    filemtime($dir . '/assets/css/cta.css')
-  );
-
-  /* =========================
      JavaScript
   ========================= */
   wp_enqueue_script(
