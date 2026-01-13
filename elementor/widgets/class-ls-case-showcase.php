@@ -82,6 +82,7 @@ class LS_Case_Showcase_Widget extends LS_Base_Widget {
     $this->end_controls_section();
   }
 
+  /**
    /**
    * 👇 DIT IS DE ENIGE RENDERPLAATS
    */
@@ -95,10 +96,11 @@ class LS_Case_Showcase_Widget extends LS_Base_Widget {
       if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
         echo '<div style="padding:14px;border:1px dashed #ccc;border-radius:10px;">
       </div>';
+      }
+      return;
     }
-    return;
-  }
 
-  include $template;
+    include $template;
+  }
 }
 }
