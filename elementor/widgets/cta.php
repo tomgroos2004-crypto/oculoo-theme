@@ -15,6 +15,10 @@ class LS_CTA_Widget extends LS_Base_Widget {
     return 'eicon-call-to-action';
   }
 
+  public function get_categories() {
+    return ['leadsprint'];
+  }
+
   protected function register_controls() {
 
     $this->start_controls_section('content', [

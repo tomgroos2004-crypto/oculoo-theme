@@ -19,6 +19,10 @@ class LS_Team_Cards_Widget extends LS_Base_Widget {
     return 'eicon-person';
   }
 
+  public function get_categories() {
+    return ['leadsprint'];
+  }
+
   protected function register_controls() {
 
     $this->start_controls_section('content', [
