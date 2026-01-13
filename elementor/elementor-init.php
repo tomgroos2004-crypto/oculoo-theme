@@ -39,6 +39,7 @@ add_action('elementor/widgets/register', function ($widgets_manager) {
     __DIR__ . '/widgets/class-ls-case-breakdown.php',
     __DIR__ . '/widgets/class-ls-case-showcase.php',
     __DIR__ . '/widgets/class-ls-team-cards.php',
+    __DIR__ . '/widgets/contact.php',
 
   ];
 
@@ -67,6 +68,7 @@ $classes = [
   '\LS_Case_Breakdown_Widget',
   '\LS_Case_Showcase_Widget',
   '\LS_Team_Cards_Widget',
+  '\LS_Contact_Widget',
 ];
 
 

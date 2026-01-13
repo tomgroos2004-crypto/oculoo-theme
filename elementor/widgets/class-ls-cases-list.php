@@ -18,6 +18,10 @@ class LS_Cases_List_Widget extends LS_Base_Widget {
     return 'eicon-check-circle';
   }
 
+  public function get_categories() {
+    return ['leadsprint'];
+  }
+
   protected function register_controls() {
 
     $this->start_controls_section('content', [
