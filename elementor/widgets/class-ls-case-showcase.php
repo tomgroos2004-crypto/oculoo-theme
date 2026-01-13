@@ -83,6 +83,7 @@ class LS_Case_Showcase_Widget extends LS_Base_Widget {
   }
 
   /**
+   /**
    * 👇 DIT IS DE ENIGE RENDERPLAATS
    */
   protected function render_component() {
@@ -95,6 +96,9 @@ class LS_Case_Showcase_Widget extends LS_Base_Widget {
       if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
         echo '<div style="padding:14px;border:1px dashed #ccc;border-radius:10px;">
         Case Showcase: template niet gevonden (components/case-showcase.php)
+      if (!file_exists($template)) {
+      if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
+        echo '<div style="padding:14px;border:1px dashed #ccc;border-radius:10px;">
       </div>';
       }
       return;
@@ -103,3 +107,4 @@ class LS_Case_Showcase_Widget extends LS_Base_Widget {
     include $template;
   }
 }
+
