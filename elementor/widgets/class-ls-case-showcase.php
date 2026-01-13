@@ -83,7 +83,6 @@ class LS_Case_Showcase_Widget extends LS_Base_Widget {
   }
 
   /**
-   /**
    * 👇 DIT IS DE ENIGE RENDERPLAATS
    */
   protected function render_component() {
@@ -107,4 +106,3 @@ class LS_Case_Showcase_Widget extends LS_Base_Widget {
     include $template;
   }
 }
-
