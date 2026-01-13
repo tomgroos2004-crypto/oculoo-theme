@@ -103,4 +103,4 @@ class LS_Case_Showcase_Widget extends LS_Base_Widget {
     include $template;
   }
 }
-}
+
