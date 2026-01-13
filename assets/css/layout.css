@@ -1,0 +1,120 @@
+/* =========================================================
+   LeadSprint – Layout (v3 FINAL)
+   Structure only, single source of truth
+========================================================= */
+
+:root {
+  /* ======================================================
+     Container tokens (semantics > size)
+  ====================================================== */
+
+  --ls-container: 1250px;        /* default content */
+  --ls-container-wide: 100%;   /* visual / overview */
+  --ls-container-narrow: 1000px;  /* explanation / focus */
+
+  --ls-gutter: 24px;
+
+  /* ======================================================
+     Hero tokens
+  ====================================================== */
+
+  --hero-image-size: 520px;
+  --hero-h-compact: 420px;
+  --hero-h-normal: 520px;
+  --hero-h-large: 640px;
+}
+
+/* =========================================================
+   Containers
+========================================================= */
+
+/* Default content container */
+.ls-container {
+  width: min(
+    var(--ls-container),
+    calc(100% - (var(--ls-gutter) * 2))
+  );
+  margin-inline: auto;
+}
+
+/* Wide container – cards, pricing, showcases */
+.ls-container--wide {
+  width: min(
+    var(--ls-container-wide),
+    calc(100% - (var(--ls-gutter) * 2))
+  );
+  margin-inline: auto;
+}
+
+/* Narrow container – explanation, copy, focus */
+.ls-container--narrow {
+  width: min(
+    var(--ls-container-narrow),
+    calc(100% - (var(--ls-gutter) * 2))
+  );
+  margin-inline: auto;
+}
+
+/* =========================================================
+   Layout helpers (intent-first)
+========================================================= */
+
+.ls-grid {
+  display: grid;
+}
+
+.ls-grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 900px) {
+  .ls-grid--2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Vertical rhythm */
+.ls-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ls-f6);
+}
+
+/* Inline alignment */
+.ls-row {
+  display: flex;
+  align-items: center;
+  gap: var(--ls-f6);
+}
+
+/* =========================================================
+   Elementor widget neutralizer
+========================================================= */
+
+.ls-widget {
+  width: 100%;
+  display: block;
+}
+
+/* Elementor containers stretchen children → neutraliseren */
+.elementor-container > .ls-widget {
+  align-self: auto !important;
+}
+
+/* =========================================================
+   Section surfaces
+========================================================= */
+
+.ls-section--soft {
+  background: var(--ls-surface-soft);
+}
+
+.ls-section--default {
+  background: var(--color-bg);
+}
+
+/* Zorg dat widgets geen eigen background forceren */
+.ls-section--soft .ls-widget,
+.ls-section--default .ls-widget {
+  background: transparent;
+}

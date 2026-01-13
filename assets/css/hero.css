@@ -1,0 +1,223 @@
+/* =========================================================
+   LeadSprint – Hero (V3)
+   Visual polish, ZERO behavior changes
+========================================================= */
+
+.ls-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* =========================================================
+   Layout
+========================================================= */
+
+.ls-hero-inner {
+  display: grid;
+  grid-template-columns: 2.4fr 2.6fr;
+  align-items: center;
+  gap: clamp(32px, 4vw, 64px);
+}
+
+/* =========================================================
+   Content
+========================================================= */
+
+.ls-hero-content {
+  max-width: 720px;
+  position: relative;
+}
+
+.ls-hero-content .lead {
+  max-width: 52ch;
+  opacity: .95;
+}
+
+/* Subtle system cue (non-background heroes only) */
+.ls-hero:not(.ls-hero--background) .ls-hero-content::after {
+  content: "";
+  display: block;
+  margin-top: 18px;
+
+  width: 36px;
+  height: 2px;
+  border-radius: 2px;
+
+  background: var(--color-accent);
+  opacity: .35;
+}
+/* CTA spacing – hero only */
+.ls-hero-content .ls-row {
+  gap: 16px;
+}
+
+/* =========================================================
+   Visual (desktop: fixed 1:1 – BEHAVIOR UNCHANGED)
+========================================================= */
+
+.ls-hero-visual {
+  justify-self: end;
+
+  width: var(--hero-image-size);
+  max-width: 100%;
+  height: var(--hero-image-size);
+
+  border-radius: 18px;
+  overflow: hidden;
+
+  background: #fff;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.6) inset,
+    0 24px 56px rgba(10,35,66,.16);
+}
+
+.ls-hero-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================================================
+   Hero height variants (UNCHANGED)
+========================================================= */
+
+/* COMPACT */
+.ls-hero--compact .ls-hero-inner {
+  padding-top: 62px;
+  padding-bottom: 56px;
+}
+
+/* NORMAL */
+.ls-hero--normal .ls-hero-inner {
+  padding-top: clamp(80px, 11vw, 125px);
+  padding-bottom: clamp(84px, 8vw, 108px);
+}
+
+/* LARGE */
+.ls-hero--large .ls-hero-inner {
+  padding-top: clamp(120px, 16vw, 180px);
+  padding-bottom: clamp(96px, 10vw, 120px);
+}
+
+/* =========================================================
+   Background variant (STABLE layering)
+========================================================= */
+
+.ls-hero--background {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+/* Dark overlay – ORIGINAL BEHAVIOR */
+.ls-hero--background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,.55) 0%,
+    rgba(0,0,0,.45) 40%,
+    rgba(0,0,0,.55) 100%
+  );
+  z-index: 0;
+}
+
+/* Soft polish glow – UNDER overlay, ABOVE image */
+.ls-hero--background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      520px 260px at 50% 0%,
+      rgba(252,106,0,.06),
+      transparent 70%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Layout override */
+.ls-hero--background .ls-hero-inner {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+
+  padding-top: clamp(140px, 22vw, 220px);
+  padding-bottom: clamp(120px, 18vw, 200px);
+
+  position: relative;
+  z-index: 1;
+}
+
+/* Content alignment */
+.ls-hero--background .ls-hero-content {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Typography rhythm */
+.ls-hero--background .h1 {
+  position: relative;
+  margin: 0 0 24px;
+  padding-bottom: 20px;
+  color: #fff;
+}
+
+.ls-hero--background .lead {
+  margin: 0 0 36px;
+  color: rgba(255,255,255,.95);
+}
+
+/* Accent cue (refined, same geometry) */
+.ls-hero--background .h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
+  width: 48px;
+  height: 3px;
+  border-radius: 2px;
+
+  background-color: var(--color-accent);
+  opacity: .35;
+
+  transform: translateX(-50%);
+}
+
+/* CTA */
+.ls-hero--background .btn {
+  align-self: center;
+  margin-top: 4px;
+}
+
+/* =========================================================
+   Mobile (BEHAVIOR UNCHANGED)
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .ls-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .ls-hero-visual {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    justify-self: start;
+  }
+
+  .ls-hero--background .ls-hero-inner {
+    padding-top: clamp(120px, 24vw, 160px);
+    padding-bottom: clamp(96px, 20vw, 140px);
+  }
+}

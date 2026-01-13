@@ -1,0 +1,183 @@
+/* =========================================================
+   LeadSprint – Card v2
+   Doctrine-aligned: Problem → Trust → USP → CTA
+========================================================= */
+
+.ls-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: clamp(22px,3vw,34px);
+  background: #fff;
+  border-radius: 18px;
+
+  border: 1px solid var(--color-border);
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.04),
+    0 8px 24px rgba(0,0,0,.06);
+}
+
+/* spacing rhythm */
+.ls-card > * + * {
+  margin-top: 12px;
+}
+
+/* typography */
+.ls-card-title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.ls-card-text {
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+
+/* =========================================================
+   Problem — refined (recognition, not emphasis)
+========================================================= */
+
+.ls-card--problem {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10,35,66,.02),
+      rgba(10,35,66,0)
+    );
+  border: 1px dashed var(--color-border-soft);
+  box-shadow: none;
+}
+
+/* titel iets minder ‘headline’, meer observatie */
+.ls-card--problem .ls-card-title {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* tekst iets strakker voor scanbaarheid */
+.ls-card--problem .ls-card-text {
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+/* icon: observatie, niet statement */
+.ls-card--problem .ls-card-icon {
+  color: var(--color-muted);
+  opacity: .5;
+}
+
+
+/* =========================================================
+   Trust — stable & neutral
+========================================================= */
+
+.ls-card--trust {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.6) inset,
+    0 6px 16px rgba(0,0,0,.06);
+}
+
+/* icon */
+.ls-card--trust .ls-card-icon {
+  color: var(--color-text);
+  opacity: .7;
+}
+
+/* =========================================================
+   USP — convincing, not loud
+========================================================= */
+
+.ls-card--usp {
+  border-color: var(--color-accent-soft);
+  box-shadow:
+    0 2px 6px rgba(0,0,0,.05),
+    0 12px 28px rgba(0,0,0,.08);
+}
+
+.ls-card--usp .ls-card-title {
+  font-weight: 700;
+}
+
+/* icon */
+.ls-card--usp .ls-card-icon {
+  color: var(--color-accent);
+  opacity: .85;
+}
+
+/* =========================================================
+   CTA — highest intensity
+========================================================= */
+
+.ls-card--cta {
+  border-color: var(--color-primary);
+  box-shadow:
+    0 12px 36px rgba(10,35,66,.22);
+}
+
+/* CTA emphasis */
+.ls-card--cta .ls-card-title {
+  font-weight: 700;
+}
+
+/* icon */
+.ls-card--cta .ls-card-icon {
+  color: var(--color-primary);
+  opacity: 1;
+}
+
+/* =========================================================
+   Alignment
+========================================================= */
+
+.ls-card--centered {
+  align-items: center;
+  text-align: center;
+}
+
+/* =========================================================
+   Card action
+========================================================= */
+
+.ls-card-action {
+  margin-top: 16px;
+}
+
+/* =========================================================
+   Icon base
+========================================================= */
+
+.ls-card-icon {
+  align-self: flex-start;
+  transition: opacity .2s ease;
+}
+
+.ls-card-icon svg,
+.ls-card-icon i {
+  width: 22px;
+  height: 22px;
+  font-size: 22px;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/* subtle hover feedback (non-CTA only) */
+@media (hover:hover) {
+  .ls-card:not(.ls-card--cta):hover .ls-card-icon {
+    opacity: .85;
+  }
+}
+
+/* =========================================================
+   Reduced motion
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ls-card {
+    transition: none;
+  }
+}

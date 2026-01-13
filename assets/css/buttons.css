@@ -1,0 +1,137 @@
+/* =========================================================
+   LeadSprint – Button (NOTCHED LEFT – FINAL)
+========================================================= */
+
+:root {
+  --btn-height: 48px;
+  --btn-radius: 16px;
+  --btn-padding-x: 26px;
+  --btn-font-weight: 600;
+  --btn-transition: 0.2s ease;
+
+  --btn-notch-width: 18px;
+}
+
+.btn {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: var(--btn-height);
+  padding: 0 var(--btn-padding-x);
+
+  font-weight: var(--btn-font-weight);
+  text-decoration: none;
+  white-space: nowrap;
+
+  border-radius: var(--btn-radius);
+  overflow: hidden;
+
+  transition:
+    background-color var(--btn-transition),
+    transform var(--btn-transition);
+}
+
+/* =========================================================
+   Primary
+========================================================= */
+.btn.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-inverted);
+}
+
+.btn.btn-primary::before {
+  background: var(--color-accent);
+}
+
+/* NOTCH – links (architectural cut) */
+.btn.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: var(--btn-notch-width);
+  height: 100%;
+
+  background: var(--color-accent);
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    0 100%
+  );
+
+  pointer-events: none;
+}
+
+/* Subtiele hover: alleen spanning, geen show */
+@media (hover: hover) {
+  .btn.btn-primary:hover {
+    transform: translateY(-1px);
+  }
+}
+
+/* Active: voelt gedrukt, geen visuele truc */
+.btn.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Focus: strak en professioneel */
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(252,106,0,.35);
+}
+/* =========================================================
+   Secondary (NOTCHED LEFT – QUIET REFINED)
+========================================================= */
+
+.btn.btn-secondary {
+  background: #ffff;
+  color: var(--color-primary);
+
+  border: 2px solid rgba(252,106,0,.55);
+}
+
+/* NOTCH – links (zelfde vorm, rustiger) */
+.btn.btn-secondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: var(--btn-notch-width);
+  height: 100%;
+
+  background: rgba(252,106,0,.55);
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    0 100%
+  );
+
+  pointer-events: none;
+}
+
+/* Hover: iets meer spanning, nog steeds ingetogen */
+@media (hover: hover) {
+  .btn.btn-secondary:hover {
+    transform: translateY(-1px);
+    background: rgba(252,106,0,.035);
+  }
+}
+
+/* Active */
+.btn.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Focus: identiek systeemgedrag */
+.btn.btn-secondary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(252,106,0,.3);
+}
+

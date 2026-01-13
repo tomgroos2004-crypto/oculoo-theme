@@ -1,0 +1,11 @@
+:root {
+  --ls-section-sm: clamp(64px, 8vw, 80px);
+  --ls-section-md: clamp(80px, 12vw, 140px);
+  --ls-section-lg: clamp(120px, 16vw, 180px);
+  --ls-section-xl: clamp(160px, 22vw, 300px);
+}
+
+.section-sm { padding-block: var(--ls-section-sm); }
+.section-md { padding-block: var(--ls-section-md); }
+.section-lg { padding-block: var(--ls-section-lg); }
+.section-xl { padding-block: var(--ls-section-xl); }

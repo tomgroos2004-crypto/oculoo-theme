@@ -1,0 +1,310 @@
+/* =========================================================
+   LeadSprint – Content section (base)
+========================================================= */
+
+.ls-content{
+  position: relative;
+}
+
+.ls-content-inner{
+  display: grid;
+  grid-template-columns: 3fr 2.3fr;
+  gap: clamp(48px, 6vw, 96px);
+  align-items: start;
+}
+.ls-content-text{
+  display: flex;
+  flex-direction: column;
+}
+
+.ls-content-lead{
+  margin-top: 4px;
+  font-size: 1.05em;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+
+
+.ls-content-body{
+  max-width: 52ch;
+}
+
+.ls-content-divider{
+  display: block;
+  width: 56px;
+  height: 4px;
+  background: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+/*afbeelding stijl en gedraging*/
+
+.ls-content-visual{
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.ls-content-visual img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* default (normal) */
+.ls-content{
+  padding-block: clamp(96px, 12vw, 140px);
+}
+
+/* spacing modifiers */
+.ls-content--compact{
+  padding-block: clamp(64px, 8vw, 96px);
+}
+
+.ls-content--spacious{
+  padding-block: clamp(120px, 16vw, 180px);
+}
+
+
+
+@media (max-width: 900px){
+
+  .ls-content-inner{
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .ls-content-visual{
+    order: 2;
+  }
+
+}
+/* =========================================================
+   LeadSprint – Content section (v2)
+   Visual polish, ZERO behavior changes
+========================================================= */
+
+.ls-content{
+  position: relative;
+}
+
+/* =========================================================
+   Layout
+========================================================= */
+
+.ls-content-inner{
+  display: grid;
+  grid-template-columns: 3fr 2.3fr;
+  gap: clamp(48px, 6vw, 96px);
+  align-items: start;
+}
+
+.ls-content-text{
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================================
+   Lead & body text
+========================================================= */
+
+.ls-content-lead{
+  margin-top: 6px;
+  font-size: 1.05em;
+  line-height: 1.65;
+  color: var(--color-muted);
+  max-width: 56ch;
+}
+
+.ls-content-body{
+  max-width: 52ch;
+}
+
+/* =========================================================
+   System divider (refined)
+========================================================= */
+
+.ls-content-divider{
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: var(--color-accent);
+  opacity: .6;
+  margin-bottom: 14px;
+}
+
+/* =========================================================
+   Visual (panel feel, no behavior change)
+========================================================= */
+
+.ls-content-visual{
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.6) inset,
+    0 24px 56px rgba(10,35,66,.16);
+}
+
+.ls-content-visual img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================================================
+   Spacing variants (UNCHANGED behavior)
+========================================================= */
+
+/* default (normal) */
+.ls-content{
+  padding-block: clamp(96px, 12vw, 140px);
+}
+
+/* compact */
+.ls-content--compact{
+  padding-block: clamp(64px, 8vw, 96px);
+}
+
+/* spacious */
+.ls-content--spacious{
+  padding-block: clamp(120px, 16vw, 180px);
+}
+
+
+/* =========================================================
+   Content – Text only (VISIBLE & FINAL)
+   Designed presence, zero imagery
+========================================================= */
+
+.ls-content--text-only {
+  position: relative;
+  overflow: hidden;
+
+  /* subtle canvas zodat accents zichtbaar zijn */
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #fff7f2 100%
+  );
+}
+
+/* geometrisch accent – links, IN focusgebied */
+.ls-content--text-only::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+
+  width: min(38vw, 420px);
+
+  background: rgba(255,107,0,.10);
+
+  clip-path: polygon(
+    0 0,
+    100% 100%,
+    0 100%
+  );
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* content boven decoratie */
+.ls-content--text-only .ls-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* layout */
+.ls-content--text-only .ls-content-inner {
+  grid-template-columns: 1fr;
+  gap: clamp(32px, 4vw, 56px);
+}
+
+/* tekstkolom als focus */
+.ls-content--text-only .ls-content-text {
+  max-width: 72ch;
+  margin-inline: auto;
+  position: relative;
+  padding-left: 32px;
+}
+
+/* verticale rail – duidelijk zichtbaar */
+.ls-content--text-only .ls-content-text::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .15em;
+
+  width: 5px;
+  height: 88%;
+
+  background: linear-gradient(
+    to bottom,
+    var(--color-accent),
+    rgba(255,107,0,.25)
+  );
+
+  border-radius: 3px;
+}
+
+/* body iets editorialer */
+.ls-content--text-only .ls-content-body {
+  max-width: 72ch;
+  font-size: 1.02em;
+}
+
+/* divider = secundair cue */
+.ls-content--text-only .ls-content-divider {
+  width: 28px;
+  height: 2px;
+  opacity: .35;
+}
+
+/* visual altijd uit */
+.ls-content--text-only .ls-content-visual {
+  display: none;
+}
+
+/* =========================================================
+   Mobile refinement
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .ls-content--text-only {
+    background: #fff;
+  }
+
+  .ls-content--text-only::after {
+    width: 100%;
+    opacity: .06;
+  }
+
+  .ls-content--text-only .ls-content-text {
+    padding-left: 24px;
+  }
+
+}
+
+
+
+
+/* =========================================================
+   Mobile (UNCHANGED behavior)
+========================================================= */
+
+@media (max-width: 900px){
+
+  .ls-content-inner{
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .ls-content-visual{
+    order: 2;
+  }
+
+}

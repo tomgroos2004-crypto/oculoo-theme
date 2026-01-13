@@ -1,0 +1,213 @@
+/* =========================================================
+   LS – Pricing / Pakketten (V3 – Overpowered)
+========================================================= */
+
+.ls-pricing {
+  position: relative;
+}
+
+/* ================= Header ================= */
+
+.ls-pricing-header {
+  text-align: center;
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+/* ================= Grid ================= */
+
+.ls-pricing-grid {
+  --gap: clamp(24px, 4vw, 40px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+  position: relative;
+}
+
+/* Accent rail achter cards */
+.ls-pricing-grid::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 4%;
+  right: 4%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent-soft),
+    transparent
+  );
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* ================= Card ================= */
+
+.ls-pricing-card {
+  position: relative;
+  isolation: isolate;
+
+  background: var(--ls-surface, #fff);
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,0.06);
+
+  padding: clamp(28px, 4vw, 36px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  transition:
+    transform .35s cubic-bezier(.2,.8,.2,1),
+    box-shadow .35s ease,
+    border-color .35s ease,
+    background .35s ease;
+}
+
+/* Subtiele inner highlight */
+.ls-pricing-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,.6),
+    rgba(255,255,255,0)
+  );
+  opacity: .35;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Hover / focus */
+@media (hover:hover) {
+  .ls-pricing-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 64px rgba(10,35,66,.14);
+    border-color: rgba(255,107,0,.35);
+  }
+}
+
+/* ================= Featured ================= */
+
+.ls-pricing-card.is-featured {
+  transform: translateY(-8px);
+  border-color: var(--color-accent);
+  box-shadow:
+    0 32px 72px rgba(10,35,66,.18);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,107,0,.08),
+      rgba(255,107,0,.02)
+    ),
+    #fff;
+}
+
+/* Accent outline */
+.ls-pricing-card.is-featured::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid var(--color-accent);
+  opacity: .25;
+  pointer-events: none;
+}
+
+/* Floating label */
+.ls-pricing-card.is-featured .ls-pricing-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(255,107,0,.35);
+}
+
+/* ================= Price ================= */
+
+.ls-pricing-price {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+/* Sub price */
+.ls-pricing-price small {
+  font-size: .85em;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+/* ================= Features ================= */
+
+.ls-pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: grid;
+  gap: 10px;
+}
+
+.ls-pricing-features li {
+  position: relative;
+  padding-left: 22px;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+
+/* Checkmark */
+.ls-pricing-features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .45em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+/* ================= CTA ================= */
+
+.ls-pricing-card .btn {
+  margin-top: auto;
+}
+
+/* ================= Reduced motion ================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ls-pricing-card,
+  .ls-pricing-card::after {
+    transition: none;
+  }
+}
+
+/* ================= Mobile ================= */
+
+@media (max-width: 900px) {
+
+  .ls-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ls-pricing-grid::before {
+    display: none;
+  }
+
+  .ls-pricing-card.is-featured {
+    transform: none;
+  }
+
+}

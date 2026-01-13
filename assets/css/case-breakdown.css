@@ -1,0 +1,200 @@
+/* =========================================================
+   LS – Case Breakdown (v2 System-Polished)
+   Calm, structured, brand-consistent
+========================================================= */
+
+.ls-case-breakdown {
+  position: relative;
+}
+
+/* ---------------------------------------------------------
+   Kicker
+--------------------------------------------------------- */
+
+.ls-case-kicker {
+  font-size: 0.75rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 10px;
+}
+
+/* =========================================================
+   Tabs
+========================================================= */
+
+.ls-case-tabs {
+  display: inline-flex;
+  gap: 6px;
+  margin-bottom: 28px; /* interne spacing */
+}
+
+.ls-case-tabs button {
+  appearance: none;
+  border: 0;
+
+  padding: 10px 18px;
+  border-radius: 10px;
+
+  background: rgba(10,35,66,.06);
+  color: var(--color-muted);
+
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    color .2s ease,
+    box-shadow .2s ease;
+}
+.ls-case-tabs button:hover {
+  background: rgba(10,35,66,.08);
+  color: var(--color-text);
+}
+
+/* Active = engineered, not flashy */
+.ls-case-tabs button.is-active {
+  background: #fff;
+  color: var(--color-primary);
+
+  box-shadow:
+    0 4px 14px rgba(10,35,66,.12),
+    0 0 0 1px var(--color-border);
+}
+
+/* =========================================================
+   Panels
+========================================================= */
+
+.ls-case-panels {
+  position: relative;
+}
+
+.ls-case-panel {
+  display: none;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.ls-case-panel.is-active {
+  display: grid;
+}
+
+/* =========================================================
+   Visual
+========================================================= */
+
+.ls-case-visual {
+  position: relative;
+}
+
+.ls-case-visual img {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+
+  box-shadow:
+    0 16px 40px rgba(10,35,66,.16);
+}
+
+/* =========================================================
+   Content
+========================================================= */
+
+.ls-case-content h3 {
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.ls-case-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: grid;
+  gap: 18px;
+}
+
+.ls-case-content li {
+  position: relative;
+  padding-left: 26px;
+
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 500;
+
+  color: var(--color-text);
+  max-width: 48ch;
+}
+
+/* Accent dot – smaller & calmer */
+.ls-case-content li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .55em;
+
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+
+  background: var(--color-accent);
+}
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .ls-case-panel {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .ls-case-panel > * {
+    min-width: 0;
+  }
+
+  .ls-case-tabs {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .ls-case-tabs button {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 12px;
+    text-align: center;
+  }
+
+  .ls-case-tabs button,
+  .ls-case-content li {
+    word-break: break-word;
+  }
+
+}
+@media (max-width: 900px) {
+
+  /* Prevent horizontal overflow */
+  .ls-case-breakdown,
+  .ls-case-panels {
+    overflow-x: hidden;
+  }
+
+  .ls-case-tabs {
+    display: flex;          /* ipv inline-flex */
+    width: 100%;
+    overflow: hidden;       /* vangt shadow/subpixel overflow */
+  }
+
+  .ls-case-tabs button {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+}

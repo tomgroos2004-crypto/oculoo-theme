@@ -1,0 +1,390 @@
+/* =========================================================
+   LeadSprint – Header (FINAL POLISHED)
+========================================================= */
+
+/* =========================================================
+   Tokens
+========================================================= */
+
+:root {
+  --ls-header-height: 92px;
+  --ls-header-bg: #fff;
+  --ls-header-border: rgba(10,35,66,.06);
+  --ls-header-shadow: 0 8px 32px rgba(10,35,66,.06);
+}
+
+/* =========================================================
+   Admin bar offset
+========================================================= */
+
+body.admin-bar {
+  --ls-admin-bar: 32px;
+}
+
+@media (max-width: 782px) {
+  body.admin-bar {
+    --ls-admin-bar: 46px;
+  }
+}
+
+/* =========================================================
+   Header base
+========================================================= */
+
+.ls-header {
+  position: fixed;
+  top: var(--ls-admin-bar, 0);
+  left: 0;
+  right: 0;
+  z-index: 1200;
+
+  height: var(--ls-header-height);
+  background: var(--ls-header-bg);
+
+  border-bottom: 1px solid var(--ls-header-border);
+  box-shadow: var(--ls-header-shadow);
+}
+
+.ls-header .ls-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.ls-header-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =========================================================
+   Brand
+========================================================= */
+
+.ls-header-brand {
+  display: flex;
+  align-items: center;
+}
+
+.ls-header-brand img {
+  width: 210px;
+  height: auto;
+  display: block;
+}
+
+/* =========================================================
+   Desktop navigation
+========================================================= */
+
+.ls-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* Nav links */
+.ls-header-nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  padding-block: 10px;
+  line-height: 1;
+
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ls-ink, #0A2342);
+  text-decoration: none;
+
+  transition: color .2s ease;
+}
+
+.ls-header-nav a:hover {
+  color: var(--ls-accent, #FF6B00);
+}
+
+/* Underline (subtieler) */
+.ls-header-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+
+  width: 100%;
+  height: 2px;
+  background: var(--ls-accent, #FF6B00);
+
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: .8;
+
+  transition: transform .22s ease;
+}
+
+.ls-header-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   Dropdown – Onze diensten
+========================================================= */
+
+.ls-nav-item {
+  position: relative;
+}
+
+.ls-nav-item > a::after {
+  content: "▾";
+  margin-left: 6px;
+  font-size: .7em;
+  opacity: .6;
+}
+
+/* Dropdown panel */
+.ls-nav-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+
+  min-width: 260px;
+  padding: 14px;
+
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid rgba(10,35,66,.06);
+  box-shadow: 0 24px 56px rgba(10,35,66,.14);
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+
+  transition:
+    opacity .2s ease,
+    transform .2s ease,
+    visibility .2s ease;
+
+  z-index: 1200;
+}
+
+.ls-nav-dropdown a {
+  padding: 10px 12px;
+  border-radius: 10px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ls-ink, #0A2342);
+}
+
+.ls-nav-dropdown a:hover {
+  background: rgba(255,107,0,.08);
+  color: var(--ls-accent, #FF6B00);
+}
+
+/* Hover open */
+@media (hover:hover) {
+  .ls-nav-item:hover .ls-nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   Header CTA
+========================================================= */
+
+.ls-header .btn {
+  height: 40px;
+  padding-inline: 18px;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   Burger button
+========================================================= */
+
+.ls-header-burger {
+  position: relative;
+  z-index: 1100;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+
+  border: 0;
+  background: none;
+  cursor: pointer;
+
+  color: var(--ls-ink, #0A2342);
+}
+
+.ls-header-burger:hover {
+  background: rgba(10,35,66,.06);
+}
+
+.ls-header-burger:active {
+  transform: scale(.96);
+}
+
+.ls-header-burger span,
+.ls-header-burger span::before,
+.ls-header-burger span::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  position: relative;
+}
+
+.ls-header-burger span::before {
+  position: absolute;
+  top: -6px;
+}
+
+.ls-header-burger span::after {
+  position: absolute;
+  bottom: -6px;
+}
+
+/* =========================================================
+   Mobile navigation – CLEAN RESET
+========================================================= */
+
+@media (max-width: 960px) {
+
+  /* Desktop nav uit */
+  .ls-header-nav {
+    display: none;
+  }
+
+  .ls-header-burger {
+    display: flex;
+  }
+
+  /* Full screen menu */
+  .ls-header-panel {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+
+    background: #fff;
+
+  padding:
+  calc(var(--ls-header-height) + 6px)
+  24px
+  24px;
+
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+
+    transition:
+      opacity .25s ease,
+      transform .25s ease;
+  }
+
+  body.ls-nav-open .ls-header-panel {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Links */
+  .ls-header-panel a {
+    text-decoration: none;
+    color: var(--ls-ink);
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 14px 0;
+  }
+
+  /* Primaire diensten */
+  .ls-header-panel a.is-primary {
+    font-size: 1.45rem;
+    font-weight: 700;
+  }
+
+  .ls-header-panel a.is-primary:last-of-type {
+    margin-bottom: 18px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid rgba(10,35,66,.08);
+  }
+
+  /* Secundair */
+  .ls-header-panel a:not(.is-primary):not(.ls-header-cta) {
+    opacity: .7;
+  }
+
+  /* CTA vast onderin */
+  .ls-header-cta {
+    margin-top: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 56px;
+    border-radius: 16px;
+
+    background: var(--ls-accent);
+    color: #fff;
+
+    font-weight: 700;
+    font-size: 1.05rem;
+
+    box-shadow: 0 12px 32px rgba(255,107,0,.35);
+  }
+
+  /* Burger → kruis */
+  body.ls-nav-open .ls-header-burger span {
+    background: transparent;
+  }
+
+  body.ls-nav-open .ls-header-burger span::before {
+    transform: rotate(45deg) translate(5px,5px);
+  }
+
+  body.ls-nav-open .ls-header-burger span::after {
+    transform: rotate(-45deg) translate(5px,-5px);
+  }
+
+  /* Header minder dominant tijdens menu */
+  body.ls-nav-open .ls-header {
+    box-shadow: none;
+  }
+
+  body.ls-nav-open .ls-header {
+    background: #fff;
+    box-shadow: none;
+    border-bottom-color: transparent;
+  }
+
+  .ls-header-panel::before {
+    content: "Menu";
+    font-size: .75rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: rgba(10,35,66,.45);
+    margin-bottom: 8px;
+  }
+	body.ls-nav-open .ls-header {
+    background: #fff;
+    box-shadow: none;
+    border-bottom-color: rgba(10,35,66,.08);
+  }
+}
