@@ -17,6 +17,10 @@ class LS_Content_Hub_Widget extends LS_Base_Widget {
     return 'eicon-library-books';
   }
 
+  public function get_categories() {
+    return ['leadsprint'];
+  }
+
   protected function register_controls() {
 
     $this->start_controls_section('content', [
