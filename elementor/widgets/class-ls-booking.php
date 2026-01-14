@@ -39,21 +39,16 @@ class LS_Booking_Widget extends LS_Base_Widget {
     ]);
 
     $this->add_control('embed', [
-      'label'       => 'Booking embed code',
+      'label'       => 'Booking embed (Calendly / Cal.com)',
       'type'        => Controls_Manager::TEXTAREA,
-      'description' => 'Plak hier de volledige embed code van Cal.com of Calendly (iframe + script toegestaan)',
-      'rows'        => 10,
+      'description' => 'Plak hier de volledige embed code',
     ]);
 
     $this->end_controls_section();
   }
 
-  /**
-   * 👇 ENIGE render-plek (volgens LS-architectuur)
-   */
   protected function render_component() {
     $settings = $this->get_settings_for_display();
     include get_stylesheet_directory() . '/components/booking.php';
   }
 }
-
