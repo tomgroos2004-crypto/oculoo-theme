@@ -107,3 +107,4 @@ protected function render_component() {
 
   include $template;
 }
+}
