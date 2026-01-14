@@ -88,17 +88,10 @@
 ========================================================= */
 
 .ls-hero--background {
-  padding-block: var(--ls-section-sm);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: #fff;
-}
-
-.ls-hero--background.ls-hero--compact,
-.ls-hero--background.ls-hero--normal,
-.ls-hero--background.ls-hero--large {
-  padding-block: var(--ls-section-sm);
 }
 
 /* Overlay */
@@ -132,14 +125,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.ls-hero--background .h1 {
-  color: #fff;
-}
-
-.ls-hero--background .lead {
-  color: rgba(255,255,255,.9);
 }
 
 .ls-hero--background .ls-hero-actions {
