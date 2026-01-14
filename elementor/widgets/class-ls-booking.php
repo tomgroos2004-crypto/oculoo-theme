@@ -2,7 +2,6 @@
 if (!defined('ABSPATH')) exit;
 
 use Elementor\Controls_Manager;
-use Elementor\Repeater;
 
 class LS_Booking_Widget extends LS_Base_Widget {
 
@@ -39,21 +38,22 @@ class LS_Booking_Widget extends LS_Base_Widget {
       'type'  => Controls_Manager::TEXTAREA,
     ]);
 
-    $repeater = new Repeater();
-    
-    $repeater->add_control('embed', [
-      'label'       => 'Calendly embed code',
+    $this->add_control('embed', [
+      'label'       => 'Booking embed code',
       'type'        => Controls_Manager::TEXTAREA,
-      'placeholder' => '<iframe src="https://calendly.com/..." width="100%" height="700"></iframe>',
+      'description' => 'Plak hier de volledige embed code van Cal.com of Calendly (iframe + script toegestaan)',
+      'rows'        => 10,
     ]);
-
-
 
     $this->end_controls_section();
   }
 
+  /**
+   * 👇 ENIGE render-plek (volgens LS-architectuur)
+   */
   protected function render_component() {
     $settings = $this->get_settings_for_display();
     include get_stylesheet_directory() . '/components/booking.php';
   }
 }
+
