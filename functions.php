@@ -42,17 +42,7 @@ add_action('wp_enqueue_scripts', function () {
     [],
     filemtime($dir . '/assets/js/design-system.js'),
     true
-  );
-add_action('wp_enqueue_scripts', function () {
-  wp_enqueue_script(
-    'calendly-widget',
-    'https://assets.calendly.com/assets/external/widget.js',
-    [],
-    null,
-    true
-  );
-});
-
+    });
 
 // =========================================================
 // Elementor widgets
@@ -137,4 +127,16 @@ add_action('wp_head', function () {
     echo '<meta name="description" content="' . esc_attr($description) . '">' . "\n";
   }
 
+});
+/* =========================================================
+   Calendly – global embed script
+========================================================= */
+add_action('wp_enqueue_scripts', function () {
+  wp_enqueue_script(
+    'calendly-widget',
+    'https://assets.calendly.com/assets/external/widget.js',
+    [],
+    null,
+    true
+  );
 });
