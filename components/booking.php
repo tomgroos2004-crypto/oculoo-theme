@@ -20,7 +20,6 @@ $allowed = [
   'iframe' => [
     'src'             => true,
     'width'           => true,
-    'height'          => true,
     'frameborder'     => true,
     'allow'           => true,
     'allowfullscreen' => true,
@@ -74,8 +73,6 @@ $allowed = [
           $photo = $person['photo']['url'] ?? '';
           $input_id = $uid . '-' . $index;
           $checked = $index === 0 ? 'checked' : '';
-          $embed = $person['embed'] ?? '';
-          $embed = preg_replace('/overflow\s*:\s*(auto|scroll)\s*;?/i', 'overflow:hidden;', $embed);
           ?>
 
           <input
@@ -96,8 +93,8 @@ $allowed = [
           </label>
 
           <div class="ls-booking-content" role="tabpanel">
-            <div class="ls-booking-embed">
-              <?= wp_kses($embed, $allowed); ?>
+			   <div class="ls-booking-embed">
+              <?= wp_kses($person['embed'] ?? '', $allowed); ?>
             </div>
           </div>
         <?php endforeach; ?>

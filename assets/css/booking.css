@@ -6,10 +6,15 @@
   position: relative;
 }
 
+/* =========================================================
+   Header
+
 .ls-booking-header {
-  max-width: 720px;
-  margin-bottom: clamp(24px, 3vw, 40px);
+  text-align: center;
 }
+
+/* =========================================================
+   Tabs
 
 .ls-booking-tabs {
   display: flex;
@@ -18,23 +23,30 @@
   align-items: center;
 }
 
+/* Hidden radio inputs */
 .ls-booking-input {
   position: absolute;
   opacity: 0;
   pointer-events: none;
 }
 
+/* Tab buttons */
 .ls-booking-tab {
   order: 1;
+
   display: inline-flex;
   align-items: center;
   gap: 12px;
+
   padding: 12px 14px;
   border-radius: 14px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   background: #fff;
+
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease;
 }
 
 .ls-booking-input:checked + .ls-booking-tab {
@@ -42,9 +54,10 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 }
 
+/* Avatar */
 .ls-booking-avatar {
-  width: 32px;
-  height: 32px;
+  width: 42px;
+  height: 42px;
   border-radius: 999px;
   overflow: hidden;
   flex: 0 0 auto;
@@ -56,42 +69,59 @@
   object-fit: cover;
 }
 
+/* Name */
 .ls-booking-name {
   font-weight: 600;
 }
+
+/* =========================================================
+   Content
 
 .ls-booking-content {
   order: 2;
   flex-basis: 100%;
   display: none;
-  min-height: clamp(520px, 70vh, 720px);
-  padding-top: 12px;
+
+  /* Strakke afstand tabs → embed */
+  margin-top: 8px;
 }
 
 .ls-booking-input:checked + .ls-booking-tab + .ls-booking-content {
   display: block;
 }
 
+/* =========================================================
+   Calendly embed
+
 .ls-booking-embed {
   width: 100%;
-  min-height: clamp(520px, 70vh, 720px);
 }
 
+/* Elementor + Calendly fixes */
+.ls-booking-embed .calendly-inline-widget {
+  width: 100% !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  overflow-y: hidden !important; /* voorkomt extra Elementor scroll */
+}
+
+/* Jij bepaalt de hoogte */
 .ls-booking-embed iframe {
   width: 100%;
-  height: clamp(520px, 70vh, 720px);
+  height: clamp(360px, 55vh, 460px);
   border: 0;
   display: block;
 }
+/* =========================================================
+   Elementor overflow HARD FIX (Calendly)
 
-.ls-booking-embed > div {
-  width: 100% !important;
-  height: clamp(520px, 70vh, 720px) !important;
-  overflow: hidden !important;
-}
-
-.ls-booking-embed .calendly-inline-widget {
-  width: 100% !important;
-  height: clamp(520px, 70vh, 720px) !important;
+/* Elementor widget wrapper */
+.ls-booking
+.elementor-widget-container,
+.ls-booking
+.e-con-inner,
+.ls-booking
+.elementor-container {
   overflow-y: hidden !important;
+  overflow-x: hidden !important;
 }
