@@ -8,20 +8,18 @@
 
 $title  = $settings['title'] ?? '';
 $intro  = $settings['intro'] ?? '';
-$embed = $settings['embed'] ?? '';
+$people = $settings['people'] ?? [];
 
-if (empty($embed)) {
+if (empty($people)) {
   return;
 }
 
-$embed = preg_replace('/overflow\s*:\s*(auto|scroll)\s*;?/i', 'overflow:hidden;', $embed);
-$embed = preg_replace('/height\s*:\s*100%\s*;?/i', '', $embed);
+$uid = wp_unique_id('ls-booking-');
 
 $allowed = [
   'iframe' => [
     'src'             => true,
     'width'           => true,
-    'height'          => true,
     'frameborder'     => true,
     'allow'           => true,
     'allowfullscreen' => true,
@@ -68,8 +66,38 @@ $allowed = [
         </header>
       <?php endif; ?>
 
-      <div class="ls-booking-embed">
-        <?= wp_kses($embed, $allowed); ?>
+      <div class="ls-booking-tabs" role="tablist" aria-label="<?= esc_attr($title ?: 'Booking'); ?>">
+        <?php foreach ($people as $index => $person) : ?>
+          <?php
+          $name = $person['name'] ?? '';
+          $photo = $person['photo']['url'] ?? '';
+          $input_id = $uid . '-' . $index;
+          $checked = $index === 0 ? 'checked' : '';
+          ?>
+
+          <input
+            class="ls-booking-input"
+            type="radio"
+            name="<?= esc_attr($uid); ?>"
+            id="<?= esc_attr($input_id); ?>"
+            <?= $checked; ?>
+          >
+
+          <label class="ls-booking-tab" for="<?= esc_attr($input_id); ?>">
+            <?php if ($photo) : ?>
+              <span class="ls-booking-avatar">
+                <img src="<?= esc_url($photo); ?>" alt="<?= esc_attr($name); ?>" loading="lazy" decoding="async">
+              </span>
+            <?php endif; ?>
+            <span class="ls-booking-name"><?= esc_html($name); ?></span>
+          </label>
+
+          <div class="ls-booking-content" role="tabpanel">
+			   <div class="ls-booking-embed">
+              <?= wp_kses($person['embed'] ?? '', $allowed); ?>
+            </div>
+          </div>
+        <?php endforeach; ?>
       </div>
 
     </div>

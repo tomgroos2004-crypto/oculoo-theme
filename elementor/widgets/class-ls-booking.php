@@ -2,6 +2,7 @@
 if (!defined('ABSPATH')) exit;
 
 use Elementor\Controls_Manager;
+use Elementor\Repeater;
 
 class LS_Booking_Widget extends LS_Base_Widget {
 
@@ -38,11 +39,15 @@ class LS_Booking_Widget extends LS_Base_Widget {
       'type'  => Controls_Manager::TEXTAREA,
     ]);
 
-    $this->add_control('embed', [
+    $repeater = new Repeater();
+    
+    $repeater->add_control('embed', [
       'label'       => 'Calendly embed code',
       'type'        => Controls_Manager::TEXTAREA,
       'placeholder' => '<iframe src="https://calendly.com/..." width="100%" height="700"></iframe>',
     ]);
+
+
 
     $this->end_controls_section();
   }
