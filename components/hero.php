@@ -42,7 +42,7 @@ if (strpos($variant, 'background') !== false && $image) {
 <section class="<?= esc_attr($classes); ?>" <?= $bg_style; ?>>
 
   <div class="ls-container">
-    <div class="ls-hero-inner">
+    <div class="ls-hero-grid">
 
       <div class="ls-hero-content">
 
@@ -55,7 +55,7 @@ if (strpos($variant, 'background') !== false && $image) {
         <?php endif; ?>
 
         <?php if ($button_primary || $button_secondary) : ?>
-          <div class="ls-row">
+          <div class="ls-row ls-hero-actions">
 
             <?php if ($button_primary && $button_primary_url) : ?>
               <a

@@ -1,6 +1,5 @@
 /* =========================================================
-   LeadSprint – Hero (V3)
-   Visual polish, ZERO behavior changes
+   LeadSprint – Hero (FINAL SYSTEM)
 ========================================================= */
 
 .ls-hero {
@@ -9,10 +8,10 @@
 }
 
 /* =========================================================
-   Layout
+   Grid (PURE layout)
 ========================================================= */
 
-.ls-hero-inner {
+.ls-hero-grid {
   display: grid;
   grid-template-columns: 2.4fr 2.6fr;
   align-items: center;
@@ -25,34 +24,21 @@
 
 .ls-hero-content {
   max-width: 720px;
-  position: relative;
 }
 
 .ls-hero-content .lead {
   max-width: 52ch;
-  opacity: .95;
 }
 
-/* Subtle system cue (non-background heroes only) */
-.ls-hero:not(.ls-hero--background) .ls-hero-content::after {
-  content: "";
-  display: block;
-  margin-top: 18px;
-
-  width: 36px;
-  height: 2px;
-  border-radius: 2px;
-
-  background: var(--color-accent);
-  opacity: .35;
-}
 /* CTA spacing – hero only */
-.ls-hero-content .ls-row {
-  gap: 16px;
+.ls-hero-actions {
+  flex-wrap: wrap;
+  column-gap: 16px;
+  row-gap: 12px;
 }
 
 /* =========================================================
-   Visual (desktop: fixed 1:1 – BEHAVIOR UNCHANGED)
+   Visual
 ========================================================= */
 
 .ls-hero-visual {
@@ -62,7 +48,7 @@
   max-width: 100%;
   height: var(--hero-image-size);
 
-  border-radius: 18px;
+  border-radius: var(--ls-radius-md);
   overflow: hidden;
 
   background: #fff;
@@ -79,40 +65,36 @@
 }
 
 /* =========================================================
-   Hero height variants (UNCHANGED)
+   Height variants (section responsibility)
 ========================================================= */
 
-/* COMPACT */
-.ls-hero--compact .ls-hero-inner {
+.ls-hero--compact {
   padding-top: 62px;
   padding-bottom: 56px;
 }
 
-/* NORMAL */
-.ls-hero--normal .ls-hero-inner {
+.ls-hero--normal {
   padding-top: clamp(80px, 11vw, 125px);
   padding-bottom: clamp(84px, 8vw, 108px);
 }
 
-/* LARGE */
-.ls-hero--large .ls-hero-inner {
+.ls-hero--large {
   padding-top: clamp(120px, 16vw, 180px);
   padding-bottom: clamp(96px, 10vw, 120px);
 }
 
 /* =========================================================
-   Background variant (STABLE layering)
+   Background hero
 ========================================================= */
 
 .ls-hero--background {
-  position: relative;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: #fff;
 }
 
-/* Dark overlay – ORIGINAL BEHAVIOR */
+/* Overlay */
 .ls-hero--background::before {
   content: "";
   position: absolute;
@@ -126,87 +108,49 @@
   z-index: 0;
 }
 
-/* Soft polish glow – UNDER overlay, ABOVE image */
-.ls-hero--background::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(
-      520px 260px at 50% 0%,
-      rgba(252,106,0,.06),
-      transparent 70%
-    );
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Layout override */
-.ls-hero--background .ls-hero-inner {
-  grid-template-columns: 1fr;
-  justify-items: center;
-  text-align: center;
-
-  padding-top: clamp(140px, 22vw, 220px);
-  padding-bottom: clamp(120px, 18vw, 200px);
-
+/* Content above overlay */
+.ls-hero--background .ls-container {
   position: relative;
   z-index: 1;
 }
 
-/* Content alignment */
+/* Background layout override */
+.ls-hero--background .ls-hero-grid {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+}
+
 .ls-hero--background .ls-hero-content {
-  max-width: 720px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Typography rhythm */
-.ls-hero--background .h1 {
-  position: relative;
-  margin: 0 0 24px;
-  padding-bottom: 20px;
-  color: #fff;
+.ls-hero--background .ls-hero-actions {
+  justify-content: center;
 }
 
-.ls-hero--background .lead {
-  margin: 0 0 36px;
-  color: rgba(255,255,255,.95);
-}
-
-/* Accent cue (refined, same geometry) */
+/* Accent cue */
 .ls-hero--background .h1::after {
   content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-
+  display: block;
   width: 48px;
   height: 3px;
-  border-radius: 2px;
-
-  background-color: var(--color-accent);
+  margin: 20px auto 0;
+  background: var(--color-accent);
   opacity: .35;
-
-  transform: translateX(-50%);
-}
-
-/* CTA */
-.ls-hero--background .btn {
-  align-self: center;
-  margin-top: 4px;
+  border-radius: 2px;
 }
 
 /* =========================================================
-   Mobile (BEHAVIOR UNCHANGED)
+   Mobile (NO hacks needed)
 ========================================================= */
 
 @media (max-width: 900px) {
 
-  .ls-hero-inner {
+  .ls-hero-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
   }
 
   .ls-hero-visual {
@@ -214,10 +158,5 @@
     height: auto;
     aspect-ratio: 1 / 1;
     justify-self: start;
-  }
-
-  .ls-hero--background .ls-hero-inner {
-    padding-top: clamp(120px, 24vw, 160px);
-    padding-bottom: clamp(96px, 20vw, 140px);
   }
 }
