@@ -43,7 +43,14 @@ add_action('wp_enqueue_scripts', function () {
     filemtime($dir . '/assets/js/design-system.js'),
     true
   );
-
+add_action('wp_enqueue_scripts', function () {
+  wp_enqueue_script(
+    'calendly-widget',
+    'https://assets.calendly.com/assets/external/widget.js',
+    [],
+    null,
+    true
+  );
 });
 
 
