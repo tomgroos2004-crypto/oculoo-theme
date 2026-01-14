@@ -82,27 +82,28 @@ class LS_Case_Showcase_Widget extends LS_Base_Widget {
     $this->end_controls_section();
   }
 
-  /**
-   * 👇 DIT IS DE ENIGE RENDERPLAATS
-   */
-  protected function render_component() {
-    $settings = $this->get_settings_for_display();
+/**
+ * 👇 DIT IS DE ENIGE RENDERPLAATS
+ */
+protected function render_component() {
 
-    // JOUW echte component-structuur
-    $template = trailingslashit(get_stylesheet_directory()) . 'components/case-showcase.php';
+  $settings = $this->get_settings_for_display();
 
-    if (!file_exists($template)) {
-      if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
-        echo '<div style="padding:14px;border:1px dashed #ccc;border-radius:10px;">
-        Case Showcase: template niet gevonden (components/case-showcase.php)
-      if (!file_exists($template)) {
-      if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
-        echo '<div style="padding:14px;border:1px dashed #ccc;border-radius:10px;">
+  // JOUW echte component-structuur
+  $template = trailingslashit(get_stylesheet_directory()) . 'components/case-showcase.php';
+
+  if (!file_exists($template)) {
+
+    if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
+      echo '<div style="padding:14px;border:1px dashed #ccc;border-radius:10px;">
+        <strong>Case Showcase</strong><br>
+        Template niet gevonden:<br>
+        <code>components/case-showcase.php</code>
       </div>';
-      }
-      return;
     }
 
-    include $template;
+    return;
   }
+
+  include $template;
 }
