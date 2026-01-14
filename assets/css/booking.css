@@ -8,120 +8,45 @@
 
 /* =========================================================
    Header
+========================================================= */
 
 .ls-booking-header {
   text-align: center;
 }
 
 /* =========================================================
-   Tabs
-
-.ls-booking-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: center;
-}
-
-/* Hidden radio inputs */
-.ls-booking-input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Tab buttons */
-.ls-booking-tab {
-  order: 1;
-
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-
-  padding: 12px 14px;
-  border-radius: 14px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: #fff;
-
-  cursor: pointer;
-  transition:
-    border-color .2s ease,
-    box-shadow .2s ease;
-}
-
-.ls-booking-input:checked + .ls-booking-tab {
-  border-color: rgba(0, 0, 0, 0.2);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-}
-
-/* Avatar */
-.ls-booking-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  overflow: hidden;
-  flex: 0 0 auto;
-}
-
-.ls-booking-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Name */
-.ls-booking-name {
-  font-weight: 600;
-}
-
-/* =========================================================
-   Content
-
-.ls-booking-content {
-  order: 2;
-  flex-basis: 100%;
-  display: none;
-
-  /* Strakke afstand tabs → embed */
-  margin-top: 8px;
-}
-
-.ls-booking-input:checked + .ls-booking-tab + .ls-booking-content {
-  display: block;
-}
-
-/* =========================================================
-   Calendly embed
+   Embed
+========================================================= */
 
 .ls-booking-embed {
   width: 100%;
+  overflow: hidden; /* voorkomt dubbele scrollbars */
 }
 
-/* Elementor + Calendly fixes */
+/* Calendly inline widget */
 .ls-booking-embed .calendly-inline-widget {
   width: 100% !important;
-  min-height: 0 !important;
-  height: 100% !important;
-  overflow-y: hidden !important; /* voorkomt extra Elementor scroll */
+  min-width: 320px;
+  height: 700px !important;
+  overflow: hidden !important;
 }
 
-/* Jij bepaalt de hoogte */
+/* Iframe fallback (voor andere tools) */
 .ls-booking-embed iframe {
   width: 100%;
-  height: clamp(360px, 55vh, 460px);
+  height: 700px;
   border: 0;
   display: block;
 }
-/* =========================================================
-   Elementor overflow HARD FIX (Calendly)
 
-/* Elementor widget wrapper */
-.ls-booking
-.elementor-widget-container,
-.ls-booking
-.e-con-inner,
-.ls-booking
-.elementor-container {
-  overflow-y: hidden !important;
+/* =========================================================
+   Elementor overflow FIX
+========================================================= */
+
+.ls-booking .elementor-widget-container,
+.ls-booking .e-con-inner,
+.ls-booking .elementor-container {
   overflow-x: hidden !important;
+  overflow-y: hidden !important;
 }
+
