@@ -10,6 +10,7 @@
 @import url("./cta.css");
 @import url("./header.css");
 @import url("./cards.css");
+@import url("./card.css");
 @import url("./content.css");
 @import url("./blog-list.css");
 @import url("./cases-list.css");
@@ -20,3 +21,4 @@
 @import url("./case-breakdown.css");
 @import url("./case-showcase.css");
 @import url("./team-cards.css");
+@import url("./booking.css");

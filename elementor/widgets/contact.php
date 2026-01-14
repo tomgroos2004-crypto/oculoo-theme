@@ -3,8 +3,6 @@ if (!defined('ABSPATH')) exit;
 
 use Elementor\Controls_Manager;
 
-require_once __DIR__ . '/../base-widget.php';
-
 class LS_Contact_Widget extends LS_Base_Widget {
 
   public function get_name() {
@@ -18,9 +16,9 @@ class LS_Contact_Widget extends LS_Base_Widget {
   public function get_icon() {
     return 'eicon-mail';
   }
-public function get_categories() {
-  return ['leadsprint'];
-}
+  public function get_categories() {
+    return ['leadsprint'];
+  }
 
   protected function register_controls() {
 
