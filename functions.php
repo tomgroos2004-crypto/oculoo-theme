@@ -42,6 +42,7 @@ add_action('wp_enqueue_scripts', function () {
     [],
     filemtime($dir . '/assets/js/design-system.js'),
     true
+    );
     });
 
 // =========================================================
