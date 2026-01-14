@@ -40,30 +40,14 @@ class LS_Booking_Widget extends LS_Base_Widget {
     ]);
 
     $repeater = new Repeater();
-
-    $repeater->add_control('name', [
-      'label'   => 'Naam',
-      'type'    => Controls_Manager::TEXT,
-      'default' => 'Naam',
-    ]);
-
-    $repeater->add_control('photo', [
-      'label' => 'Foto',
-      'type'  => Controls_Manager::MEDIA,
-    ]);
-
+    
     $repeater->add_control('embed', [
       'label'       => 'Calendly embed code',
       'type'        => Controls_Manager::TEXTAREA,
       'placeholder' => '<iframe src="https://calendly.com/..." width="100%" height="700"></iframe>',
     ]);
 
-    $this->add_control('people', [
-      'label'       => 'Personen',
-      'type'        => Controls_Manager::REPEATER,
-      'fields'      => $repeater->get_controls(),
-      'title_field' => '{{{ name }}}',
-    ]);
+
 
     $this->end_controls_section();
   }
