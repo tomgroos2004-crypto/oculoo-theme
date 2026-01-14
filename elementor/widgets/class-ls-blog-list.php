@@ -17,6 +17,10 @@ class LS_Blog_List_Widget extends LS_Base_Widget {
     return 'eicon-post-list';
   }
 
+  public function get_categories() {
+    return ['leadsprint'];
+  }
+
   protected function register_controls() {
 
     $this->start_controls_section('content', [

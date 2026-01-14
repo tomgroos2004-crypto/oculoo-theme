@@ -2,7 +2,7 @@
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+if (!defined('ABSPATH')) exit;
 
 class LS_Case_Showcase_Widget extends LS_Base_Widget {
 
@@ -40,67 +40,66 @@ class LS_Case_Showcase_Widget extends LS_Base_Widget {
       'rows' => 3,
     ]);
 
-$repeater = new \Elementor\Repeater();
+    $repeater = new Repeater();
 
-$repeater->add_control(
-  'title',
-  [
-    'label' => 'Titel',
-    'type' => \Elementor\Controls_Manager::TEXT,
-    'default' => 'Case titel',
-  ]
-);
+    $repeater->add_control(
+      'title',
+      [
+        'label' => 'Titel',
+        'type' => Controls_Manager::TEXT,
+        'default' => 'Case titel',
+      ]
+    );
 
-$repeater->add_control(
-  'image',
-  [
-    'label' => 'Afbeelding',
-    'type' => \Elementor\Controls_Manager::MEDIA,
-  ]
-);
+    $repeater->add_control(
+      'image',
+      [
+        'label' => 'Afbeelding',
+        'type' => Controls_Manager::MEDIA,
+      ]
+    );
 
-$repeater->add_control(
-  'link',
-  [
-    'label' => 'Link',
-    'type' => \Elementor\Controls_Manager::URL,
-    'options' => ['url', 'is_external'],
-  ]
-);
+    $repeater->add_control(
+      'link',
+      [
+        'label' => 'Link',
+        'type' => Controls_Manager::URL,
+        'options' => ['url', 'is_external'],
+      ]
+    );
 
-$this->add_control(
-  'cases',
-  [
-    'label' => 'Cases',
-    'type' => \Elementor\Controls_Manager::REPEATER,
-    'fields' => $repeater->get_controls(),
-    'title_field' => '{{{ title }}}',
-  ]
-);
+    $this->add_control(
+      'cases',
+      [
+        'label' => 'Cases',
+        'type' => Controls_Manager::REPEATER,
+        'fields' => $repeater->get_controls(),
+        'title_field' => '{{{ title }}}',
+      ]
+    );
 
 
     $this->end_controls_section();
   }
 
- 
- /**
- * 👇 DIT IS DE ENIGE RENDERPLAATS
- */
-protected function render_component() {
-  $settings = $this->get_settings_for_display();
+  /**
+   * 👇 DIT IS DE ENIGE RENDERPLAATS
+   */
+  protected function render_component() {
+    $settings = $this->get_settings_for_display();
 
-  // JOUW echte component-structuur
-  $template = trailingslashit( get_stylesheet_directory() ) . 'components/case-showcase.php';
+    // JOUW echte component-structuur
+    $template = trailingslashit(get_stylesheet_directory()) . 'components/case-showcase.php';
 
-  if ( ! file_exists( $template ) ) {
-    if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
-      echo '<div style="padding:14px;border:1px dashed #ccc;border-radius:10px;">
+    if (!file_exists($template)) {
+      if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
+        echo '<div style="padding:14px;border:1px dashed #ccc;border-radius:10px;">
         Case Showcase: template niet gevonden (components/case-showcase.php)
       </div>';
+      }
+      return;
     }
-    return;
-  }
 
-  include $template;
-}
+    include $template;
+  }
 }

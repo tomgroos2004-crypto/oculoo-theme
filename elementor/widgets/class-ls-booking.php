@@ -3,18 +3,18 @@ if (!defined('ABSPATH')) exit;
 
 use Elementor\Controls_Manager;
 
-class LS_Content_Hub_Widget extends LS_Base_Widget {
+class LS_Booking_Widget extends LS_Base_Widget {
 
   public function get_name() {
-    return 'ls-content-hub';
+    return 'ls-booking';
   }
 
   public function get_title() {
-    return 'LS – Content Hub';
+    return 'LS – Booking';
   }
 
   public function get_icon() {
-    return 'eicon-library-books';
+    return 'eicon-calendar';
   }
 
   public function get_categories() {
@@ -24,13 +24,13 @@ class LS_Content_Hub_Widget extends LS_Base_Widget {
   protected function register_controls() {
 
     $this->start_controls_section('content', [
-      'label' => 'Inhoud'
+      'label' => 'Booking'
     ]);
 
     $this->add_control('title', [
       'label'   => 'Titel',
       'type'    => Controls_Manager::TEXT,
-      'default' => 'Alles over deze dienst',
+      'default' => 'Plan je gesprek',
     ]);
 
     $this->add_control('intro', [
@@ -38,11 +38,17 @@ class LS_Content_Hub_Widget extends LS_Base_Widget {
       'type'  => Controls_Manager::TEXTAREA,
     ]);
 
+    $this->add_control('embed', [
+      'label'       => 'Calendly embed code',
+      'type'        => Controls_Manager::TEXTAREA,
+      'placeholder' => '<iframe src="https://calendly.com/..." width="100%" height="700"></iframe>',
+    ]);
+
     $this->end_controls_section();
   }
 
   protected function render_component() {
     $settings = $this->get_settings_for_display();
-    include get_stylesheet_directory() . '/components/content-hub.php';
+    include get_stylesheet_directory() . '/components/booking.php';
   }
 }

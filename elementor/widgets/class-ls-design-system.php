@@ -18,6 +18,10 @@ class LS_Design_System_Widget extends LS_Base_Widget {
     return 'eicon-code';
   }
 
+  public function get_categories() {
+    return ['leadsprint'];
+  }
+
   protected function register_controls() {
 
     $this->start_controls_section('content', [
