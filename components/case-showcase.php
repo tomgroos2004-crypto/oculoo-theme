@@ -34,7 +34,6 @@ $cta_link = $settings['cta_link']['url'] ?? '';
 
     <div class="ls-case-showcase__viewport" data-case-showcase>
       <div class="ls-case-showcase__track">
-
         <?php foreach ($items as $item) :
           $img = $item['image']['url'] ?? '';
           $txt = $item['title'] ?? '';
@@ -45,7 +44,6 @@ $cta_link = $settings['cta_link']['url'] ?? '';
               <?php if ($img) : ?>
                 <img src="<?= esc_url($img); ?>" alt="">
               <?php else : ?>
-                <!-- Editor fallback (houdt hoogte intact) -->
                 <div style="aspect-ratio:16/10;background:#eee;"></div>
               <?php endif; ?>
             </figure>
@@ -55,25 +53,20 @@ $cta_link = $settings['cta_link']['url'] ?? '';
             <?php endif; ?>
           </a>
         <?php endforeach; ?>
-
       </div>
     </div>
 
- <?php if (($cta_text && $cta_link) || true) : ?>
-  <div class="ls-case-showcase__cta ls-row">
+    <div class="ls-case-showcase__cta ls-row">
+      <?php if ($cta_text && $cta_link) : ?>
+        <a href="<?= esc_url($cta_link); ?>" class="btn btn-secondary">
+          <?= esc_html($cta_text); ?>
+        </a>
+      <?php endif; ?>
 
-    <?php if ($cta_text && $cta_link) : ?>
-      <a href="<?= esc_url($cta_link); ?>" class="btn btn-secondary">
-        <?= esc_html($cta_text); ?>
+      <a href="/cases" class="btn btn-secondary">
+        Bekijk alle cases
       </a>
-    <?php endif; ?>
-  </div>
-	  
-<?php endif; ?>
-<div class="ls-case-showcase__cta ls-row">
-  <a href="/cases" class="btn btn-secondary">
-    Bekijk alle cases
-  </a>
+    </div>
 
   </div>
 </section>
@@ -82,21 +75,28 @@ $cta_link = $settings['cta_link']['url'] ?? '';
 (function(){
 
   /* =========================================================
-     LS Case Showcase — V4
-     ✔ loop-reset == progress-reset
-     ✔ smooth 0–100% progress
-     ✔ blur / depth terug
-     ✔ één waarheid: roundLength
+     LS Case Showcase — V4 (SCOPE SAFE)
   ========================================================= */
 
   const SPEED = 0.95;
-
   const MAX_BLUR  = 0.65;
   const MAX_SCALE = 0.085;
   const MAX_Y     = 8;
   const MAX_FADE  = 0.22;
 
   function initCaseShowcase(scope){
+
+    /* ---------------------------------------------------------
+       Normalize scope (Elementor = jQuery → DOM)
+    --------------------------------------------------------- */
+
+    if (scope && scope[0]) {
+      scope = scope[0];
+    }
+
+    if (!scope || !scope.querySelectorAll) {
+      scope = document;
+    }
 
     const showcases = scope.querySelectorAll('[data-case-showcase]');
     if (!showcases.length) return;
@@ -113,10 +113,7 @@ $cta_link = $settings['cta_link']['url'] ?? '';
       const total = originals.length;
       if (total < 2) return;
 
-      /* ===============================
-         Clone once (infinite illusion)
-      =============================== */
-
+      /* Clone once */
       originals.forEach((el, i) => {
         el.dataset.idx = i;
         const c = el.cloneNode(true);
@@ -128,20 +125,14 @@ $cta_link = $settings['cta_link']['url'] ?? '';
 
       const items = Array.from(track.children);
 
-      /* ===============================
-         Progress bar
-      =============================== */
-
+      /* Progress bar */
       const rail = document.createElement('div');
       rail.className = 'ls-case-showcase__rail';
       rail.innerHTML = '<span></span>';
       viewport.appendChild(rail);
       const fill = rail.firstChild;
 
-      /* ===============================
-         Geometry
-      =============================== */
-
+      /* Geometry */
       let vpCenter = 0;
       let cardW = 0;
       let gap = 0;
@@ -171,10 +162,6 @@ $cta_link = $settings['cta_link']['url'] ?? '';
         startRound();
       }
 
-      /* ===============================
-         State
-      =============================== */
-
       let pos = 0;
       let startPos = 0;
       let roundDone = false;
@@ -189,10 +176,6 @@ $cta_link = $settings['cta_link']['url'] ?? '';
         return ((n % m) + m) % m;
       }
 
-      /* ===============================
-         Progress + loop (SAME TRIGGER)
-      =============================== */
-
       function updateProgress(){
         const traveled = mod(startPos - pos, cycleW);
         const progress = Math.min(1, traveled / roundLength);
@@ -201,16 +184,10 @@ $cta_link = $settings['cta_link']['url'] ?? '';
 
         if (progress >= 1 && !roundDone){
           roundDone = true;
-
-          /* 🔁 RESET LOOP & BAR EXACT SAME MOMENT */
           pos = startPos;
           startRound();
         }
       }
-
-      /* ===============================
-         Depth / blur
-      =============================== */
 
       function updateDepth(){
         const phase = mod(-pos, cycleW);
@@ -234,25 +211,15 @@ $cta_link = $settings['cta_link']['url'] ?? '';
           el.style.transform = `translateY(${y}px) scale(${scale})`;
           el.style.opacity = opacity;
           el.style.zIndex = Math.round((1 - norm) * 10);
-
-          if (el.__blur !== blur){
-            el.style.filter = blur ? `blur(${blur}px)` : 'none';
-            el.__blur = blur;
-          }
+          el.style.filter = blur ? `blur(${blur}px)` : 'none';
         }
       }
 
-      /* ===============================
-         Loop
-      =============================== */
-
       function loop(){
         pos -= SPEED;
-
         track.style.transform = `translate3d(${pos}px,0,0)`;
         updateProgress();
         updateDepth();
-
         requestAnimationFrame(loop);
       }
 
@@ -262,9 +229,10 @@ $cta_link = $settings['cta_link']['url'] ?? '';
     });
   }
 
+  /* Elementor + fallback init */
   if (window.elementorFrontend){
     elementorFrontend.hooks.addAction(
-      'frontend/element_ready/ls-case-showcase.default',
+      'frontend/element_ready/global',
       initCaseShowcase
     );
   } else {
@@ -275,7 +243,3 @@ $cta_link = $settings['cta_link']['url'] ?? '';
 
 })();
 </script>
-
-
-
-
