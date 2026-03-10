@@ -1,0 +1,23 @@
+name: Deploy Theme
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ftp.u221352p487803.web0171.zxcs-klant.nl
+          username: admin@u221352p487803.web0171.zxcs-klant.nl
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: /domains/u221352p487803.web0171.zxcs-klant.nl/public_html/wp-content/themes/leadsprint-child/
