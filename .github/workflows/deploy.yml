@@ -1,4 +1,4 @@
-name: Deploy Theme
+name: Deploy WordPress Theme
 
 on:
   push:
@@ -14,10 +14,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@v4
         with:
-          server: ftp.u221352p487803.web0171.zxcs-klant.nl
-          username: u221352p487803_tom
+          server: web0171.zxcs-klant.nl
+          username: admin@u221352p487803.web0171.zxcs-klant.nl
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
+          protocol: ftp
+          port: 21
           server-dir: /domains/u221352p487803.web0171.zxcs-klant.nl/public_html/wp-content/themes/leadsprint-child/
