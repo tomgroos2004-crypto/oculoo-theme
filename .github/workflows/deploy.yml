@@ -20,4 +20,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          server-dir: /domains/u221352p487803.web0171.zxcs-klant.nl/public_html/wp-content/themes/oculoo-theme/
+          server-dir: /domains/u221352p487803.web0171.zxcs-klant.nl/public_html/wp-content/themes/leadsprint-child/
