@@ -1,4 +1,4 @@
-name: Deploy WordPress Theme
+name: Deploy Theme
 
 on:
   push:
@@ -6,19 +6,16 @@ on:
       - main
 
 jobs:
-  ftp-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: web0171.zxcs-klant.nl
+          server: web0171.zxcs.nl
           username: admin@u221352p487803.web0171.zxcs-klant.nl
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
-          port: 21
-          server-dir: /domains/u221352p487803.web0171.zxcs-klant.nl/public_html/wp-content/themes/leadsprint-child/
+          server-dir: /domains/u221352p487803.web0171.zxcs-klant.nl/public_html/wp-content/themes/oculoo-theme/
