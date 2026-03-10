@@ -18,4 +18,6 @@ jobs:
           server: web0171.zxcs.nl
           username: admin@u221352p487803.web0171.zxcs-klant.nl
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
           server-dir: /domains/u221352p487803.web0171.zxcs-klant.nl/public_html/wp-content/themes/oculoo-theme/
