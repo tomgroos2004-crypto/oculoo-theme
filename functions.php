@@ -13,8 +13,6 @@ function es_theme_setup() {
   add_theme_support('post-thumbnails', [
     'post',
     'page',
-    'sfeerfoto',
-    'vacature',
   ]);
 
   add_theme_support('html5', [
@@ -27,66 +25,6 @@ function es_theme_setup() {
 
 }
 add_action('after_setup_theme', 'es_theme_setup');
-
-
-/* =========================================================
-   CPT – Sfeerfoto
-========================================================= */
-function es_register_cpt_sfeerfoto() {
-
-  register_post_type('sfeerfoto', [
-    'labels' => [
-      'name'          => 'Sfeerfoto’s',
-      'singular_name' => 'Sfeerfoto',
-    ],
-    'public'       => true,
-    'menu_icon'    => 'dashicons-format-image',
-    'supports'     => ['title', 'thumbnail'],
-    'has_archive'  => false,
-    'rewrite'      => false,
-    'show_in_rest' => true,
-  ]);
-
-}
-add_action('init', 'es_register_cpt_sfeerfoto');
-
-
-/* =========================================================
-   Taxonomy – Sfeer categorie
-========================================================= */
-function es_register_tax_sfeer_categorie() {
-
-  register_taxonomy('sfeer_categorie', ['sfeerfoto'], [
-    'label'        => 'Sfeer categorieën',
-    'public'       => true,
-    'hierarchical' => true,
-    'show_in_rest' => true,
-  ]);
-
-}
-add_action('init', 'es_register_tax_sfeer_categorie');
-
-
-/* =========================================================
-   CPT – Vacatures
-========================================================= */
-function es_register_cpt_vacatures() {
-
-  register_post_type('vacature', [
-    'labels' => [
-      'name'          => 'Vacatures',
-      'singular_name' => 'Vacature',
-    ],
-    'public'       => true,
-    'menu_icon'    => 'dashicons-id',
-    'supports'     => ['title', 'editor', 'excerpt', 'thumbnail'],
-    'has_archive'  => true,
-    'rewrite'      => ['slug' => 'vacatures'],
-    'show_in_rest' => true,
-  ]);
-
-}
-add_action('init', 'es_register_cpt_vacatures');
 
 
 /* =========================================================
@@ -170,8 +108,6 @@ add_action('wp_head', 'es_meta_description');
    REWRITE FLUSH (bij activatie)
 ========================================================= */
 function es_flush_rewrite() {
-  es_register_cpt_sfeerfoto();
-  es_register_cpt_vacatures();
   flush_rewrite_rules();
 }
 add_action('after_switch_theme', 'es_flush_rewrite');
@@ -184,4 +120,3 @@ $login_file = get_stylesheet_directory() . '/inc/login.php';
 if (file_exists($login_file)) {
   require_once $login_file;
 }
-
