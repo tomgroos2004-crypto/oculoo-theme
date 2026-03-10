@@ -1,58 +1,106 @@
 /* =========================================================
-   LeadSprint – Layout (v3 FINAL)
-   Structure only, single source of truth
+   Standalone Base (True Neutral Canvas)
+   No opinion. No design influence.
 ========================================================= */
 
+/* 1. Predictable box model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove browser defaults */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. Neutral media behavior */
+img,
+video,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+/* 5. Keep lists usable but not styled */
+ul,
+ol {
+  padding-left: 1.25em;
+}
+
+/* 6. Neutral links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 7. Forms inherit everything */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
 :root {
   /* ======================================================
      Container tokens (semantics > size)
   ====================================================== */
 
-  --ls-container: 1250px;        /* default content */
-  --ls-container-wide: 100%;   /* visual / overview */
-  --ls-container-narrow: 1000px;  /* explanation / focus */
+  /* Tekst = anker, altijd leesbaar */
+  --ls-container: 1420px;          /* default content */
+  --ls-container-wide: 100%;       /* visual / atmosphere */
+  --ls-container-narrow: 1050px;   /* story / explanation */
 
-  --ls-gutter: 24px;
-
-  /* ======================================================
-     Hero tokens
-  ====================================================== */
-
-  --hero-image-size: 520px;
-  --hero-h-compact: 420px;
-  --hero-h-normal: 520px;
-  --hero-h-large: 640px;
+  /* Gutter = adem, niet uitlijning */
+  --ls-gutter: clamp(20px, 4vw, 48px);
 }
 
 /* =========================================================
    Containers
 ========================================================= */
 
-/* Default content container */
+/*
+  Default container
+  → strak, voorspelbaar, rustig
+*/
 .ls-container {
   width: min(
     var(--ls-container),
     calc(100% - (var(--ls-gutter) * 2))
   );
   margin-inline: auto;
+  position: relative;
 }
 
-/* Wide container – cards, pricing, showcases */
+/*
+  Wide container
+  → visueel, maar nog steeds begrensd
+*/
 .ls-container--wide {
-  width: min(
-    var(--ls-container-wide),
-    calc(100% - (var(--ls-gutter) * 2))
-  );
+  width: var(--ls-container-wide);
   margin-inline: auto;
+  position: relative;
 }
 
-/* Narrow container – explanation, copy, focus */
+/*
+  Narrow container
+  → verhaal, focus, rust
+*/
 .ls-container--narrow {
   width: min(
     var(--ls-container-narrow),
     calc(100% - (var(--ls-gutter) * 2))
   );
   margin-inline: auto;
+  position: relative;
 }
 
 /* =========================================================
@@ -63,8 +111,14 @@
   display: grid;
 }
 
+/*
+  Editorial asymmetrie
+  → verhouding is vast
+  → volgorde bepaalt dominantie
+*/
 .ls-grid--2 {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: clamp(40px, 8vw, 128px);
 }
 
 @media (max-width: 900px) {
@@ -73,18 +127,36 @@
   }
 }
 
-/* Vertical rhythm */
+/* =========================================================
+   Vertical rhythm (editorial)
+========================================================= */
+
 .ls-stack {
   display: flex;
   flex-direction: column;
-  gap: var(--ls-f6);
+  gap: clamp(32px, 5vw, 72px);
+}
+
+/*
+  Subtiele horizontale spanning
+  → herhaalbaar
+  → nooit op mobiel
+*/
+.ls-stack > *:nth-child(even) {
+  margin-left: clamp(0px, 4vw, 64px);
+}
+
+@media (max-width: 900px) {
+  .ls-stack > *:nth-child(even) {
+    margin-left: 0;
+  }
 }
 
 /* Inline alignment */
 .ls-row {
   display: flex;
   align-items: center;
-  gap: var(--ls-f6);
+  gap: clamp(18px, 4vw, 48px);
 }
 
 /* =========================================================
@@ -102,19 +174,44 @@
 }
 
 /* =========================================================
-   Section surfaces
+   Section surfaces & flow
 ========================================================= */
 
-.ls-section--soft {
-  background: var(--ls-surface-soft);
-}
-
+.ls-section--soft,
 .ls-section--default {
-  background: var(--color-bg);
+  position: relative;
+  overflow: visible;
+  color: var(--color-inverted);
 }
 
-/* Zorg dat widgets geen eigen background forceren */
-.ls-section--soft .ls-widget,
-.ls-section--default .ls-widget {
-  background: transparent;
+/*
+  Overlap alleen bij wisselende context
+  → gecontroleerde spanning
+*/
+.ls-section--soft + .ls-section--default,
+.ls-section--default + .ls-section--soft {
+  margin-top: -clamp(56px, 10vw, 160px);
+}
+
+/* =====================================
+   Dark surface context (system + Elementor)
+===================================== */
+
+.ls-section.is-dark,
+.dark-section-sm {
+  background: var(--color-surface-darker);
+
+}
+/* =====================================
+   Dark section utility (Elementor-safe)
+   dark-section-sm = dark + section-sm spacing
+===================================== */
+
+.dark-section-sm {
+  background: var(--color-surface-darker);
+
+
+  /* map naar spacing token (zelfde gedrag als .section-sm) */
+  padding-top: calc(var(--ls-section-sm) * 1.05);
+  padding-bottom: calc(var(--ls-section-sm) * 0.85);
 }

@@ -1,74 +1,113 @@
 /* =========================================================
-   LeadSprint – Color System (v2 • High-End Branding)
+   COLOR SYSTEM
 ========================================================= */
 
 :root {
-  /* ======================================================
-     Core Brand
-  ====================================================== */
 
-  /* Primary = actie / CTA / kernkleur */
-  --color-primary: #FC6A00;
+/* ======================================================
+   BRAND
+====================================================== */
 
-  /* Secondary = vertrouwen / basis / tekst op licht */
-  --color-secondary: #0A2342;
+--color-primary: #0F2438;
+--color-accent: #EC6907;
 
-  /* Accent = detail / highlight / signatuur (lichter, luchtiger) */
-  --color-accent: #FFA45C;
-
-
-  /* ======================================================
-     Text
-  ====================================================== */
-
-  --color-text: #0A2342;
-  --color-muted: #5C6F86;
-  --color-inverted: #ffffff;
+--brand-gradient:
+linear-gradient(
+109deg,
+#EC6907,
+#FFD500
+);
 
 
-  /* ======================================================
-     Surfaces
-  ====================================================== */
+/* ======================================================
+   CANVAS
+====================================================== */
 
-  --color-bg: #ffffff;
+/* pure color */
+--color-bg: #FFFAFA;
 
-  /* Neutrale surface (cards, panels) */
-  --color-surface: #F6F8FB;
+/* ambient overlay */
+--canvas-overlay:
+linear-gradient(
+180deg,
+rgba(0,0,0,.20) 0%,
+rgba(0,0,0,.05) 40%,
+rgba(0,0,0,0) 70%
+);
 
-  /* Warme brand-surface (zacht, herkenbaar, niet dominant) */
-  --ls-surface-soft: #FFF4EC;
-
-
-  /* ======================================================
-     Borders & UI lines
-  ====================================================== */
-
-  /* Brand-aware border (rustiger dan grijs) */
-  --color-border: rgba(10,35,66,.08);
-
-  /* Accent soft → ALLEEN backgrounds & outlines */
-  --color-accent-soft: rgba(252,106,0,.16);
+/* final page canvas */
+--canvas-bg:
+var(--canvas-overlay),
+var(--color-bg);
 
 
-  /* ======================================================
-     Functional / System
-     (bewust koel voor balans)
-  ====================================================== */
+/* ======================================================
+   SURFACES
+====================================================== */
 
-  --color-info: #2F80ED;
-  --color-success: #16A34A;
-  --color-warning: #F59E0B;
-  --color-danger: #DC2626;
+--color-surface: #FFFAFA;
+--ls-surface-soft: #FFFAFA;
+--color-surface-muted: #FFFAFA;
 
 
-  /* ======================================================
-     Elevation & Radius
-  ====================================================== */
+/* ======================================================
+   DARK SURFACES
+====================================================== */
 
-  --ls-radius-sm: 12px;
-  --ls-radius-md: 18px;
-  --ls-radius-lg: 24px;
+--color-surface-dark: #1B1E26;
+--color-surface-darker: #1B1E26;
 
-  --ls-shadow-soft: 0 20px 60px rgba(10,35,66,.08);
-  --ls-shadow-card: 0 12px 32px rgba(10,35,66,.06);
+--color-surface-accent: rgba(255,213,0,.08);
+
+
+/* ======================================================
+   TEXT
+====================================================== */
+
+--color-inverted: #1B1E26;
+--color-inverted-muted: #5E646B;
+
+--color-text: #E8EAED;
+--color-muted: rgba(232,234,237,.72);
+
+
+/* ======================================================
+   BORDERS
+====================================================== */
+
+--color-border: rgba(20,22,28,.14);
+--color-border-dark: rgba(255,255,255,.09);
+
+--color-accent-soft: rgba(255,213,0,.26);
+
+
+/* ======================================================
+   SYSTEM
+====================================================== */
+
+--color-info: #60A5FA;
+--color-success: #34D399;
+--color-warning: #FBBF24;
+--color-danger: #F87171;
+
+
+/* ======================================================
+   RADIUS
+====================================================== */
+
+--radius-sm: 12px;
+--radius-md: 18px;
+--radius-lg: 24px;
+
+
+/* ======================================================
+   SHADOWS
+====================================================== */
+
+--shadow-soft:
+0 24px 56px rgba(20,22,28,.20);
+
+--shadow-card:
+0 18px 42px rgba(0,0,0,.38);
+
 }

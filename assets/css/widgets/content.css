@@ -1,0 +1,214 @@
+/* =========================================================
+   LS – Content (Editorial tension, calm)
+========================================================= */
+
+.ls-content {
+  position: relative;
+  background: var(--color-bg);
+}
+
+/* ---------------------------------------------------------
+   Layout – tekst links, beeld rechts (Figma: ~46/54)
+--------------------------------------------------------- */
+
+.ls-content-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  gap: clamp(40px, 5vw, 80px);
+}
+
+@media (max-width: 900px) {
+  .ls-content-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* ---------------------------------------------------------
+   VISUAL
+--------------------------------------------------------- */
+
+.ls-content-visual {
+  position: relative;
+}
+
+.ls-content-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------------------------------------------------------
+   TEXT – uitgelijnde met container, geen verschuiving
+--------------------------------------------------------- */
+
+.ls-content-text {
+  max-width: 52ch;
+}
+
+/* Heading override: content gebruikt 60px (niet globale h2 96px) */
+.ls-content-text h2,
+.ls-content-text .h2 {
+  font-size: clamp(32px, 4.17vw, 60px);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.ls-content-divider {
+  display: none;
+}
+
+.ls-content-lead {
+  margin-top: 4px;
+}
+
+/* ---------------------------------------------------------
+   CTA
+--------------------------------------------------------- */
+
+.ls-content-cta {
+  margin-top: 32px;
+}
+
+/* ---------------------------------------------------------
+   HANDSHAKE – subtiel, niet dramatisch
+--------------------------------------------------------- */
+
+.ls-content--handshake {
+  margin-top: clamp(-48px, -6vw, -80px);
+}
+
+/* =========================================================
+   LS – Content Collage Add-on (Breakout right aligned)
+========================================================= */
+
+.ls-content--collage .ls-content-inner {
+  grid-template-columns: 1.05fr .95fr;
+}
+
+@media (max-width: 900px) {
+  .ls-content--collage .ls-content-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------
+   Collage visual
+--------------------------------------------------------- */
+
+.ls-content-visual--collage::before {
+  display: none;
+}
+
+/* ---------------------------------------------------------
+   Breakout system (instelbaar)
+--------------------------------------------------------- */
+
+.ls-content-visual--collage {
+  --collage-breakout: 70px;
+  --collage-height: 420px;
+}
+
+.ls-collage {
+  position: relative;
+  height: var(--collage-height);
+  z-index: 3;
+  width: calc(100% + var(--collage-breakout));
+  margin-left: calc((var(--collage-breakout) - 50px) * -1);
+}
+
+.ls-content-visual--collage:not(.is-breakout) .ls-collage {
+  width: 100%;
+  margin-left: 0;
+}
+
+@media (max-width: 900px) {
+  .ls-content-visual--collage {
+    --collage-breakout: 0px;
+    --collage-height: 380px;
+  }
+
+  .ls-collage {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 12px;
+  }
+}
+
+/* ---------------------------------------------------------
+   Collage photos
+--------------------------------------------------------- */
+
+.ls-collage-photo {
+  position: absolute;
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 22px 60px rgba(0,0,0,.55);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ls-photo-main {
+  width: 78%;
+  height: 72%;
+  top: 0;
+  right: 0;
+  transform: rotate(-1.5deg);
+}
+
+.ls-photo-top {
+  width: 52%;
+  height: 46%;
+  top: -18px;
+  left: -34px;
+  transform: rotate(3.2deg);
+}
+
+.ls-photo-bottom {
+  width: 66%;
+  height: 46%;
+  bottom: -26px;
+  right: 26px;
+  transform: rotate(1.4deg);
+}
+
+/* ---------------------------------------------------------
+   Badge overlay
+--------------------------------------------------------- */
+
+.ls-collage-badge {
+  position: absolute;
+  left: -14px;
+  bottom: 52px;
+  z-index: 10;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 18px 50px rgba(0,0,0,.55);
+}
+
+.ls-collage-badge strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: .2px;
+}
+
+.ls-collage-badge span {
+  display: block;
+  font-size: 14px;
+  margin-top: 3px;
+  color: rgba(255,255,255,.75);
+}
+
+@media (max-width: 900px) {
+  .ls-collage-badge {
+    left: 12px;
+  }
+}

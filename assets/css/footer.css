@@ -1,0 +1,179 @@
+/* =========================================================
+   LS – Footer
+   Oculoo — primary navy background
+========================================================= */
+
+.ls-footer {
+  background: var(--color-primary);
+  color: rgba(255, 255, 255, .65);
+  padding-top: clamp(56px, 8vw, 96px);
+  padding-bottom: clamp(32px, 4vw, 48px);
+}
+
+/* ---------------------------------------------------------
+   Main row — brand + nav
+--------------------------------------------------------- */
+
+.ls-footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(40px, 8vw, 100px);
+}
+
+@media (max-width: 840px) {
+  .ls-footer-main {
+    flex-direction: column;
+    gap: 48px;
+  }
+}
+
+/* ---------------------------------------------------------
+   Brand column
+--------------------------------------------------------- */
+
+.ls-footer-brand-col {
+  max-width: 300px;
+  flex-shrink: 0;
+}
+
+.ls-footer-logo {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 14px;
+}
+
+.ls-footer-tagline {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, .55);
+  margin: 0 0 24px;
+}
+
+/* ---------------------------------------------------------
+   Contact list
+--------------------------------------------------------- */
+
+.ls-footer-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ls-footer-contact-list a {
+  font-size: 14px;
+  color: rgba(255, 255, 255, .65);
+  text-decoration: none;
+  transition: color .18s ease;
+}
+
+.ls-footer-contact-list a:hover {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   Social icons
+--------------------------------------------------------- */
+
+.ls-footer-social {
+  display: flex;
+  gap: 10px;
+}
+
+.ls-footer-social a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .12);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(255, 255, 255, .70);
+  transition: background .18s ease, color .18s ease;
+}
+
+.ls-footer-social a:hover {
+  background: rgba(255, 255, 255, .16);
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   Nav columns
+--------------------------------------------------------- */
+
+.ls-footer-nav-cols {
+  display: flex;
+  gap: clamp(40px, 6vw, 80px);
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .ls-footer-nav-cols {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+.ls-footer-nav-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .35);
+  margin: 0 0 16px;
+}
+
+.ls-footer-nav-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ls-footer-nav-col a {
+  font-size: 14px;
+  color: rgba(255, 255, 255, .65);
+  text-decoration: none;
+  transition: color .18s ease;
+}
+
+.ls-footer-nav-col a:hover {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   Bottom bar
+--------------------------------------------------------- */
+
+.ls-footer-bottom {
+  margin-top: clamp(40px, 6vw, 64px);
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ls-footer-copy,
+.ls-footer-kvk {
+  font-size: 13px;
+  color: rgba(255, 255, 255, .35);
+  margin: 0;
+}

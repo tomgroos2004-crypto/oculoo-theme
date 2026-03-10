@@ -1,0 +1,137 @@
+/* =========================================================
+   Eventsuper – Samenwerken / Contact
+   Dark editorial, festival confidence
+   (no class breaks)
+========================================================= */
+
+.ls-contact {
+  position: relative;
+}
+
+/* ---------------------------------------------------------
+   Intro
+--------------------------------------------------------- */
+
+.ls-contact-intro {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto clamp(48px, 8vw, 96px);
+}
+
+.ls-contact-intro h2 {
+  color: var(--color-text);
+}
+
+.ls-contact-intro p {
+  color: var(--color-text);
+  max-width: 60ch;
+  margin-inline: auto;
+}
+
+/* ---------------------------------------------------------
+   Grid
+--------------------------------------------------------- */
+
+.ls-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(32px, 6vw, 72px);
+}
+
+/* ---------------------------------------------------------
+   Cards
+--------------------------------------------------------- */
+
+.ls-contact-card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.06),
+      rgba(255,255,255,.02)
+    );
+
+  border-radius: 22px;
+  padding: clamp(28px, 4vw, 44px);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.45);
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  backdrop-filter: blur(6px);
+}
+
+.ls-contact-card h3 {
+  color: var(--color-text);
+  margin-bottom: 18px;
+}
+
+/* ---------------------------------------------------------
+   USP / Lists
+--------------------------------------------------------- */
+
+.ls-contact-card ul {
+  display: grid;
+  gap: 14px;
+}
+
+.ls-contact-card li {
+  position: relative;
+  padding-left: 26px;
+
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.ls-contact-card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .6em;
+
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+
+  background: var(--color-primary);
+}
+
+/* ---------------------------------------------------------
+   Form
+--------------------------------------------------------- */
+
+.ls-contact-form input,
+.ls-contact-form textarea {
+  width: 100%;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  padding: 14px 16px;
+
+  color: #fff;
+}
+
+.ls-contact-form input::placeholder,
+.ls-contact-form textarea::placeholder {
+  color: rgba(255,255,255,.55);
+}
+
+.ls-contact-form input:focus,
+.ls-contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: rgba(255,255,255,.12);
+}
+
+
+
+/* ---------------------------------------------------------
+   Mobile
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .ls-contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

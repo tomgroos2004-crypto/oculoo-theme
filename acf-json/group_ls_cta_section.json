@@ -1,0 +1,193 @@
+{
+    "key": "group_ls_cta_section",
+    "title": "CTA Sectie",
+    "fields": [
+        {
+            "key": "field_ls_cta_eyebrow",
+            "label": "Eyebrow",
+            "name": "cta_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Klein label boven de titel, verschijnt in oranje. Optioneel.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "bv. Gratis proberen",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_ls_cta_title",
+            "label": "Titel",
+            "name": "cta_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "bv. Klaar om te starten?",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_ls_cta_text",
+            "label": "Tekst",
+            "name": "cta_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Korte ondertitel onder de heading. Optioneel.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 3,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_ls_cta_btn1_text",
+            "label": "Knop 1 – tekst",
+            "name": "cta_btn1_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "bv. Plan een demo",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_ls_cta_btn1_url",
+            "label": "Knop 1 – URL",
+            "name": "cta_btn1_url",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_ls_cta_btn2_text",
+            "label": "Knop 2 – tekst",
+            "name": "cta_btn2_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optioneel — laat leeg om de tweede knop te verbergen.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "bv. Bekijk de cases",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_ls_cta_btn2_url",
+            "label": "Knop 2 – URL",
+            "name": "cta_btn2_url",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_ls_cta_btn2_text",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_ls_cta_variant",
+            "label": "Variant",
+            "name": "cta_variant",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Light = wit kaartje op lichte achtergrond. Dark = donkere navy achtergrond.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "light": "Light — wit kaartje",
+                "dark": "Dark — donkere achtergrond"
+            },
+            "default_value": "light",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "CTA sectie met optioneel 2 knoppen naast elkaar. Gebruikt door template-parts\/sections\/cta.php",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1773081000
+}

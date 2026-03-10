@@ -1,143 +1,187 @@
 <?php
-// =========================================================
-// LeadSprint – Assets (SINGLE SOURCE OF TRUTH)
-// =========================================================
-add_action('wp_enqueue_scripts', function () {
+if (!defined('ABSPATH')) {
+  exit;
+}
+
+/* =========================================================
+   THEME SUPPORT
+========================================================= */
+function es_theme_setup() {
+
+  add_theme_support('title-tag');
+
+  add_theme_support('post-thumbnails', [
+    'post',
+    'page',
+    'sfeerfoto',
+    'vacature',
+  ]);
+
+  add_theme_support('html5', [
+    'search-form',
+    'gallery',
+    'caption',
+    'style',
+    'script',
+  ]);
+
+}
+add_action('after_setup_theme', 'es_theme_setup');
+
+
+/* =========================================================
+   CPT – Sfeerfoto
+========================================================= */
+function es_register_cpt_sfeerfoto() {
+
+  register_post_type('sfeerfoto', [
+    'labels' => [
+      'name'          => 'Sfeerfoto’s',
+      'singular_name' => 'Sfeerfoto',
+    ],
+    'public'       => true,
+    'menu_icon'    => 'dashicons-format-image',
+    'supports'     => ['title', 'thumbnail'],
+    'has_archive'  => false,
+    'rewrite'      => false,
+    'show_in_rest' => true,
+  ]);
+
+}
+add_action('init', 'es_register_cpt_sfeerfoto');
+
+
+/* =========================================================
+   Taxonomy – Sfeer categorie
+========================================================= */
+function es_register_tax_sfeer_categorie() {
+
+  register_taxonomy('sfeer_categorie', ['sfeerfoto'], [
+    'label'        => 'Sfeer categorieën',
+    'public'       => true,
+    'hierarchical' => true,
+    'show_in_rest' => true,
+  ]);
+
+}
+add_action('init', 'es_register_tax_sfeer_categorie');
+
+
+/* =========================================================
+   CPT – Vacatures
+========================================================= */
+function es_register_cpt_vacatures() {
+
+  register_post_type('vacature', [
+    'labels' => [
+      'name'          => 'Vacatures',
+      'singular_name' => 'Vacature',
+    ],
+    'public'       => true,
+    'menu_icon'    => 'dashicons-id',
+    'supports'     => ['title', 'editor', 'excerpt', 'thumbnail'],
+    'has_archive'  => true,
+    'rewrite'      => ['slug' => 'vacatures'],
+    'show_in_rest' => true,
+  ]);
+
+}
+add_action('init', 'es_register_cpt_vacatures');
+
+
+/* =========================================================
+   ASSETS
+========================================================= */
+function es_enqueue_assets() {
+
+  if (is_admin()) return;
 
   $dir = get_stylesheet_directory();
   $uri = get_stylesheet_directory_uri();
 
-  /* =========================
-     Main CSS
-  ========================= */
+  /* Main CSS — GEEN file_exists check */
   wp_enqueue_style(
-    'leadsprint-main',
+    'eventsuper-main',
     $uri . '/assets/css/main.css',
     [],
     filemtime($dir . '/assets/css/main.css')
   );
 
-  /* =========================
-     JavaScript
-  ========================= */
+  /* Core JS */
+  $scripts = [
+    'reveal',
+    'header',
+    'animations',
+    'gsap-hero',
+    'case-showcase',
+    'partners-slider'
+  ];
+
+  foreach ($scripts as $script) {
+
+    $path = $dir . "/assets/js/{$script}.js";
+
+    if (file_exists($path)) {
+      wp_enqueue_script(
+        "es-{$script}",
+        $uri . "/assets/js/{$script}.js",
+        [],
+        filemtime($path),
+        true
+      );
+    }
+  }
+
+  /* GSAP */
   wp_enqueue_script(
-    'leadsprint-reveal',
-    $uri . '/assets/js/reveal.js',
-    [],
-    filemtime($dir . '/assets/js/reveal.js'),
-    true
-  );
-
-  wp_enqueue_script(
-    'leadsprint-header',
-    $uri . '/assets/js/header.js',
-    [],
-    filemtime($dir . '/assets/js/header.js'),
-    true
-  );
-
-  wp_enqueue_script(
-    'leadsprint-design-system',
-    $uri . '/assets/js/design-system.js',
-    [],
-    filemtime($dir . '/assets/js/design-system.js'),
-    true
-    );
-    });
-
-// =========================================================
-// Elementor widgets
-// =========================================================
-require_once get_stylesheet_directory() . '/elementor/elementor-init.php';
-
-
-// =========================================================
-// SEO – Core (plugin-loos, schaalbaar)
-// =========================================================
-add_theme_support('title-tag');
-
-
-/**
- * Document title logic
- */
-add_filter('document_title_parts', function ($title) {
-
-  /* =========================
-     Home
-  ========================= */
-  if (is_front_page()) {
-    $title['title']   = 'LeadSprint';
-    $title['tagline'] = 'Leadgeneratie & Online Marketing';
-  }
-
-  /* =========================
-     Diensten overzicht
-  ========================= */
-  if (is_page('onze-diensten')) {
-    $title['title']   = 'Onze diensten';
-    $title['tagline'] = 'Leadgeneratie, websites en online marketing';
-  }
-
-  /* =========================
-     Diensten – individueel
-  ========================= */
-  if (is_page('leadgeneratie')) {
-    $title['title']   = 'Leadgeneratie';
-    $title['tagline'] = 'Meer aanvragen via online marketing';
-  }
-
-  if (is_page('website-op-maat')) {
-    $title['title']   = 'Websites & webshops';
-    $title['tagline'] = 'Gebouwd voor conversie';
-  }
-
-  if (is_page('e-mailmarketing')) {
-    $title['title']   = 'E-mailmarketing';
-    $title['tagline'] = 'Blijf top-of-mind bij je doelgroep';
-  }
-
-  /* =========================
-     Overig
-     → WordPress default
-  ========================= */
-
-  return $title;
-});
-
-
-/**
- * Meta descriptions
- */
-add_action('wp_head', function () {
-
-  $description = '';
-
-  if (is_front_page()) {
-    $description = 'LeadSprint helpt bedrijven groeien met leadgeneratie, websites en online marketing. Gericht op resultaat en duidelijke keuzes.';
-  }
-
-  if (is_page('onze-diensten')) {
-    $description = 'Overzicht van onze diensten: leadgeneratie, websites en online marketing. Alles gericht op meer aanvragen en groei.';
-  }
-
-  if (is_page('leadgeneratie')) {
-    $description = 'Meer kwalitatieve leads via online marketing. Leadgeneratie die meetbaar bijdraagt aan bedrijfsgroei.';
-  }
-
-  if ($description) {
-    echo '<meta name="description" content="' . esc_attr($description) . '">' . "\n";
-  }
-
-});
-/* =========================================================
-   Calendly – global embed script
-========================================================= */
-add_action('wp_enqueue_scripts', function () {
-  wp_enqueue_script(
-    'calendly-widget',
-    'https://assets.calendly.com/assets/external/widget.js',
+    'gsap',
+    'https://unpkg.com/gsap@3/dist/gsap.min.js',
     [],
     null,
     true
   );
-});
+
+  wp_enqueue_script(
+    'gsap-scrolltrigger',
+    'https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js',
+    ['gsap'],
+    null,
+    true
+  );
+
+}
+add_action('wp_enqueue_scripts', 'es_enqueue_assets');
+
+
+/* =========================================================
+   META DESCRIPTION
+========================================================= */
+function es_meta_description() {
+
+  if (is_front_page()) {
+    echo '<meta name="description" content="Eventsuper is dé supermarkt op evenementen. Snel, schaalbaar en professioneel ingericht.">' . "\n";
+  }
+
+}
+add_action('wp_head', 'es_meta_description');
+
+
+/* =========================================================
+   REWRITE FLUSH (bij activatie)
+========================================================= */
+function es_flush_rewrite() {
+  es_register_cpt_sfeerfoto();
+  es_register_cpt_vacatures();
+  flush_rewrite_rules();
+}
+add_action('after_switch_theme', 'es_flush_rewrite');
+
+
+/* =========================================================
+   EXTRA FILES
+========================================================= */
+$login_file = get_stylesheet_directory() . '/inc/login.php';
+if (file_exists($login_file)) {
+  require_once $login_file;
+}
+

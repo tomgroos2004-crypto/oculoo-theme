@@ -1,0 +1,213 @@
+/* =========================================================
+   LS – CTA Section
+   Oculoo brand — light + dark variant, dual-button support
+========================================================= */
+
+/* ---------------------------------------------------------
+   Section wrapper
+--------------------------------------------------------- */
+
+.ls-cta {
+  position: relative;
+}
+
+.ls-cta--light {
+  background: var(--color-bg);
+}
+
+.ls-cta--dark {
+  background: var(--color-primary);
+}
+
+/* ---------------------------------------------------------
+   Card — centered block
+--------------------------------------------------------- */
+
+.ls-cta-card {
+  max-width: 680px;
+  margin-inline: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  padding: clamp(40px, 6vw, 64px) clamp(28px, 5vw, 56px);
+  border-radius: var(--radius-lg);
+}
+
+/* Light: white card, orange accent top bar */
+.ls-cta--light .ls-cta-card {
+  background: #fff;
+  border: 1px solid rgba(20, 22, 28, .08);
+  border-top: 4px solid var(--color-primary);
+
+  box-shadow:
+    0 4px 12px rgba(15, 36, 56, .05),
+    0 20px 52px rgba(15, 36, 56, .10);
+}
+
+/* Dark: no card bg, content floats on navy section */
+.ls-cta--dark .ls-cta-card {
+  background: transparent;
+}
+
+/* ---------------------------------------------------------
+   Eyebrow
+--------------------------------------------------------- */
+
+.ls-cta-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+}
+
+.ls-cta--light .ls-cta-eyebrow {
+  color: var(--color-primary);
+}
+
+.ls-cta--dark .ls-cta-eyebrow {
+  color: rgba(255, 255, 255, .55);
+}
+
+/* ---------------------------------------------------------
+   Title
+--------------------------------------------------------- */
+
+.ls-cta-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.ls-cta--light .ls-cta-title {
+  color: var(--color-inverted);
+}
+
+.ls-cta--dark .ls-cta-title {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   Text
+--------------------------------------------------------- */
+
+.ls-cta-text {
+  font-size: 16px;
+  line-height: 1.65;
+  max-width: 50ch;
+  margin: 14px 0 0;
+}
+
+.ls-cta--light .ls-cta-text {
+  color: var(--color-inverted-muted);
+}
+
+.ls-cta--dark .ls-cta-text {
+  color: rgba(255, 255, 255, .70);
+}
+
+/* ---------------------------------------------------------
+   Actions — buttons side by side, wraps on small screens
+--------------------------------------------------------- */
+
+.ls-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+/* ---------------------------------------------------------
+   Buttons — base
+--------------------------------------------------------- */
+
+.ls-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 32px;
+  border-radius: 48px;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+}
+
+/* Primary — light variant: dark navy fill */
+.ls-cta--light .ls-cta-btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(15, 36, 56, .25);
+}
+
+.ls-cta--light .ls-cta-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(15, 36, 56, .35);
+}
+
+/* Primary — dark variant: orange→yellow gradient */
+.ls-cta--dark .ls-cta-btn--primary {
+  background: var(--brand-gradient);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(236, 105, 7, .35);
+}
+
+.ls-cta--dark .ls-cta-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(236, 105, 7, .50);
+}
+
+/* Secondary — light variant: navy outline */
+.ls-cta--light .ls-cta-btn--secondary {
+  background: transparent;
+  border: 2px solid rgba(15, 36, 56, .22);
+  color: var(--color-inverted);
+}
+
+.ls-cta--light .ls-cta-btn--secondary:hover {
+  background: rgba(15, 36, 56, .05);
+  transform: translateY(-2px);
+}
+
+/* Secondary — dark variant: white outline */
+.ls-cta--dark .ls-cta-btn--secondary {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, .32);
+  color: #fff;
+}
+
+.ls-cta--dark .ls-cta-btn--secondary:hover {
+  background: rgba(255, 255, 255, .08);
+  transform: translateY(-2px);
+}
+
+/* ---------------------------------------------------------
+   Mobile — stack buttons vertically
+--------------------------------------------------------- */
+
+@media (max-width: 480px) {
+  .ls-cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ls-cta-btn {
+    text-align: center;
+  }
+}

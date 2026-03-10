@@ -1,18 +1,24 @@
 /* =========================================================
-   LeadSprint – Card v2
-   Doctrine-aligned: Problem → Trust → USP → CTA
+   LeadSprint – Card (v4)
+   Surface → Structure → Semantics → Intensity
+========================================================= */
+
+/* =========================================================
+   Root
 ========================================================= */
 
 .ls-card {
   position: relative;
+  isolation: isolate;
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
-  padding: clamp(22px,3vw,34px);
+  padding: clamp(22px, 3vw, 34px);
+
   background: #fff;
-  border-radius: 18px;
+  border-radius: var(--radius-md);
 
   border: 1px solid var(--color-border);
   box-shadow:
@@ -20,12 +26,64 @@
     0 8px 24px rgba(0,0,0,.06);
 }
 
+/* =========================================================
+   Ambient surface (subtle depth)
+========================================================= */
+
+.ls-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      120% 100% at 20% 0%,
+      rgba(0,0,0,.04),
+      transparent 60%
+    );
+
+  opacity: .6;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================================================
+   Structure layer (grain / material feel)
+========================================================= */
+
+.ls-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+
+  mix-blend-mode: overlay;
+  opacity: .35;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================================================
+   Content layer
+========================================================= */
+
+.ls-card > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* spacing rhythm */
 .ls-card > * + * {
   margin-top: 12px;
 }
 
-/* typography */
+/* =========================================================
+   Typography (neutral base)
+========================================================= */
+
 .ls-card-title {
   font-size: 22px;
   font-weight: 600;
@@ -37,8 +95,12 @@
 }
 
 /* =========================================================
-   Problem — refined (recognition, not emphasis)
+   Semantic variants
 ========================================================= */
+
+/* ---------------------------------------------------------
+   Problem — recognition, not emphasis
+--------------------------------------------------------- */
 
 .ls-card--problem {
   background:
@@ -47,53 +109,138 @@
       rgba(10,35,66,.02),
       rgba(10,35,66,0)
     );
+
   border: 1px dashed var(--color-border-soft);
   box-shadow: none;
 }
 
-/* titel iets minder ‘headline’, meer observatie */
+.ls-card--problem::before,
+.ls-card--problem::after {
+  opacity: .25;
+}
+
 .ls-card--problem .ls-card-title {
   font-weight: 500;
   color: var(--color-text);
 }
 
-/* tekst iets strakker voor scanbaarheid */
 .ls-card--problem .ls-card-text {
-  color: var(--color-muted);
   line-height: 1.55;
 }
 
-/* icon: observatie, niet statement */
 .ls-card--problem .ls-card-icon {
   color: var(--color-muted);
   opacity: .5;
 }
 
-
-/* =========================================================
-   Trust — stable & neutral
-========================================================= */
+/* ---------------------------------------------------------
+   Trust — testimonial card
+--------------------------------------------------------- */
 
 .ls-card--trust {
   background: #fff;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(20,22,28,.08);
+  border-radius: var(--radius-md);
   box-shadow:
-    0 1px 0 rgba(255,255,255,.6) inset,
-    0 6px 16px rgba(0,0,0,.06);
+    0 2px 8px rgba(0,0,0,.05),
+    0 12px 32px rgba(0,0,0,.08);
+
+  padding-top: 72px;
+  overflow: visible;
 }
 
-/* icon */
-.ls-card--trust .ls-card-icon {
-  color: var(--color-text);
-  opacity: .7;
+/* suppress pseudo-element effects on trust cards */
+.ls-card--trust::before,
+.ls-card--trust::after {
+  display: none;
 }
 
-/* =========================================================
+/* ----- Avatar ----- */
+
+.ls-card-avatar {
+  position: absolute;
+  top: -48px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  border: 3px solid #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,.14);
+
+  z-index: 2;
+}
+
+.ls-card-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ----- Name ----- */
+
+.ls-card-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-inverted);
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* ----- Role ----- */
+
+.ls-card-role {
+  font-size: 12px;
+  color: var(--color-inverted-muted);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+/* ----- Stars ----- */
+
+.ls-card-stars {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin-top: 10px;
+}
+
+.ls-card-star {
+  color: var(--color-warning);
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* ----- Quote title ----- */
+
+.ls-card--trust .ls-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-inverted);
+  margin-top: 8px;
+}
+
+/* ----- Body text ----- */
+
+.ls-card--trust .ls-card-text {
+  font-size: 14px;
+  color: var(--color-inverted-muted);
+  line-height: 1.65;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* ---------------------------------------------------------
    USP — convincing, not loud
-========================================================= */
+--------------------------------------------------------- */
 
 .ls-card--usp {
   border-color: var(--color-accent-soft);
+
   box-shadow:
     0 2px 6px rgba(0,0,0,.05),
     0 12px 28px rgba(0,0,0,.08);
@@ -103,28 +250,38 @@
   font-weight: 700;
 }
 
-/* icon */
 .ls-card--usp .ls-card-icon {
   color: var(--color-accent);
   opacity: .85;
 }
 
 /* =========================================================
-   CTA — highest intensity
+   Intensity layer
 ========================================================= */
+
+/* ---------------------------------------------------------
+   CTA — highest priority
+--------------------------------------------------------- */
 
 .ls-card--cta {
   border-color: var(--color-primary);
+
   box-shadow:
-    0 12px 36px rgba(10,35,66,.22);
+    0 14px 40px rgba(10,35,66,.22);
 }
 
-/* CTA emphasis */
+.ls-card--cta::before {
+  opacity: .85;
+}
+
+.ls-card--cta::after {
+  opacity: .45;
+}
+
 .ls-card--cta .ls-card-title {
   font-weight: 700;
 }
 
-/* icon */
 .ls-card--cta .ls-card-icon {
   color: var(--color-primary);
   opacity: 1;
@@ -161,15 +318,51 @@
   width: 22px;
   height: 22px;
   font-size: 22px;
+
   fill: currentColor;
   stroke: currentColor;
 }
 
-/* subtle hover feedback (non-CTA only) */
-@media (hover:hover) {
+/* =========================================================
+   Interaction (non-CTA only)
+========================================================= */
+
+@media (hover: hover) {
   .ls-card:not(.ls-card--cta):hover .ls-card-icon {
     opacity: .85;
   }
+}
+
+/* =========================================================
+   Festival context (opt-in)
+========================================================= */
+
+.is-festival .ls-card {
+  background: #0a0a0a;
+  color: #fff;
+
+  border-color: rgba(255,255,255,.12);
+}
+
+.is-festival .ls-card-text {
+  color: rgba(255,255,255,.8);
+}
+
+.is-festival .ls-card::before {
+  background:
+    radial-gradient(
+      120% 100% at 20% 0%,
+      rgba(255,255,255,.06),
+      transparent 60%
+    );
+}
+
+.is-festival .ls-card--problem {
+  border-color: rgba(255,255,255,.18);
+}
+
+.is-festival .ls-card--cta {
+  border-color: var(--color-primary);
 }
 
 /* =========================================================

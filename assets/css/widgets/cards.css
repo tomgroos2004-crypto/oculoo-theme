@@ -1,0 +1,96 @@
+/* =========================================================
+   LeadSprint – Cards (v3)
+   Header supports, cards lead
+========================================================= */
+
+.ls-cards {
+  position: relative;
+}
+
+/* =========================================================
+   Cards header (subdued)
+========================================================= */
+
+.ls-cards-header {
+  text-align: center;
+  max-width: 840px;
+  margin-inline: auto;
+  margin-bottom: clamp(32px, 4vw, 56px);
+}
+
+/* Titel */
+.ls-cards-header .h2 {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+/* Subtle divider under title */
+.ls-cards-header .h2::after {
+  content: "";
+  display: block;
+  width: 52px;
+  height: 3px;
+  margin: 14px auto 0;
+
+  background: var(--color-accent);
+  border-radius: 2px;
+  opacity: .6;
+}
+
+/* Intro text */
+.ls-cards-header .lead {
+  margin: 0;
+  max-width: 52ch;
+  margin-inline: auto;
+}
+
+/* =========================================================
+   Grid
+========================================================= */
+
+.ls-cards-grid {
+  display: grid;
+  gap: clamp(24px, 3vw, 40px);
+  overflow: visible;
+}
+
+/* Columns */
+.ls-cards--cols-2 .ls-cards-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.ls-cards--cols-3 .ls-cards-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.ls-cards--cols-4 .ls-cards-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* =========================================================
+   Trust grid — accommodate avatar overflow above cards
+========================================================= */
+
+.ls-cards--trust .ls-cards-grid,
+.ls-cards-grid:has(.ls-card--trust) {
+  padding-top: 60px;
+}
+
+.ls-cards--trust,
+.ls-cards:has(.ls-card--trust) {
+  overflow: visible;
+}
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .ls-cards--cols-2 .ls-cards-grid,
+  .ls-cards--cols-3 .ls-cards-grid,
+  .ls-cards--cols-4 .ls-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

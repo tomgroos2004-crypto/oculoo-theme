@@ -1,24 +1,51 @@
 /* =========================================================
    LeadSprint – Main stylesheet
-   ========================================================= */
+========================================================= */
+
 @import url("./colors.css");
 @import url("./typography.css");
 @import url("./layout.css");
 @import url("./spacing.css");
 @import url("./buttons.css");
-@import url("./hero.css");
-@import url("./cta.css");
 @import url("./header.css");
-@import url("./cards.css");
 @import url("./card.css");
-@import url("./content.css");
-@import url("./blog-list.css");
-@import url("./cases-list.css");
-@import url("./content-hub.css");
-@import url("./uitleg.css");
 @import url("./design-system.css");
-@import url("./pricing.css");
+@import url("./festival.css");
 @import url("./case-breakdown.css");
-@import url("./case-showcase.css");
-@import url("./team-cards.css");
-@import url("./booking.css");
+@import url("./footer.css");
+
+/* subfolders */
+
+@import url("./widgets/hero.css");
+@import url("./widgets/cta.css");
+@import url("./widgets/cards.css");
+@import url("./widgets/content.css");
+@import url("./widgets/contact.css");
+@import url("./widgets/blog-list.css");
+@import url("./widgets/case-showcase.css");
+@import url("./widgets/partners-slider.css");
+@import url("./widgets/testimonials.css");
+
+
+@import url("./page/sfeer.css");
+@import url("./page/vacatures.css");
+@import url("./page/werken-bij.css");
+
+@import url("./heroes/sfeer-hero.css");
+/* =========================================================
+   Global canvas enforcement (AFTER imports)
+========================================================= */
+
+html,
+body {
+  background: var(--color-bg) !important;
+}
+
+.elementor,
+.elementor-section,
+.elementor-container {
+  background: transparent !important;
+}
+
+
+

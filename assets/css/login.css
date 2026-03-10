@@ -1,0 +1,116 @@
+/* =========================================================
+   LeadSprint – Premium Login
+========================================================= */
+
+/* Layout */
+body.login {
+  min-height: 100vh;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(circle at 20% 20%, #15345f, #051629 70%);
+}
+
+/* =========================================================
+   Login Logo – Clean sizing without extra spacing
+========================================================= */
+
+body.login #login {
+  width: min(520px, calc(100% - 40px));
+}
+
+body.login #login h1 {
+  margin: 0 0 28px; /* controleer hier je spacing */
+}
+
+body.login #login h1 a {
+  display: block;
+
+  background-image: url("https://leadsprint.nl/wp-content/uploads/2025/08/ChatGPT-Image-25-aug-2025-21_00_31.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  width: 420px;       /* hier schaal je */
+  height: 290px;       /* alleen logo hoogte */
+
+  margin: -100px auto;     /* geen extra ondermarge hier */
+}
+
+
+/* Card */
+.login form {
+  background: rgba(255,255,255,.95);
+  backdrop-filter: blur(10px);
+
+  border-radius: 22px;
+  padding: 36px 32px;
+
+  box-shadow:
+    0 40px 80px rgba(0,0,0,.35);
+
+  border: none;
+}
+
+/* Inputs */
+.login input[type="text"],
+.login input[type="password"] {
+  border-radius: 14px;
+  border: 1px solid rgba(10,35,66,.12);
+  padding: 14px;
+  font-size: 14px;
+}
+
+.login input:focus {
+  border-color: #FF6B00;
+  box-shadow: 0 0 0 2px rgba(255,107,0,.2);
+}
+
+/* Button */
+.wp-core-ui .button-primary {
+  background: #FF6B00;
+  border: none;
+  border-radius: 14px;
+  font-weight: 600;
+  padding: 10px 18px;
+  box-shadow: 0 10px 26px rgba(255,107,0,.4);
+}
+
+.wp-core-ui .button-primary:hover {
+  background: #e45f00;
+}
+
+/* Remove default grey box */
+.login .message,
+.login .success {
+  border-left: none;
+  background: rgba(255,255,255,.85);
+  border-radius: 10px;
+}
+
+/* Links */
+.login #nav,
+.login #backtoblog {
+  text-align: center;
+}
+
+.login #nav a,
+.login #backtoblog a {
+  color: rgba(255,255,255,.7);
+}
+
+.login #nav a:hover,
+.login #backtoblog a:hover {
+  color: #fff;
+}
+
+/* Language switcher */
+.login .language-switcher {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

@@ -33,7 +33,16 @@ $cta_link = $settings['cta_link']['url'] ?? '';
     <?php endif; ?>
 
     <div class="ls-case-showcase__viewport" data-case-showcase>
+		<div class="ls-case-showcase__nav">
+  <button class="ls-case-showcase__btn ls-case-showcase__btn--prev" aria-label="Vorige case">
+    ‹
+  </button>
+  <button class="ls-case-showcase__btn ls-case-showcase__btn--next" aria-label="Volgende case">
+    ›
+  </button>
+</div>
       <div class="ls-case-showcase__track">
+
         <?php foreach ($items as $item) :
           $img = $item['image']['url'] ?? '';
           $txt = $item['title'] ?? '';
@@ -70,5 +79,4 @@ $cta_link = $settings['cta_link']['url'] ?? '';
 
   </div>
 </section>
-
 

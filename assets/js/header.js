@@ -1,41 +1,66 @@
 document.addEventListener('DOMContentLoaded', () => {
   const body   = document.body;
+  const hero   = document.querySelector('.ls-hero');
   const toggle = document.querySelector('[data-header-toggle]');
   const panel  = document.querySelector('[data-header-panel]');
-
-  if (!toggle || !panel) return;
 
   const OPEN = 'ls-nav-open';
   const BP   = 960;
 
-  const openMenu = () => {
-    body.classList.add(OPEN);
-    toggle.setAttribute('aria-expanded', 'true');
-    body.style.overflow = 'hidden';
-  };
+  /* ======================================================
+     Mobile menu
+  ====================================================== */
 
-  const closeMenu = () => {
-    body.classList.remove(OPEN);
-    toggle.setAttribute('aria-expanded', 'false');
-    body.style.overflow = '';
-  };
+  if (toggle && panel) {
 
-  toggle.addEventListener('click', () => {
-    body.classList.contains(OPEN) ? closeMenu() : openMenu();
-  });
+    const openMenu = () => {
+      body.classList.add(OPEN);
+      toggle.setAttribute('aria-expanded', 'true');
+      body.style.overflow = 'hidden';
+    };
 
-  // Sluit bij klik op link
-  panel.addEventListener('click', e => {
-    if (e.target.closest('a')) closeMenu();
-  });
+    const closeMenu = () => {
+      body.classList.remove(OPEN);
+      toggle.setAttribute('aria-expanded', 'false');
+      body.style.overflow = '';
+    };
 
-  // ESC sluit menu
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeMenu();
-  });
+    toggle.addEventListener('click', () => {
+      body.classList.contains(OPEN) ? closeMenu() : openMenu();
+    });
 
-  // Resize naar desktop = altijd sluiten
-  window.addEventListener('resize', () => {
-    if (window.innerWidth >= BP) closeMenu();
-  });
+    // Klik op link sluit menu
+    panel.addEventListener('click', e => {
+      if (e.target.closest('a')) closeMenu();
+    });
+
+    // ESC sluit menu
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // Resize naar desktop = altijd sluiten
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= BP) closeMenu();
+    });
+  }
+
+  /* ======================================================
+     Hero scroll observer → sticky festival header
+  ====================================================== */
+
+  if (!hero) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      body.classList.toggle('is-scrolled', !entry.isIntersecting);
+    },
+    {
+      threshold: 0,
+      // exact 1px voorbij hero = actief
+      rootMargin: '-1px 0px 0px 0px'
+    }
+  );
+
+  observer.observe(hero);
 });

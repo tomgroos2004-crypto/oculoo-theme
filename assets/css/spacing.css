@@ -1,11 +1,59 @@
+/* =========================================================
+   LeadSprint – Spacing (v3 balanced editorial)
+   Tuned for hero & festival coexistence
+========================================================= */
+
 :root {
-  --ls-section-sm: clamp(64px, 8vw, 80px);
-  --ls-section-md: clamp(80px, 12vw, 140px);
-  --ls-section-lg: clamp(120px, 16vw, 180px);
-  --ls-section-xl: clamp(160px, 22vw, 300px);
+  /* ======================================================
+     Section spacing tokens (BALANCED)
+  ====================================================== */
+
+  /* Subtiel – korte content, intro’s */
+  --ls-section-sm: clamp(48px, 5vw, 72px);
+
+  /* Standaard – meeste secties */
+  --ls-section-md: clamp(72px, 9vw, 120px);
+
+  /* Ruim – verhaal / hero opvolging */
+  --ls-section-lg: clamp(104px, 14vw, 180px);
+
+  /* Statement – hero / climax (GEEN viewport-eater) */
+  --ls-section-xl: clamp(140px, 18vw, 240px);
 }
 
-.section-sm { padding-block: var(--ls-section-sm); }
-.section-md { padding-block: var(--ls-section-md); }
-.section-lg { padding-block: var(--ls-section-lg); }
-.section-xl { padding-block: var(--ls-section-xl); }
+/* =========================================================
+   Section utilities
+========================================================= */
+
+.section-sm {
+  padding-top: calc(var(--ls-section-sm) * 1.05);
+  padding-bottom: calc(var(--ls-section-sm) * 0.9);
+  background: var(--color-bg);
+}
+
+.section-md {
+  padding-top: calc(var(--ls-section-md) * 1.1);
+  padding-bottom: calc(var(--ls-section-md) * 0.9);
+}
+
+.section-lg {
+  padding-top: calc(var(--ls-section-lg) * 1.15);
+  padding-bottom: calc(var(--ls-section-lg) * 0.95);
+}
+
+.section-xl {
+  padding-top: calc(var(--ls-section-xl) * 1.15);
+  padding-bottom: calc(var(--ls-section-xl) * 1);
+}
+
+/* =========================================================
+   FIX: section-sm after festival hero (Elementor DOM-safe)
+========================================================= */
+
+/* Hero widget → eerstvolgende e-con → eerste section-sm */
+.elementor-widget-ls-hero.is-festival
++ .elementor-element.e-con
+.elementor-element.section-sm {
+  padding-top: 0;
+}
+

@@ -1,137 +1,70 @@
 /* =========================================================
-   LeadSprint – Button (NOTCHED LEFT – FINAL)
+   Base
 ========================================================= */
-
-:root {
-  --btn-height: 48px;
-  --btn-radius: 16px;
-  --btn-padding-x: 26px;
-  --btn-font-weight: 600;
-  --btn-transition: 0.2s ease;
-
-  --btn-notch-width: 18px;
-}
 
 .btn {
   position: relative;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  height: var(--btn-height);
-  padding: 0 var(--btn-padding-x);
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: .14em;
 
-  font-weight: var(--btn-font-weight);
   text-decoration: none;
   white-space: nowrap;
 
-  border-radius: var(--btn-radius);
-  overflow: hidden;
-
   transition:
-    background-color var(--btn-transition),
-    transform var(--btn-transition);
+    transform .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
 }
 
 /* =========================================================
-   Primary
+   HERO CTA
 ========================================================= */
-.btn.btn-primary {
+
+.btn-primary {
+
+  padding: 15px 30px;
+
   background: var(--color-primary);
-  color: var(--color-inverted);
+  color: #fff;
+
+  border-radius: 48px;
+
+  font-size: 16px;
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.25);
 }
 
-.btn.btn-primary::before {
-  background: var(--color-accent);
+.btn-primary:hover{
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 24px 56px rgba(0,0,0,.35);
 }
 
-/* NOTCH – links (architectural cut) */
-.btn.btn-primary::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: var(--btn-notch-width);
-  height: 100%;
-
-  background: var(--color-accent);
-
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    0 100%
-  );
-
-  pointer-events: none;
-}
-
-/* Subtiele hover: alleen spanning, geen show */
-@media (hover: hover) {
-  .btn.btn-primary:hover {
-    transform: translateY(-1px);
-  }
-}
-
-/* Active: voelt gedrukt, geen visuele truc */
-.btn.btn-primary:active {
-  transform: translateY(0);
-}
-
-/* Focus: strak en professioneel */
-.btn:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(252,106,0,.35);
-}
 /* =========================================================
-   Secondary (NOTCHED LEFT – QUIET REFINED)
+   HEADER OUTLINE
 ========================================================= */
 
-.btn.btn-secondary {
-  background: #ffff;
-  color: var(--color-primary);
+.btn-secondary {
 
-  border: 2px solid rgba(252,106,0,.55);
+  padding: 10px 22px;
+
+  border: 1px solid #3a3a3a;
+  border-radius: 20px;
+
+  background: transparent;
+
+  font-size: 15px;
+
+  color: #0F2B44;
 }
 
-/* NOTCH – links (zelfde vorm, rustiger) */
-.btn.btn-secondary::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: var(--btn-notch-width);
-  height: 100%;
-
-  background: rgba(252,106,0,.55);
-
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    0 100%
-  );
-
-  pointer-events: none;
+.btn-secondary:hover{
+  background: rgba(15,43,68,.05);
 }
-
-/* Hover: iets meer spanning, nog steeds ingetogen */
-@media (hover: hover) {
-  .btn.btn-secondary:hover {
-    transform: translateY(-1px);
-    background: rgba(252,106,0,.035);
-  }
-}
-
-/* Active */
-.btn.btn-secondary:active {
-  transform: translateY(0);
-}
-
-/* Focus: identiek systeemgedrag */
-.btn.btn-secondary:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(252,106,0,.3);
-}
-

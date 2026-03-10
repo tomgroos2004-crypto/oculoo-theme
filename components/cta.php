@@ -1,30 +1,31 @@
 <?php
-$variant = $variant ?? 'variant-normal';
-
-$classes = 'ls-cta';
-foreach (explode(' ', $variant) as $v) {
-  $classes .= ' ls-cta--' . $v;
-}
+// Eventsuper CTA – simpel & vast
 ?>
 
-<section class="<?= esc_attr($classes); ?>">
+<section class="es-cta section-md">
 
-  <div class="ls-container">
+  <div class="ls-container ls-container--narrow">
 
-    <div class="ls-cta-inner">
+    <div class="es-cta-inner">
 
-      <?php if ($title) : ?>
-        <h2 class="h2"><?= esc_html($title); ?></h2>
+      <?php if (!empty($title)) : ?>
+        <h2 class="h2 es-cta-title">
+          <?= esc_html($title); ?>
+        </h2>
       <?php endif; ?>
 
-      <?php if ($text) : ?>
-        <p class="lead"><?= esc_html($text); ?></p>
+      <?php if (!empty($text)) : ?>
+        <p class="lead es-cta-text">
+          <?= esc_html($text); ?>
+        </p>
       <?php endif; ?>
 
-      <?php if ($button && $url) : ?>
-        <a href="<?= esc_url($url); ?>" class="btn btn-primary">
-          <?= esc_html($button); ?>
-        </a>
+      <?php if (!empty($button) && !empty($url)) : ?>
+        <div class="es-cta-action">
+          <a href="<?= esc_url($url); ?>" class="btn btn-primary">
+            <?= esc_html($button); ?>
+          </a>
+        </div>
       <?php endif; ?>
 
     </div>
