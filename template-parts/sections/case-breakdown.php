@@ -259,7 +259,7 @@ if (empty($tabs)) return;
   }
 
   /* ======================================================
-     Async-safe init loop (Elementor compatible)
+     Async-safe init loop
   ====================================================== */
 
   let tries = 0;

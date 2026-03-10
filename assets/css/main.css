@@ -40,12 +40,3 @@ html,
 body {
   background: var(--color-bg) !important;
 }
-
-.elementor,
-.elementor-section,
-.elementor-container {
-  background: transparent !important;
-}
-
-
-

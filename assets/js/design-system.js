@@ -29,14 +29,4 @@
     initDesignSystem(document);
   });
 
-  // Init bij Elementor editor / dynamic renders
-  if (window.elementorFrontend) {
-    window.elementorFrontend.hooks.addAction(
-      'frontend/element_ready/global',
-      ($scope) => {
-        initDesignSystem($scope[0]);
-      }
-    );
-  }
-
 })();

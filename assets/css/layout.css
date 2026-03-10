@@ -160,17 +160,12 @@ select {
 }
 
 /* =========================================================
-   Elementor widget neutralizer
+   Widget neutralizer
 ========================================================= */
 
 .ls-widget {
   width: 100%;
   display: block;
-}
-
-/* Elementor containers stretchen children → neutraliseren */
-.elementor-container > .ls-widget {
-  align-self: auto !important;
 }
 
 /* =========================================================
@@ -194,7 +189,7 @@ select {
 }
 
 /* =====================================
-   Dark surface context (system + Elementor)
+   Dark surface context
 ===================================== */
 
 .ls-section.is-dark,
@@ -203,7 +198,7 @@ select {
 
 }
 /* =====================================
-   Dark section utility (Elementor-safe)
+   Dark section utility
    dark-section-sm = dark + section-sm spacing
 ===================================== */
 

@@ -377,8 +377,8 @@
   }
 
   /* =========================================================
-     ASYNC / ELEMENTOR SAFE INIT
-     - Re-scans a few times for Elementor-rendered DOM
+     ASYNC SAFE INIT
+     - Re-scans a few times for late-rendered DOM
      - No dependency on return values for stopping early
   ========================================================= */
 

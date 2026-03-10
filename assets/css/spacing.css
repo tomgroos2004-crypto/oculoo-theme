@@ -46,14 +46,3 @@
   padding-bottom: calc(var(--ls-section-xl) * 1);
 }
 
-/* =========================================================
-   FIX: section-sm after festival hero (Elementor DOM-safe)
-========================================================= */
-
-/* Hero widget → eerstvolgende e-con → eerste section-sm */
-.elementor-widget-ls-hero.is-festival
-+ .elementor-element.e-con
-.elementor-element.section-sm {
-  padding-top: 0;
-}
-

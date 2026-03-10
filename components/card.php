@@ -61,9 +61,89 @@ if ($variant === 'feature') {
 
   <?php else : ?>
 
-    <?php if (!empty($item['icon']['value'])) : ?>
-      <div class="ls-card-icon">
-        <?php \Elementor\Icons_Manager::render_icon($item['icon']); ?>
+    <?php
+    $icon_value = $item['icon']['value'] ?? '';
+    if (!empty($icon_value)) :
+    ?>
+      <div class="ls-card-icon" aria-hidden="true">
+        <?php if (is_string($icon_value) && strpos($icon_value, '<svg') !== false) : ?>
+          <?= wp_kses($icon_value, [
+            'svg' => [
+              'class' => true,
+              'xmlns' => true,
+              'width' => true,
+              'height' => true,
+              'viewbox' => true,
+              'fill' => true,
+              'stroke' => true,
+              'stroke-width' => true,
+              'stroke-linecap' => true,
+              'stroke-linejoin' => true,
+              'aria-hidden' => true,
+              'role' => true,
+              'focusable' => true,
+            ],
+            'path' => [
+              'd' => true,
+              'fill' => true,
+              'stroke' => true,
+              'stroke-width' => true,
+              'stroke-linecap' => true,
+              'stroke-linejoin' => true,
+            ],
+            'circle' => [
+              'cx' => true,
+              'cy' => true,
+              'r' => true,
+              'fill' => true,
+              'stroke' => true,
+              'stroke-width' => true,
+            ],
+            'rect' => [
+              'x' => true,
+              'y' => true,
+              'width' => true,
+              'height' => true,
+              'rx' => true,
+              'ry' => true,
+              'fill' => true,
+              'stroke' => true,
+              'stroke-width' => true,
+            ],
+            'line' => [
+              'x1' => true,
+              'y1' => true,
+              'x2' => true,
+              'y2' => true,
+              'stroke' => true,
+              'stroke-width' => true,
+              'stroke-linecap' => true,
+            ],
+            'polyline' => [
+              'points' => true,
+              'fill' => true,
+              'stroke' => true,
+              'stroke-width' => true,
+              'stroke-linecap' => true,
+              'stroke-linejoin' => true,
+            ],
+            'polygon' => [
+              'points' => true,
+              'fill' => true,
+              'stroke' => true,
+              'stroke-width' => true,
+              'stroke-linecap' => true,
+              'stroke-linejoin' => true,
+            ],
+            'g' => [
+              'fill' => true,
+              'stroke' => true,
+              'stroke-width' => true,
+            ],
+          ]); ?>
+        <?php else : ?>
+          <i class="<?= esc_attr($icon_value); ?>"></i>
+        <?php endif; ?>
       </div>
     <?php endif; ?>
 

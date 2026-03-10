@@ -44,11 +44,6 @@ get_header();
     get_template_part('template-parts/sections/cta');
     ?>
 
-    <?php
-    // 3. Elementor fallback (tijdelijk)
-    the_content();
-    ?>
-
   <?php endwhile; ?>
 
 </main>
