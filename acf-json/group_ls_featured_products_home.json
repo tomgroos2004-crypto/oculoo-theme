@@ -1,0 +1,114 @@
+{
+    "key": "group_ls_featured_products_home",
+    "title": "Homepage – Uitgelichte producten",
+    "fields": [
+        {
+            "key": "field_ls_featured_products_enabled",
+            "label": "Toon uitgelichte producten",
+            "name": "show_featured_products",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Toon of verberg de productsectie op de homepage.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Aan",
+            "ui_off_text": "Uit"
+        },
+        {
+            "key": "field_ls_featured_products_title",
+            "label": "Titel",
+            "name": "featured_products_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Onze producten",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_ls_featured_products_intro",
+            "label": "Intro",
+            "name": "featured_products_intro",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Korte inleiding boven de twee productcards.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_ls_featured_products_items",
+            "label": "Selecteer 2 producten",
+            "name": "featured_products_items",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Kies exact twee WooCommerce producten voor de homepage.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "product"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": 2,
+            "max": 2,
+            "return_format": "object"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 20,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Homepage instellingen voor handmatig gekozen uitgelichte WooCommerce producten.",
+    "show_in_rest": 0,
+    "modified": 1773400000
+}
