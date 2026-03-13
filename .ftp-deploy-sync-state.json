@@ -1,0 +1,461 @@
+{
+    "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
+    "version": "1.0.0",
+    "generatedTime": 1773153767345,
+    "data": [
+        {
+            "type": "file",
+            "name": "CLAUDE.md",
+            "size": 1142,
+            "hash": "8d618868702af56f3970dbcac728c079115a23bcb04f8386b339efe2d268612a"
+        },
+        {
+            "type": "folder",
+            "name": "acf-json"
+        },
+        {
+            "type": "folder",
+            "name": "assets"
+        },
+        {
+            "type": "folder",
+            "name": "components"
+        },
+        {
+            "type": "file",
+            "name": "footer.php",
+            "size": 135,
+            "hash": "cdc3a28daa0d28eedf7623207a3ee22a036c007a49b3bfbd8600425bff828a3f"
+        },
+        {
+            "type": "file",
+            "name": "functions.php",
+            "size": 2616,
+            "hash": "226519e175fe0ff86d64019b3ba6030432f6c475292709632b581c10dddfbde0"
+        },
+        {
+            "type": "file",
+            "name": "header.php",
+            "size": 326,
+            "hash": "05f8ce681d3ec451fcc6656a5fbb89a5ea82743469a873dcc6509e056b786b04"
+        },
+        {
+            "type": "folder",
+            "name": "inc"
+        },
+        {
+            "type": "file",
+            "name": "index.php",
+            "size": 1188,
+            "hash": "5dbd4aa0ecf5e62a390fd13d188ccf8956bd2063a465024eeab5a198e09c41f0"
+        },
+        {
+            "type": "file",
+            "name": "page.php",
+            "size": 1066,
+            "hash": "b8841efe783f8de0b3b5861902dc610c5be0a5d83a44c8cbbc9913389fb7202a"
+        },
+        {
+            "type": "folder",
+            "name": "partials"
+        },
+        {
+            "type": "file",
+            "name": "style.css",
+            "size": 48,
+            "hash": "930ce832ab6b8251102a292dcdea2a3fc13e613a59758bf0f11254c015749d80"
+        },
+        {
+            "type": "folder",
+            "name": "template-parts"
+        },
+        {
+            "type": "file",
+            "name": "acf-json/group_698999d297737.json",
+            "size": 69961,
+            "hash": "72ee23f029607471cb60a6efcc4cdc94cf3c46f46ac30f30689450bb94a23260"
+        },
+        {
+            "type": "file",
+            "name": "acf-json/group_ls_cta_section.json",
+            "size": 5672,
+            "hash": "7c75d3fbb688b95bfad27ca1d6dc73b4e60a6e76f8f4a437f93c34581cb84e0b"
+        },
+        {
+            "type": "folder",
+            "name": "assets/css"
+        },
+        {
+            "type": "folder",
+            "name": "assets/fonts"
+        },
+        {
+            "type": "folder",
+            "name": "assets/img"
+        },
+        {
+            "type": "folder",
+            "name": "assets/js"
+        },
+        {
+            "type": "file",
+            "name": "components/card.php",
+            "size": 4926,
+            "hash": "5f8c7e16dba5f6261ffe116950021b0877a1a3aaf77dfe337e95ed3c9016c444"
+        },
+        {
+            "type": "file",
+            "name": "components/cards.php",
+            "size": 822,
+            "hash": "22c8d1a9879e4edbb4a1013eeeadca0459ae2565253cc616053129835d5caa2e"
+        },
+        {
+            "type": "file",
+            "name": "components/case-breakdown.php",
+            "size": 1688,
+            "hash": "5878c09a1eb2769012ec3dc8a9e708f75cad3fa3921233a02f987538664e669a"
+        },
+        {
+            "type": "file",
+            "name": "components/case-showcase.php",
+            "size": 2376,
+            "hash": "b0a6572691b5a3ef04c5eafba7b85c39ac6236ae58e6562ae3a4cecc62f91f4a"
+        },
+        {
+            "type": "file",
+            "name": "components/contact.php",
+            "size": 2087,
+            "hash": "4f12a59eba773de9c0a06d8101c9d10c1c791c67eb4a09ddc109019200dd7199"
+        },
+        {
+            "type": "file",
+            "name": "components/content.php",
+            "size": 2238,
+            "hash": "f7fa1eef2a11b1b5424cb751ac194af15420f401b4cd9cf508d515ffc28aaf8f"
+        },
+        {
+            "type": "file",
+            "name": "components/cta.php",
+            "size": 736,
+            "hash": "11cb81ae34548fc1a698ce8f7c2ca3e7b4982c01e7e795b4b6eff84ba43b7496"
+        },
+        {
+            "type": "file",
+            "name": "components/footer-mosaic.php",
+            "size": 4591,
+            "hash": "6d96e6ae50d841a1961485eb174fe38635bf292cfbfb7d787706c244d8bec7f6"
+        },
+        {
+            "type": "file",
+            "name": "components/header.php",
+            "size": 1408,
+            "hash": "dfafd924965448e696fcac0b7e823743f7f66b7179502391015cbc8b3dc40add"
+        },
+        {
+            "type": "file",
+            "name": "components/partners-slider.php",
+            "size": 957,
+            "hash": "a7d0f95215abdd3d8bdd801271f10bd435feb77a332c24fc72359639952ba3b3"
+        },
+        {
+            "type": "file",
+            "name": "inc/login.php",
+            "size": 683,
+            "hash": "f45cae7d1ca3752165191c6883dc516983a6e7ee0f1fef7f13d24a6ba2ea9f6a"
+        },
+        {
+            "type": "file",
+            "name": "partials/funnel.php",
+            "size": 0,
+            "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "type": "folder",
+            "name": "partials/werkenbij"
+        },
+        {
+            "type": "file",
+            "name": "template-parts/dynamic-header.php",
+            "size": 85,
+            "hash": "a6d1c5f8a849dabac37faf5dfe151055575c2fa29e647d2924d6a90ea6b799f2"
+        },
+        {
+            "type": "file",
+            "name": "template-parts/header.php",
+            "size": 85,
+            "hash": "ab7348bd86f7fe10d5b727266a58cb1c38112ff65052e3a77a1d58d978300b1f"
+        },
+        {
+            "type": "file",
+            "name": "template-parts/hero.php",
+            "size": 982,
+            "hash": "d381d15c7c513487b2d4c34a0a1134b6519fb4d36432cf4b4c6671e646f77400"
+        },
+        {
+            "type": "folder",
+            "name": "template-parts/sections"
+        },
+        {
+            "type": "file",
+            "name": "template-parts/site-header.php",
+            "size": 81,
+            "hash": "0ab845ce6115db5ba22cc7235d53d994ba457620a5bd09126e3e44c38624d6c6"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/buttons.css",
+            "size": 1261,
+            "hash": "bb56cee2c16f73e00b0feb0f6f70b8b1600c7c10ba1efc8c19fac5dba265171e"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/card.css",
+            "size": 7669,
+            "hash": "a9ae6dfdf3c525037a68f2b26b5e07844a75094af91a3445766b7c03bcb96aa8"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/case-breakdown.css",
+            "size": 5178,
+            "hash": "b65f0eced6fb6499fd10f6e1817fd03fcaa77dfc5749d86749bdbd5b38b69e8a"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/colors.css",
+            "size": 2366,
+            "hash": "0c07c9101a459bcf6ded5baa6d825805aeea34bbf84e3c02a6665914ea99b2bb"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/footer.css",
+            "size": 3671,
+            "hash": "548b95cb40e298483b58fce2f1797a190331f2ddf1de524ea8b1499c3c3ebf64"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/header.css",
+            "size": 4407,
+            "hash": "2287f6a2099cf8dd5117caaa512b05e13b5f2085a7d1d9120e7eddd887a0782d"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/layout.css",
+            "size": 4214,
+            "hash": "ec4dba6ed8deb2d99342a5a5f528fad12a2b009bcad59cfa22a2d5e7fd456e1b"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/login.css",
+            "size": 2284,
+            "hash": "8440fd4990a8b2666f0672c35ae3b378b304a1fea3eabb4ad16461f0221b94ad"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/main.css",
+            "size": 1246,
+            "hash": "202b773ae0aebb159bf9c379c5e5ad58f9fff7ead377bb7bf421e2811a266959"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/spacing.css",
+            "size": 1398,
+            "hash": "5c39bde156acf6d8aa90bd42065ab72a89c2c1d8ae5005defabfd6ada7e31e09"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/typography.css",
+            "size": 3106,
+            "hash": "6a9c90ae5a76e27eec7b342745ad69c1abb014f9ec144505c3ce1c7add26abd5"
+        },
+        {
+            "type": "folder",
+            "name": "assets/css/widgets"
+        },
+        {
+            "type": "file",
+            "name": "assets/fonts/VAGRoundedStd-Bold.otf",
+            "size": 46985,
+            "hash": "58f577c87a78ae138903f80db0f0025188b5432da51a0e446f8f03c47270ac8a"
+        },
+        {
+            "type": "file",
+            "name": "assets/fonts/VAGRoundedStd-Regular.ttf",
+            "size": 50508,
+            "hash": "d204bc94ddf1dad7d6e8424d00773c724f172939cebe591ad309fe9622bdc082"
+        },
+        {
+            "type": "file",
+            "name": "assets/img/logo_icon-2.svg",
+            "size": 2164,
+            "hash": "b944c7b89ba536de8c45ded46e10ecbe14346d5b1e27f8426d28902b7b309c83"
+        },
+        {
+            "type": "file",
+            "name": "assets/img/eventsuper-dakje.svg",
+            "size": 1513,
+            "hash": "c18dbd3db19a38124b1daff3d848c2e7d84c5bf617281f65786de82fc5ee37e8"
+        },
+        {
+            "type": "file",
+            "name": "assets/img/nieuwdak.svg",
+            "size": 1502,
+            "hash": "d17f51d5e61c57138dd5ce144d963648d2fe59485123c2afa7e01b5f7c042741"
+        },
+        {
+            "type": "file",
+            "name": "assets/js/animations.js",
+            "size": 0,
+            "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "type": "file",
+            "name": "assets/js/contact.js",
+            "size": 521,
+            "hash": "fa31891c571e8df197563b5229ff5d698cbff47d266354dc979abcae1638a1bc"
+        },
+        {
+            "type": "file",
+            "name": "assets/js/case-showcase.js",
+            "size": 0,
+            "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "type": "file",
+            "name": "assets/js/design-system.js",
+            "size": 924,
+            "hash": "d6b784b68a31c5755dba69789480a8ab133df35522e82aca946c6ca81a4afab2"
+        },
+        {
+            "type": "file",
+            "name": "assets/js/gsap-hero.js",
+            "size": 10764,
+            "hash": "f8aa259d7df72262cef22f0963700912d434692bc35c652b2e5f4614e37d4342"
+        },
+        {
+            "type": "file",
+            "name": "assets/js/header.js",
+            "size": 1801,
+            "hash": "d605a35fc647251ff8ae8a500574044c941b03f3230107cf4b7c8698497bb489"
+        },
+        {
+            "type": "file",
+            "name": "assets/js/main.js",
+            "size": 57,
+            "hash": "0530ce5bf0935d6d3cbd02acb175e05f4535d9b6c00c3f149ac2bbde042ff441"
+        },
+        {
+            "type": "file",
+            "name": "assets/js/partners-slider.js",
+            "size": 2138,
+            "hash": "e43cc0117b9dd02dfa065f9a5e789e609ca4599193d36e538720fc058c9e1301"
+        },
+        {
+            "type": "file",
+            "name": "assets/js/reveal.js",
+            "size": 401,
+            "hash": "c6190f96e7e14c64cb38f2cda20895c2c5bc7fef8bc6703e2ba665e113235139"
+        },
+        {
+            "type": "file",
+            "name": "partials/werkenbij/hero.php",
+            "size": 245,
+            "hash": "39d1e6bb27391a1873e440c8661adf52ef67f81c0bb461bf2ce24c89dcfd0eda"
+        },
+        {
+            "type": "file",
+            "name": "partials/werkenbij/quote.php",
+            "size": 496,
+            "hash": "778f8735ef715aac6db20ed527ce93280079d3072c71cb2a94ae3a0bf9fa5581"
+        },
+        {
+            "type": "file",
+            "name": "partials/werkenbij/usp.php",
+            "size": 767,
+            "hash": "6f1e112b5e5f1958fc063bbac3acaaa17c89e4906da938d26a22c2df230341ca"
+        },
+        {
+            "type": "file",
+            "name": "partials/werkenbij/vacatures.php",
+            "size": 227,
+            "hash": "6bbcb44d72d2bfd3aee79d83252859762582a0b6fc76dcf59790757107379b4a"
+        },
+        {
+            "type": "file",
+            "name": "template-parts/sections/content.php",
+            "size": 5173,
+            "hash": "5c6ab4ce68c17d2c4fe21bd889d5cc998b8eb63fd0491af5ad0062c311f17b26"
+        },
+        {
+            "type": "file",
+            "name": "template-parts/sections/case-breakdown.php",
+            "size": 7238,
+            "hash": "641271af3deec081225a47c13612ada4cef6d53d8f214fc85a145f031fba6fd7"
+        },
+        {
+            "type": "file",
+            "name": "template-parts/sections/cta.php",
+            "size": 2076,
+            "hash": "e58bcb99b6792934d6e9ed91b2c1e13b07c98268e88579cee866d26f976969ca"
+        },
+        {
+            "type": "file",
+            "name": "template-parts/sections/partners-slider.php",
+            "size": 1519,
+            "hash": "e202c16e4eb6ef025504c20bcb21286c5e9f78fa3380a889f63748113be1f424"
+        },
+        {
+            "type": "file",
+            "name": "template-parts/sections/testimonials.php",
+            "size": 2844,
+            "hash": "6f48cc001d242a9499225f2faf90e00b013dab5988ac0029a0595d8101d2ca8e"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/widgets/cards.css",
+            "size": 2037,
+            "hash": "5f6b498c0ff0f6cceccf42f42655b5eca6bfdd2cfd8e94a2fbc01af2f9a3ba9d"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/widgets/contact.css",
+            "size": 2747,
+            "hash": "50f58ffafc0cc36e096f394872884c2458b99ea4ad04c383f60b0716dcf554f6"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/widgets/case-showcase.css",
+            "size": 7867,
+            "hash": "0491687de6358509f245ac3df41ab89f962f909842a4bb99e0d4e7ecfb2c9d2e"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/widgets/content.css",
+            "size": 4615,
+            "hash": "6d434c23d3c6629033926db17ae184453d0040be96a6e0e62fd02b7202f4f6a0"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/widgets/cta.css",
+            "size": 4856,
+            "hash": "4110792de96d17f7d90a822e75120779a2a2d3b1f85de3a220ae5ea51d570e6a"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/widgets/hero.css",
+            "size": 2405,
+            "hash": "2f3db9f601e60330a44c734a1eca24da33c9eb0931872c714fd835cf961925a9"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/widgets/partners-slider.css",
+            "size": 1963,
+            "hash": "d56f6fdb2e0e036e451b6df512db6ecb1dc7faf37657d6961a918f5953aaad4b"
+        },
+        {
+            "type": "file",
+            "name": "assets/css/widgets/testimonials.css",
+            "size": 3882,
+            "hash": "2e7319254c1d19ab30fac0573e6e534b828f4e18cafc2abf9cdda52611f69a3b"
+        }
+    ]
+}
