@@ -2,7 +2,7 @@
 $enabled = get_sub_field('case_breakdown_enabled');
 if (!$enabled) return;
 
-$title  = get_sub_field('case_breakdown_title') ?: 'De Verschillende Eventsupers';
+$title  = get_sub_field('case_breakdown_title') ?: 'Ons Assortiment';
 $kicker = get_sub_field('case_breakdown_kicker') ?: 'Opties die we aanbieden';
 $tabs   = get_sub_field('case_breakdown_tabs');
 

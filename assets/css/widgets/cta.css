@@ -161,16 +161,16 @@
   box-shadow: 0 14px 36px rgba(15, 36, 56, .35);
 }
 
-/* Primary — dark variant: orange→yellow gradient */
+/* Primary — dark variant: blue gradient */
 .ls-cta--dark .ls-cta-btn--primary {
   background: var(--brand-gradient);
   color: #fff;
-  box-shadow: 0 8px 24px rgba(236, 105, 7, .35);
+  box-shadow: 0 8px 24px rgba(46, 109, 164, .35);
 }
 
 .ls-cta--dark .ls-cta-btn--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 36px rgba(236, 105, 7, .50);
+  box-shadow: 0 14px 36px rgba(46, 109, 164, .50);
 }
 
 /* Secondary — light variant: navy outline */

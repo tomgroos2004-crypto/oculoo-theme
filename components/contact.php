@@ -1,7 +1,7 @@
 <?php
-$title        = $title        ?? 'Samenwerken met Eventsuper';
-$lead         = $lead         ?? 'Op zoek naar een betrouwbare partner voor personeel, activatie of productie op events? We denken graag met je mee.';
-$email_to    = $email_to    ?? 'info@eventsuper.nl';
+$title        = $title        ?? 'Neem contact op met Oculoo';
+$lead         = $lead         ?? 'Vragen over een product of bestelling? We helpen je graag verder.';
+$email_to    = $email_to    ?? 'info@oculoo.com';
 $phone       = $phone       ?? '+31 6 12345678';
 ?>
 <section class="ls-contact ls-partnership">
@@ -18,11 +18,11 @@ $phone       = $phone       ?? '+31 6 12345678';
 
       <!-- USP / Waarom -->
       <section class="ls-contact-card ls-partnership-usp">
-        <h3>Waarom Eventsuper?</h3>
+        <h3>Waarom Oculoo?</h3>
         <ul>
-          <li>Ervaren crew voor festivals, sport & corporate events</li>
-          <li>Flexibel inzetbaar, snel schakelen</li>
-          <li>Altijd representatief en goed voorbereid</li>
+          <li>Professionele evenementenproducten, direct leverbaar</li>
+          <li>Persoonlijk advies bij jouw specifieke wensen</li>
+          <li>Snel en betrouwbaar geleverd</li>
         </ul>
       </section>
 

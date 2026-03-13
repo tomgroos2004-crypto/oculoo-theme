@@ -6,7 +6,7 @@ if (empty($settings['tabs'])) return;
 
   <div class="ls-container">
       <h2 class="ls-case-titel">
-		  De Verschillende Eventsupers
+		  Ons Assortiment
 	  </h2>
 	  <p class="ls-case-kicker">Opties die we aanbieden</p>
 

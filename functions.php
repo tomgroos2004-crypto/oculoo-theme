@@ -9,10 +9,12 @@ if (!defined('ABSPATH')) {
 function es_theme_setup() {
 
   add_theme_support('title-tag');
+  add_theme_support('woocommerce');
 
   add_theme_support('post-thumbnails', [
     'post',
     'page',
+    'product',
   ]);
 
   add_theme_support('html5', [
@@ -39,7 +41,7 @@ function es_enqueue_assets() {
 
   /* Main CSS — GEEN file_exists check */
   wp_enqueue_style(
-    'eventsuper-main',
+    'oculoo-main',
     $uri . '/assets/css/main.css',
     [],
     filemtime($dir . '/assets/css/main.css')
@@ -97,7 +99,7 @@ add_action('wp_enqueue_scripts', 'es_enqueue_assets');
 function es_meta_description() {
 
   if (is_front_page()) {
-    echo '<meta name="description" content="Eventsuper is dé supermarkt op evenementen. Snel, schaalbaar en professioneel ingericht.">' . "\n";
+    echo '<meta name="description" content="Oculoo — professionele evenementenproducten. Snel, schaalbaar en direct te bestellen.">' . "\n";
   }
 
 }

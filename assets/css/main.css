@@ -9,8 +9,6 @@
 @import url("./buttons.css");
 @import url("./header.css");
 @import url("./card.css");
-@import url("./design-system.css");
-@import url("./festival.css");
 @import url("./case-breakdown.css");
 @import url("./footer.css");
 
@@ -21,17 +19,14 @@
 @import url("./widgets/cards.css");
 @import url("./widgets/content.css");
 @import url("./widgets/contact.css");
-@import url("./widgets/blog-list.css");
 @import url("./widgets/case-showcase.css");
 @import url("./widgets/partners-slider.css");
 @import url("./widgets/testimonials.css");
+@import url("./widgets/featured-products.css");
 
 
-@import url("./page/sfeer.css");
-@import url("./page/vacatures.css");
-@import url("./page/werken-bij.css");
-
-@import url("./heroes/sfeer-hero.css");
+@import url("./page/product-single.css");
+@import url("./page/shop.css");
 /* =========================================================
    Global canvas enforcement (AFTER imports)
 ========================================================= */

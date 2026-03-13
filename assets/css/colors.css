@@ -9,13 +9,13 @@
 ====================================================== */
 
 --color-primary: #0F2438;
---color-accent: #EC6907;
+--color-accent: #2E6DA4;
 
 --brand-gradient:
 linear-gradient(
 109deg,
-#EC6907,
-#FFD500
+#2E6DA4,
+#5BA3D9
 );
 
 
@@ -57,7 +57,7 @@ var(--color-bg);
 --color-surface-dark: #1B1E26;
 --color-surface-darker: #1B1E26;
 
---color-surface-accent: rgba(255,213,0,.08);
+--color-surface-accent: rgba(46,109,164,.08);
 
 
 /* ======================================================
@@ -78,7 +78,7 @@ var(--color-bg);
 --color-border: rgba(20,22,28,.14);
 --color-border-dark: rgba(255,255,255,.09);
 
---color-accent-soft: rgba(255,213,0,.26);
+--color-accent-soft: rgba(46,109,164,.18);
 
 
 /* ======================================================

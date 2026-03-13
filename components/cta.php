@@ -1,5 +1,5 @@
 <?php
-// Eventsuper CTA – simpel & vast
+// Oculoo CTA – simpel & vast
 ?>
 
 <section class="es-cta section-md">
