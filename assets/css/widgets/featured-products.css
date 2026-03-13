@@ -1,0 +1,331 @@
+/* =========================================================
+   LS – Featured Products (Homepage)
+   Oculoo brand — navy #0F2438, accent #2E6DA4, strak + clean
+========================================================= */
+
+.ls-featured-products {
+  background: var(--color-bg);
+}
+
+/* ---------------------------------------------------------
+   Header
+--------------------------------------------------------- */
+
+.ls-featured-products__header {
+  margin-bottom: clamp(32px, 4.5vw, 56px);
+}
+
+.ls-featured-products__eyebrow {
+  margin: 0 0 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.ls-featured-products__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(28px, 3.8vw, 52px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  margin: 0 0 12px;
+}
+
+.ls-featured-products__intro {
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.65;
+  color: var(--color-inverted-muted);
+  max-width: 54ch;
+  margin: 0;
+}
+
+/* ---------------------------------------------------------
+   Grid
+--------------------------------------------------------- */
+
+.ls-featured-products__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 2.8vw, 32px);
+}
+
+/* ---------------------------------------------------------
+   Card
+--------------------------------------------------------- */
+
+.ls-fp-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid rgba(15, 36, 56, .09);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow:
+    0 2px 4px rgba(15, 36, 56, .04),
+    0 14px 36px rgba(15, 36, 56, .08);
+  transition: transform .26s ease, box-shadow .26s ease;
+}
+
+.ls-fp-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 4px 8px rgba(15, 36, 56, .06),
+    0 24px 52px rgba(15, 36, 56, .14);
+}
+
+/* ----- Media ----- */
+
+.ls-fp-card__media {
+  display: block;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #eef1f5;
+  flex-shrink: 0;
+}
+
+.ls-fp-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .40s ease;
+}
+
+.ls-fp-card:hover .ls-fp-card__media img {
+  transform: scale(1.04);
+}
+
+.ls-fp-card__no-image {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #dfe5ec 0%, #c8d2dd 100%);
+}
+
+/* ----- Sale badge ----- */
+
+.ls-fp-card__sale {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  background: var(--color-accent);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 5px 11px;
+  box-shadow: 0 4px 12px rgba(46, 109, 164, .35);
+}
+
+/* ----- Body ----- */
+
+.ls-fp-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: clamp(20px, 2.4vw, 28px);
+  gap: 8px;
+}
+
+/* ----- Categorie ----- */
+
+.ls-fp-card__cat {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* ----- Naam ----- */
+
+.ls-fp-card__name {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(20px, 1.9vw, 28px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.ls-fp-card__name a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color .18s ease;
+}
+
+.ls-fp-card__name a:hover {
+  color: var(--color-accent);
+}
+
+/* ----- Excerpt ----- */
+
+.ls-fp-card__excerpt {
+  margin: 0;
+  font-size: clamp(14px, 1.1vw, 15px);
+  line-height: 1.65;
+  color: var(--color-inverted-muted);
+}
+
+/* ----- Footer ----- */
+
+.ls-fp-card__footer {
+  margin-top: auto;
+  padding-top: 18px;
+  margin-top: 14px;
+  border-top: 1px solid rgba(15, 36, 56, .08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.ls-fp-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* ----- Prijs ----- */
+
+.ls-fp-card__price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(20px, 1.8vw, 26px);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.ls-fp-card__price ins {
+  text-decoration: none;
+}
+
+.ls-fp-card__price del {
+  font-size: .7em;
+  font-weight: 400;
+  opacity: .40;
+  margin-right: 5px;
+}
+
+/* ----- Voorraad ----- */
+
+.ls-fp-card__stock {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ls-fp-card__dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ls-fp-card__stock.is-in  { color: #127445; }
+.ls-fp-card__stock.is-in  .ls-fp-card__dot { background: #127445; }
+.ls-fp-card__stock.is-out { color: #8f2e2e; }
+.ls-fp-card__stock.is-out .ls-fp-card__dot { background: #8f2e2e; }
+
+/* ----- CTA knop ----- */
+
+.ls-fp-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  padding: 12px 20px;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(15, 36, 56, .22);
+  transition: background .20s ease, transform .20s ease, box-shadow .20s ease;
+}
+
+.ls-fp-card__cta:hover {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(46, 109, 164, .35);
+}
+
+.ls-fp-card__cta svg {
+  transition: transform .18s ease;
+}
+
+.ls-fp-card__cta:hover svg {
+  transform: translateX(3px);
+}
+
+/* ---------------------------------------------------------
+   Footer — link naar alle producten
+--------------------------------------------------------- */
+
+.ls-featured-products__footer {
+  margin-top: clamp(24px, 3vw, 36px);
+  text-align: center;
+}
+
+.ls-featured-products__all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color .18s ease;
+}
+
+.ls-featured-products__all:hover {
+  color: var(--color-accent);
+}
+
+.ls-featured-products__all svg {
+  transition: transform .18s ease;
+}
+
+.ls-featured-products__all:hover svg {
+  transform: translateX(4px);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .ls-featured-products__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ls-fp-card__footer {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .ls-fp-card__cta {
+    width: 100%;
+    justify-content: center;
+  }
+}

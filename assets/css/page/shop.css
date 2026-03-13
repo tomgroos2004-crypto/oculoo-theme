@@ -1,0 +1,744 @@
+/* =========================================================
+   LS – Shop / Archive Product
+   Oculoo brand — navy #0F2438, accent #2E6DA4
+========================================================= */
+
+/* ---------------------------------------------------------
+   Hero
+--------------------------------------------------------- */
+
+.ls-shop-hero {
+  background: linear-gradient(160deg, #eef4fa 0%, var(--color-bg) 65%);
+  border-bottom: 1px solid rgba(15, 36, 56, .07);
+}
+
+.ls-shop-hero__eyebrow {
+  margin: 0 0 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.ls-shop-hero__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  margin: 0 0 10px;
+}
+
+.ls-shop-hero__sub {
+  margin: 0;
+  max-width: 50ch;
+  color: var(--color-inverted-muted);
+}
+
+/* ---------------------------------------------------------
+   Toolbar
+--------------------------------------------------------- */
+
+.ls-shop-grid__toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: clamp(16px, 2vw, 24px);
+  padding-bottom: clamp(12px, 1.5vw, 18px);
+  border-bottom: 1px solid rgba(15, 36, 56, .08);
+}
+
+.ls-shop-grid__count {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--color-inverted-muted);
+}
+
+.ls-shop-grid__sort select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 8px 32px 8px 12px;
+  border: 1.5px solid rgba(15, 36, 56, .18);
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: #fff url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%230F2438' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") right 12px center no-repeat;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ---------------------------------------------------------
+   Product grid — hard-reset WooCommerce float defaults
+--------------------------------------------------------- */
+
+/* WooCommerce sets float:left, width:48%, clear:both on li.product.
+   We must override these with high specificity to use our grid. */
+.ls-shop-page ul.products li.product {
+  float: none !important;
+  width: auto !important;
+  clear: none !important;
+  margin: 0 !important;
+}
+
+.ls-shop-page ul.products {
+  list-style: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 2.4vw, 28px);
+}
+
+.ls-shop-page ul.products::before,
+.ls-shop-page ul.products::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* ---------------------------------------------------------
+   Shop Card (.ls-sc)
+--------------------------------------------------------- */
+
+.ls-sc {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;           /* fill the grid cell so rows stay even */
+  background: #fff;
+  border: 1px solid rgba(15, 36, 56, .09);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin: 0;
+  box-shadow:
+    0 2px 4px rgba(15, 36, 56, .04),
+    0 12px 30px rgba(15, 36, 56, .07);
+  transition: transform .24s ease, box-shadow .24s ease;
+}
+
+.ls-sc:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 4px 8px rgba(15, 36, 56, .06),
+    0 20px 44px rgba(15, 36, 56, .12);
+}
+
+/* ----- Media ----- */
+
+.ls-sc__media {
+  display: block;
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: #eef1f5;
+  flex-shrink: 0;
+}
+
+.ls-sc__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .38s ease;
+}
+
+.ls-sc:hover .ls-sc__media img {
+  transform: scale(1.04);
+}
+
+.ls-sc__no-image {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #dfe5ec 0%, #c8d2dd 100%);
+}
+
+/* ----- Sale ----- */
+
+.ls-sc__sale {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  background: var(--color-accent);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 5px 10px;
+  box-shadow: 0 4px 12px rgba(46, 109, 164, .30);
+}
+
+/* ----- Body ----- */
+
+.ls-sc__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: clamp(16px, 2vw, 22px);
+  gap: 7px;
+}
+
+/* ----- Categorie ----- */
+
+.ls-sc__cat {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* ----- Naam ----- */
+
+.ls-sc__name {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(18px, 1.6vw, 24px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.ls-sc__name a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color .16s ease;
+}
+
+.ls-sc__name a:hover {
+  color: var(--color-accent);
+}
+
+/* ----- Excerpt ----- */
+
+.ls-sc__excerpt {
+  margin: 0;
+  font-size: clamp(13px, 1vw, 15px);
+  line-height: 1.6;
+  color: var(--color-inverted-muted);
+}
+
+/* ----- Footer ----- */
+
+.ls-sc__footer {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(15, 36, 56, .08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ls-sc__price-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ls-sc__price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(18px, 1.6vw, 24px);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.ls-sc__price ins  { text-decoration: none; }
+.ls-sc__price del  { font-size: .7em; font-weight: 400; opacity: .40; margin-right: 4px; }
+
+.ls-sc__stock {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.ls-sc__dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ls-sc__stock.is-in  { color: #127445; }
+.ls-sc__stock.is-in  .ls-sc__dot { background: #127445; }
+.ls-sc__stock.is-out { color: #8f2e2e; }
+.ls-sc__stock.is-out .ls-sc__dot { background: #8f2e2e; }
+
+/* ----- CTA ----- */
+
+.ls-sc__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  padding: 10px 18px;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 5px 14px rgba(15, 36, 56, .20);
+  transition: background .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.ls-sc__cta:hover {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(46, 109, 164, .35);
+}
+
+.ls-sc__cta svg {
+  transition: transform .16s ease;
+}
+
+.ls-sc__cta:hover svg {
+  transform: translateX(3px);
+}
+
+/* ---------------------------------------------------------
+   Pagination
+--------------------------------------------------------- */
+
+.ls-shop-grid__pagination {
+  margin-top: clamp(24px, 3vw, 40px);
+  text-align: center;
+}
+
+.ls-shop-grid__pagination .woocommerce-pagination ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  gap: 6px;
+}
+
+.ls-shop-grid__pagination .woocommerce-pagination li a,
+.ls-shop-grid__pagination .woocommerce-pagination li span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid rgba(15, 36, 56, .18);
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: background .16s ease, border-color .16s ease, color .16s ease;
+}
+
+.ls-shop-grid__pagination .woocommerce-pagination li .current,
+.ls-shop-grid__pagination .woocommerce-pagination li a:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+/* =========================================================
+   WooCommerce cart / checkout / account
+========================================================= */
+
+/* ---------------------------------------------------------
+   Pagina-wrapper
+--------------------------------------------------------- */
+
+.ls-wc-page {
+  background: var(--color-bg);
+}
+
+.ls-wc-page .ls-container {
+  max-width: 960px;
+}
+
+/* Paginatitel (entry-title van WP) */
+.ls-wc-page .entry-title,
+.ls-wc-page h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  margin: 0 0 clamp(24px, 3vw, 40px);
+  line-height: 1.1;
+}
+
+/* Tussenkopjes */
+.ls-wc-page h2,
+.ls-wc-page h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.01em;
+}
+
+/* Bodytekst */
+.ls-wc-page p,
+.ls-wc-page label,
+.ls-wc-page td,
+.ls-wc-page th {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-inverted);
+}
+
+/* ---------------------------------------------------------
+   Notices (succes / info)
+--------------------------------------------------------- */
+
+.ls-wc-page .woocommerce-message,
+.ls-wc-page .woocommerce-info,
+.ls-wc-page .woocommerce-error {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  margin-bottom: 24px;
+}
+
+.ls-wc-page .woocommerce-message { border-top-color: #127445 !important; }
+.ls-wc-page .woocommerce-info    { border-top-color: var(--color-accent) !important; }
+.ls-wc-page .woocommerce-error   { border-top-color: #8f2e2e !important; }
+
+/* ---------------------------------------------------------
+   Cart-tabel
+--------------------------------------------------------- */
+
+.ls-wc-page .woocommerce-cart-form table,
+.ls-wc-page .shop_table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid rgba(15, 36, 56, .08);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(15, 36, 56, .06);
+}
+
+.ls-wc-page .shop_table thead {
+  background: rgba(15, 36, 56, .03);
+}
+
+.ls-wc-page .shop_table th {
+  padding: 14px 20px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: rgba(15, 36, 56, .55);
+  border-bottom: 1px solid rgba(15, 36, 56, .09);
+}
+
+.ls-wc-page .shop_table td {
+  padding: 18px 20px;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(15, 36, 56, .06);
+}
+
+.ls-wc-page .shop_table tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Productafbeelding */
+.ls-wc-page .shop_table .product-thumbnail img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  display: block;
+  box-shadow: 0 2px 8px rgba(15, 36, 56, .10);
+}
+
+/* Productnaam */
+.ls-wc-page .shop_table .product-name a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.ls-wc-page .shop_table .product-name a:hover {
+  color: var(--color-accent);
+}
+
+/* Prijs */
+.ls-wc-page .shop_table .product-price,
+.ls-wc-page .shop_table .product-subtotal {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* Verwijder-knop */
+.ls-wc-page .shop_table .product-remove a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(143, 46, 46, .08);
+  color: #8f2e2e !important;
+  border-radius: 50%;
+  font-size: 18px;
+  line-height: 1;
+  text-decoration: none;
+  transition: background .16s ease;
+}
+
+.ls-wc-page .shop_table .product-remove a:hover {
+  background: rgba(143, 46, 46, .18);
+}
+
+/* Quantity-input in cart */
+.ls-wc-page .shop_table .qty {
+  width: 64px;
+  height: 42px;
+  border: 1.5px solid rgba(15, 36, 56, .18) !important;
+  border-radius: 10px !important;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--color-primary) !important;
+}
+
+/* ---------------------------------------------------------
+   Knoppen
+--------------------------------------------------------- */
+
+.ls-wc-page .woocommerce .button,
+.ls-wc-page .woocommerce button.button,
+.ls-wc-page .woocommerce input.button,
+.ls-wc-page .woocommerce a.button {
+  display: inline-flex !important;
+  align-items: center !important;
+  background: var(--color-primary) !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: .03em !important;
+  padding: 12px 24px !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 14px rgba(15, 36, 56, .18) !important;
+  transition: background .18s ease, transform .18s ease !important;
+}
+
+.ls-wc-page .woocommerce .button:hover,
+.ls-wc-page .woocommerce button.button:hover,
+.ls-wc-page .woocommerce input.button:hover,
+.ls-wc-page .woocommerce a.button:hover {
+  background: var(--color-accent) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Secundaire knop (coupon, bijwerken) */
+.ls-wc-page .woocommerce .button.alt,
+.ls-wc-page .woocommerce [name="update_cart"],
+.ls-wc-page .woocommerce .coupon .button {
+  background: rgba(15, 36, 56, .07) !important;
+  color: var(--color-primary) !important;
+  box-shadow: none !important;
+}
+
+.ls-wc-page .woocommerce .button.alt:hover,
+.ls-wc-page .woocommerce [name="update_cart"]:hover,
+.ls-wc-page .woocommerce .coupon .button:hover {
+  background: rgba(15, 36, 56, .13) !important;
+  transform: none !important;
+}
+
+/* Afrekenen-knop — prominent navy */
+.ls-wc-page .woocommerce .checkout-button {
+  width: 100% !important;
+  justify-content: center !important;
+  padding: 16px 28px !important;
+  font-size: 16px !important;
+  box-shadow: 0 8px 24px rgba(15, 36, 56, .22) !important;
+}
+
+/* ---------------------------------------------------------
+   Cart-totalen
+--------------------------------------------------------- */
+
+.ls-wc-page .cart-collaterals {
+  margin-top: clamp(24px, 3vw, 40px);
+}
+
+.ls-wc-page .cart_totals {
+  background: #fff;
+  border: 1px solid rgba(15, 36, 56, .09);
+  border-radius: var(--radius-md);
+  padding: clamp(20px, 3vw, 32px);
+  box-shadow: 0 4px 18px rgba(15, 36, 56, .07);
+}
+
+.ls-wc-page .cart_totals h2 {
+  font-size: clamp(18px, 2vw, 22px);
+  margin: 0 0 20px;
+}
+
+.ls-wc-page .cart_totals .shop_table th,
+.ls-wc-page .cart_totals .shop_table td {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(15, 36, 56, .06);
+  font-size: 15px;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.ls-wc-page .cart_totals .order-total th,
+.ls-wc-page .cart_totals .order-total td {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-primary);
+  border-bottom: 0;
+  padding-top: 16px;
+}
+
+/* ---------------------------------------------------------
+   Kortingscode
+--------------------------------------------------------- */
+
+.ls-wc-page .coupon {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.ls-wc-page .coupon input[type="text"] {
+  flex: 1;
+  min-width: 160px;
+  height: 44px;
+  border: 1.5px solid rgba(15, 36, 56, .18) !important;
+  border-radius: 10px !important;
+  padding: 0 14px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  color: var(--color-primary) !important;
+  outline: none;
+}
+
+.ls-wc-page .coupon input[type="text"]:focus {
+  border-color: var(--color-accent) !important;
+}
+
+/* ---------------------------------------------------------
+   Input-velden (checkout)
+--------------------------------------------------------- */
+
+.ls-wc-page .woocommerce input[type="text"],
+.ls-wc-page .woocommerce input[type="email"],
+.ls-wc-page .woocommerce input[type="tel"],
+.ls-wc-page .woocommerce input[type="number"],
+.ls-wc-page .woocommerce input[type="password"],
+.ls-wc-page .woocommerce select,
+.ls-wc-page .woocommerce textarea {
+  width: 100%;
+  border: 1.5px solid rgba(15, 36, 56, .18) !important;
+  border-radius: 10px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 15px !important;
+  padding: 11px 14px !important;
+  color: var(--color-primary) !important;
+  background: #fff !important;
+  outline: none !important;
+  transition: border-color .18s ease, box-shadow .18s ease !important;
+}
+
+.ls-wc-page .woocommerce input:focus,
+.ls-wc-page .woocommerce select:focus,
+.ls-wc-page .woocommerce textarea:focus {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 0 3px rgba(46, 109, 164, .12) !important;
+}
+
+.ls-wc-page .woocommerce label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(15, 36, 56, .70);
+  margin-bottom: 6px;
+}
+
+/* ---------------------------------------------------------
+   Lege winkelmand
+--------------------------------------------------------- */
+
+.ls-wc-page .woocommerce-cart .cart-empty {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+  padding: 56px 0 16px;
+}
+
+.ls-wc-page .woocommerce-cart .return-to-shop {
+  text-align: center;
+  padding-bottom: 32px;
+}
+
+/* ---------------------------------------------------------
+   Leeg
+--------------------------------------------------------- */
+
+.ls-shop-empty {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--color-inverted-muted);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ---------------------------------------------------------
+   Responsive
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .ls-shop-grid__toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .ls-shop-page ul.products {
+    grid-template-columns: 1fr;
+  }
+
+  .ls-sc__footer {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .ls-sc__cta {
+    width: 100%;
+    justify-content: center;
+  }
+}

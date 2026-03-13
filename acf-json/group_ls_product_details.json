@@ -1,0 +1,104 @@
+{
+    "key": "group_ls_product_details",
+    "title": "Product – Extra inhoud",
+    "fields": [
+        {
+            "key": "field_ls_product_intro",
+            "label": "Korte intro",
+            "name": "product_intro",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Korte tekst onder prijs op de productpagina.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_ls_product_usps",
+            "label": "USP's",
+            "name": "product_usps",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Korte bullets naast de productinfo.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "min": 0,
+            "max": 0,
+            "button_label": "USP toevoegen",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_ls_product_usp_text",
+                    "label": "Tekst",
+                    "name": "text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_ls_product_usps"
+                }
+            ]
+        },
+        {
+            "key": "field_ls_product_cta_link",
+            "label": "Secundaire CTA",
+            "name": "product_cta_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Optionele tweede knop naast toevoegen aan winkelwagen.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "product"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Extra contentvelden voor WooCommerce productpagina's.",
+    "show_in_rest": 0,
+    "modified": 1773400001
+}

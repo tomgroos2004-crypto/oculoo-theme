@@ -1,0 +1,665 @@
+/* =========================================================
+   LS – Product Single Page
+   Oculoo brand — navy #0F2438, accent #2E6DA4
+========================================================= */
+
+/* ---------------------------------------------------------
+   Breadcrumb
+--------------------------------------------------------- */
+
+.ls-ph__breadcrumb {
+  margin-bottom: clamp(20px, 2.4vw, 32px);
+}
+
+.ls-breadcrumb {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(15, 36, 56, .55);
+}
+
+.ls-breadcrumb li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ls-breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .16s ease;
+}
+
+.ls-breadcrumb a:hover {
+  color: var(--color-accent);
+}
+
+/* ---------------------------------------------------------
+   Hero sectie achtergrond
+--------------------------------------------------------- */
+
+.ls-ph {
+  background: linear-gradient(160deg, #eef4fa 0%, var(--color-bg) 60%);
+}
+
+/* ---------------------------------------------------------
+   Hero grid
+--------------------------------------------------------- */
+
+.ls-ph__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+}
+
+/* ---------------------------------------------------------
+   Visual col
+--------------------------------------------------------- */
+
+.ls-ph__visual {
+  position: relative;
+}
+
+.ls-ph__sale-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 3;
+  background: var(--color-accent);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 5px 12px;
+  box-shadow: 0 4px 14px rgba(46, 109, 164, .32);
+}
+
+.ls-ph__main-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #eef1f5;
+  box-shadow:
+    0 2px 4px rgba(15, 36, 56, .06),
+    0 20px 48px rgba(15, 36, 56, .12);
+}
+
+.ls-ph__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ls-ph__no-image {
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, #dfe5ec 0%, #c8d2dd 100%);
+}
+
+.ls-ph__thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.ls-ph__thumb {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  opacity: .7;
+  transition: opacity .18s ease;
+}
+
+.ls-ph__thumb:hover {
+  opacity: 1;
+}
+
+.ls-ph__thumb img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------------------------------------------------------
+   Content col
+--------------------------------------------------------- */
+
+.ls-ph__content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: #fff;
+  border: 1px solid rgba(15, 36, 56, .08);
+  border-radius: var(--radius-lg);
+  padding: clamp(24px, 3.5vw, 40px);
+  box-shadow:
+    0 2px 4px rgba(15, 36, 56, .04),
+    0 12px 32px rgba(15, 36, 56, .08);
+}
+
+.ls-ph__cat {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.ls-ph__cat a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ls-ph__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(30px, 4.2vw, 56px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.ls-ph__price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(24px, 2.6vw, 34px);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+  padding: 4px 0;
+}
+
+.ls-ph__price ins {
+  text-decoration: none;
+}
+
+.ls-ph__price del {
+  font-size: .65em;
+  font-weight: 400;
+  opacity: .40;
+  margin-right: 6px;
+}
+
+.ls-ph__divider {
+  height: 1px;
+  background: rgba(15, 36, 56, .10);
+}
+
+.ls-ph__intro {
+  margin: 0;
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.7;
+  color: var(--color-inverted-muted);
+}
+
+.ls-ph__intro p {
+  margin: 0;
+}
+
+/* ----- USP's ----- */
+
+.ls-ph__usps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.ls-ph__usp {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.ls-ph__usp svg {
+  flex-shrink: 0;
+}
+
+/* ----- Voorraad ----- */
+
+.ls-ph__stock {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ls-ph__stock-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ls-ph__stock.is-in  { color: #127445; }
+.ls-ph__stock.is-in  .ls-ph__stock-dot { background: #127445; box-shadow: 0 0 0 3px rgba(18, 116, 69, .18); }
+.ls-ph__stock.is-out { color: #8f2e2e; }
+.ls-ph__stock.is-out .ls-ph__stock-dot { background: #8f2e2e; }
+
+/* ----- Variaties (WooCommerce table.variations) ----- */
+
+.ls-ph__actions table.variations,
+.ls-product-page .variations {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 4px;
+}
+
+.ls-ph__actions table.variations td,
+.ls-product-page .variations td {
+  padding: 0;
+  vertical-align: middle;
+}
+
+.ls-ph__actions table.variations td.label,
+.ls-product-page .variations td.label {
+  padding-right: 16px;
+  padding-bottom: 12px;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(15, 36, 56, .60);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  width: 1%;
+}
+
+.ls-ph__actions table.variations td.value,
+.ls-product-page .variations td.value {
+  padding-bottom: 12px;
+}
+
+/* Variatie-dropdown */
+.ls-ph__actions table.variations select,
+.ls-product-page .variations select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  padding: 11px 40px 11px 14px;
+  border: 1.5px solid rgba(15, 36, 56, .18);
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: #fff url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%230F2438' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") right 14px center no-repeat;
+  cursor: pointer;
+  outline: none;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.ls-ph__actions table.variations select:focus,
+.ls-product-page .variations select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(46, 109, 164, .12);
+}
+
+/* Wissen-link naast dropdown */
+.ls-ph__actions .reset_variations,
+.ls-product-page .reset_variations {
+  display: inline-block;
+  margin-left: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(15, 36, 56, .45);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color .16s ease;
+}
+
+.ls-ph__actions .reset_variations:hover,
+.ls-product-page .reset_variations:hover {
+  color: var(--color-accent);
+}
+
+/* Variatie-beschrijving / prijs */
+.ls-ph__actions .woocommerce-variation-price,
+.ls-product-page .woocommerce-variation-price {
+  margin-bottom: 8px;
+}
+
+.ls-ph__actions .woocommerce-variation-price .price,
+.ls-product-page .woocommerce-variation-price .price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.ls-ph__actions .woocommerce-variation-availability,
+.ls-product-page .woocommerce-variation-availability {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #127445;
+  margin-bottom: 8px;
+}
+
+/* ----- Acties: add to cart ----- */
+
+.ls-ph__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Woo form — variaties: kolom-layout (dropdown boven, qty+btn onder) */
+.ls-ph__actions form.cart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+}
+
+/* simple product: qty + button naast elkaar */
+.ls-ph__actions form.cart:not(.variations_form) {
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* single_variation_wrap: qty + button op één rij */
+.ls-ph__actions .single_variation_wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ls-ph__actions .woocommerce-variation-add-to-cart {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ls-ph__actions .quantity {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ls-ph__actions .quantity .qty {
+  width: 72px;
+  height: 50px;
+  border: 1.5px solid rgba(15, 36, 56, .20);
+  border-radius: 12px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: #fff;
+  outline: none;
+  transition: border-color .18s ease;
+}
+
+.ls-ph__actions .quantity .qty:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(46, 109, 164, .12);
+}
+
+.ls-ph__actions .single_add_to_cart_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;                  /* vult de ruimte naast de qty-input */
+  min-width: 160px;
+  padding: 14px 28px;
+  height: 50px;
+  background: var(--color-primary);
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(15, 36, 56, .25);
+  transition: background .20s ease, transform .20s ease, box-shadow .20s ease;
+}
+
+.ls-ph__actions .single_add_to_cart_button:hover {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(46, 109, 164, .35);
+}
+
+/* Hard-override WooCommerce purple button (#720eec / #a46497) */
+.ls-product-page .woocommerce div.product form.cart .button,
+.ls-product-page .woocommerce div.product form.cart .button.alt,
+.ls-product-page .button.alt,
+.ls-product-page .single_add_to_cart_button.button.alt {
+  background: var(--color-primary) !important;
+  color: #fff !important;
+  border-color: var(--color-primary) !important;
+  border-radius: 999px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  letter-spacing: .04em !important;
+  padding: 14px 28px !important;
+  box-shadow: 0 8px 24px rgba(15, 36, 56, .25) !important;
+  transition: background .20s ease, transform .20s ease, box-shadow .20s ease !important;
+}
+
+.ls-product-page .woocommerce div.product form.cart .button:hover,
+.ls-product-page .woocommerce div.product form.cart .button.alt:hover,
+.ls-product-page .button.alt:hover,
+.ls-product-page .single_add_to_cart_button.button.alt:hover {
+  background: var(--color-accent) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 32px rgba(46, 109, 164, .35) !important;
+}
+
+.ls-ph__secondary-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 24px;
+  border: 1.5px solid rgba(15, 36, 56, .22);
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: border-color .18s ease, background .18s ease;
+}
+
+.ls-ph__secondary-cta:hover {
+  border-color: var(--color-primary);
+  background: rgba(15, 36, 56, .04);
+}
+
+/* ----- SKU ----- */
+
+.ls-ph__sku {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(15, 36, 56, .45);
+}
+
+.ls-ph__sku span {
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------
+   Product content (body tekst)
+--------------------------------------------------------- */
+
+.ls-product-content__inner {
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.8;
+  color: var(--color-inverted);
+}
+
+.ls-product-content__inner > *:first-child { margin-top: 0; }
+.ls-product-content__inner h2,
+.ls-product-content__inner h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+/* ---------------------------------------------------------
+   Gerelateerde producten
+--------------------------------------------------------- */
+
+.ls-product-related .related > h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(22px, 2.8vw, 36px);
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+  margin: 0 0 24px;
+}
+
+/* Hard-reset WooCommerce float defaults on related products */
+.ls-product-related ul.products li.product {
+  float: none !important;
+  width: auto !important;
+  clear: none !important;
+  margin: 0 !important;
+  background: #fff;
+  border: 1px solid rgba(15, 36, 56, .09);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(15, 36, 56, .07);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.ls-product-related ul.products {
+  list-style: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  /* auto-fill so 1 product stays card-width, 2 fills the row */
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: clamp(16px, 2vw, 24px);
+}
+
+.ls-product-related ul.products::before,
+.ls-product-related ul.products::after {
+  display: none !important;
+  content: none !important;
+}
+
+.ls-product-related ul.products li.product:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(15, 36, 56, .12);
+}
+
+.ls-product-related ul.products li.product a img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.ls-product-related ul.products li.product .woocommerce-loop-product__title {
+  padding: 14px 16px 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.ls-product-related ul.products li.product .price {
+  padding: 0 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-primary);
+  display: block;
+}
+
+.ls-product-related ul.products li.product .button {
+  display: inline-flex;
+  align-items: center;
+  margin: 12px 16px 16px;
+  padding: 10px 18px;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  transition: background .18s ease;
+}
+
+.ls-product-related ul.products li.product .button:hover {
+  background: var(--color-accent);
+  box-shadow: 0 6px 18px rgba(46, 109, 164, .28);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .ls-ph__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ls-ph__content {
+    padding: 20px;
+  }
+
+  .ls-ph__thumbs {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .ls-ph__actions form.cart:not(.variations_form),
+  .ls-ph__actions .woocommerce-variation-add-to-cart {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ls-ph__actions .single_add_to_cart_button {
+    width: 100%;
+    justify-content: center;
+    flex: none;
+  }
+
+  .ls-ph__actions .quantity .qty {
+    width: 100%;
+  }
+
+  .ls-ph__secondary-cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ls-product-related ul.products {
+    grid-template-columns: 1fr;
+  }
+}
