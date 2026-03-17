@@ -15,6 +15,8 @@ function es_theme_setup() {
     'post',
     'page',
     'product',
+    'blog',
+    'onderzoek',
   ]);
 
   add_theme_support('html5', [
@@ -122,3 +124,6 @@ $login_file = get_stylesheet_directory() . '/inc/login.php';
 if (file_exists($login_file)) {
   require_once $login_file;
 }
+
+require_once get_stylesheet_directory() . '/inc/post-types.php';
+require_once get_stylesheet_directory() . '/inc/acf-fields.php';

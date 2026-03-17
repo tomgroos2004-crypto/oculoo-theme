@@ -25,6 +25,8 @@
           <a class="<?= (is_shop() || is_product_category() || is_product() ? 'is-active' : ''); ?>" href="<?= esc_url($shop_url); ?>">Producten</a>
           <a class="<?= (is_page('over-ons') ? 'is-active' : ''); ?>" href="<?= esc_url(home_url('/over-ons/')); ?>">Over ons</a>
           <a class="<?= (is_page('contact') ? 'is-active' : ''); ?>" href="<?= esc_url(home_url('/contact/')); ?>">Contact</a>
+          <a class="ls-header-nav__secondary <?= (is_post_type_archive('blog') || is_singular('blog') ? 'is-active' : ''); ?>" href="<?= esc_url(get_post_type_archive_link('blog')); ?>">Blog</a>
+          <a class="ls-header-nav__secondary <?= (is_post_type_archive('onderzoek') || is_singular('onderzoek') ? 'is-active' : ''); ?>" href="<?= esc_url(get_post_type_archive_link('onderzoek')); ?>">Onderzoeken</a>
           <?php
           $account_page_id = function_exists('wc_get_page_id') ? wc_get_page_id('myaccount') : 0;
           $account_url     = $account_page_id > 0 ? get_permalink($account_page_id) : home_url('/mijn-account/');

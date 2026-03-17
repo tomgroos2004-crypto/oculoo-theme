@@ -7,7 +7,7 @@ get_header();
 <main id="primary" class="site-main ls-shop-page">
 
   <!-- Shop hero -->
-  <section class="ls-shop-hero section-sm">
+  <section class="ls-shop-hero section-md">
     <div class="ls-container">
       <p class="ls-shop-hero__eyebrow">Shop</p>
       <h1 class="ls-shop-hero__title"><?php woocommerce_page_title(); ?></h1>

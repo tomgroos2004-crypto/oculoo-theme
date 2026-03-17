@@ -171,6 +171,24 @@ opacity:1;
 }
 
 /* =========================================================
+   SECONDARY NAV LINKS (Blog, Onderzoeken)
+========================================================= */
+
+.ls-header-nav > a.ls-header-nav__secondary{
+font-size:clamp(13px, 1.1vw, 15px);
+opacity:.55;
+}
+
+.ls-header-nav > a.ls-header-nav__secondary.is-active{
+opacity:.75;
+font-weight:600;
+}
+
+.ls-header-nav > a.ls-header-nav__secondary:hover{
+opacity:.85;
+}
+
+/* =========================================================
    CART BUTTON
 ========================================================= */
 

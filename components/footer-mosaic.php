@@ -55,6 +55,8 @@
             <li><a href="<?= esc_url(home_url('/over-ons')); ?>">Over ons</a></li>
             <li><a href="<?= esc_url(home_url('/oplossingen')); ?>">Oplossingen</a></li>
             <li><a href="<?= esc_url(home_url('/cases')); ?>">Cases</a></li>
+            <li><a href="<?= esc_url(get_post_type_archive_link('blog')); ?>">Blog</a></li>
+            <li><a href="<?= esc_url(get_post_type_archive_link('onderzoek')); ?>">Onderzoeken</a></li>
             <li><a href="<?= esc_url(home_url('/contact')); ?>">Contact</a></li>
           </ul>
         </div>
