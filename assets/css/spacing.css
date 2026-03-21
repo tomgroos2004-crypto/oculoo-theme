@@ -9,16 +9,16 @@
   ====================================================== */
 
   /* Subtiel – korte content, intro’s */
-  --ls-section-sm: clamp(48px, 5vw, 72px);
+  --ls-section-sm: clamp(56px, 7vw, 72px);
 
   /* Standaard – meeste secties */
-  --ls-section-md: clamp(72px, 9vw, 120px);
+  --ls-section-md: clamp(72px, 9vw, 100px);
 
   /* Ruim – verhaal / hero opvolging */
-  --ls-section-lg: clamp(104px, 14vw, 180px);
+  --ls-section-lg: clamp(88px, 11vw, 120px);
 
   /* Statement – hero / climax (GEEN viewport-eater) */
-  --ls-section-xl: clamp(140px, 18vw, 240px);
+  --ls-section-xl: clamp(100px, 14vw, 140px);
 }
 
 /* =========================================================
@@ -26,23 +26,32 @@
 ========================================================= */
 
 .section-sm {
-  padding-top: calc(var(--ls-section-sm) * 1.05);
-  padding-bottom: calc(var(--ls-section-sm) * 0.9);
+  padding-top: var(--ls-section-sm);
+  padding-bottom: var(--ls-section-sm);
   background: var(--color-bg);
 }
 
 .section-md {
-  padding-top: calc(var(--ls-section-md) * 1.1);
-  padding-bottom: calc(var(--ls-section-md) * 0.9);
+  padding-top: var(--ls-section-md);
+  padding-bottom: var(--ls-section-md);
 }
 
 .section-lg {
-  padding-top: calc(var(--ls-section-lg) * 1.15);
-  padding-bottom: calc(var(--ls-section-lg) * 0.95);
+  padding-top: var(--ls-section-lg);
+  padding-bottom: var(--ls-section-lg);
 }
 
 .section-xl {
-  padding-top: calc(var(--ls-section-xl) * 1.15);
-  padding-bottom: calc(var(--ls-section-xl) * 1);
+  padding-top: var(--ls-section-xl);
+  padding-bottom: var(--ls-section-xl);
 }
 
+@media (max-width: 960px) {
+  .section-sm,
+  .section-md,
+  .section-lg,
+  .section-xl {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+}

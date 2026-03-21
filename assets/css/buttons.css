@@ -7,10 +7,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
 
-  font-family: 'Inter', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  letter-spacing: .14em;
+  font-family: 'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0;
 
   text-decoration: none;
   white-space: nowrap;
@@ -27,24 +28,26 @@
 
 .btn-primary {
 
-  padding: 15px 30px;
+  padding: 13px 28px;
 
-  background: var(--color-primary);
+  background: var(--color-accent);
   color: #fff;
 
-  border-radius: 48px;
+  border-radius: 999px;
 
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: 500;
 
   box-shadow:
-    0 18px 40px rgba(0,0,0,.25);
+    0 2px 16px rgba(0,0,0,.06);
 }
 
 .btn-primary:hover{
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+  background: #0D7FA0;
 
   box-shadow:
-    0 24px 56px rgba(0,0,0,.35);
+    0 8px 28px rgba(29,161,200,.35);
 }
 
 /* =========================================================
@@ -52,19 +55,22 @@
 ========================================================= */
 
 .btn-secondary {
-
-  padding: 10px 22px;
-
-  border: 1px solid #3a3a3a;
-  border-radius: 20px;
-
+  padding: 0;
+  font-size: 15px;
+  font-weight: 500;
+  border: 0;
+  border-radius: 0;
   background: transparent;
 
-  font-size: 15px;
-
-  color: #0F2B44;
+  color: var(--color-accent);
 }
 
 .btn-secondary:hover{
-  background: rgba(15,43,68,.05);
+  color: #0D7FA0;
+}
+
+.btn-secondary::after {
+  content: '\203a';
+  font-size: 18px;
+  line-height: 1;
 }

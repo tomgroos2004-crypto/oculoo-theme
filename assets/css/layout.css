@@ -55,12 +55,12 @@ select {
   ====================================================== */
 
   /* Tekst = anker, altijd leesbaar */
-  --ls-container: 1420px;          /* default content */
-  --ls-container-wide: 100%;       /* visual / atmosphere */
-  --ls-container-narrow: 1050px;   /* story / explanation */
+  --ls-container: 1100px;
+  --ls-container-wide: 1280px;
+  --ls-container-narrow: 860px;
 
   /* Gutter = adem, niet uitlijning */
-  --ls-gutter: clamp(20px, 4vw, 48px);
+  --ls-gutter: max(24px, 6vw);
 }
 
 /* =========================================================
@@ -117,8 +117,8 @@ select {
   → volgorde bepaalt dominantie
 */
 .ls-grid--2 {
-  grid-template-columns: 1.3fr 0.7fr;
-  gap: clamp(40px, 8vw, 128px);
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 5vw, 80px);
 }
 
 @media (max-width: 900px) {
@@ -134,7 +134,7 @@ select {
 .ls-stack {
   display: flex;
   flex-direction: column;
-  gap: clamp(32px, 5vw, 72px);
+  gap: clamp(20px, 3vw, 44px);
 }
 
 /*
@@ -143,7 +143,7 @@ select {
   → nooit op mobiel
 */
 .ls-stack > *:nth-child(even) {
-  margin-left: clamp(0px, 4vw, 64px);
+  margin-left: 0;
 }
 
 @media (max-width: 900px) {
@@ -156,7 +156,7 @@ select {
 .ls-row {
   display: flex;
   align-items: center;
-  gap: clamp(18px, 4vw, 48px);
+  gap: clamp(12px, 2vw, 24px);
 }
 
 /* =========================================================
@@ -185,7 +185,7 @@ select {
 */
 .ls-section--soft + .ls-section--default,
 .ls-section--default + .ls-section--soft {
-  margin-top: -clamp(56px, 10vw, 160px);
+  margin-top: 0;
 }
 
 /* =====================================

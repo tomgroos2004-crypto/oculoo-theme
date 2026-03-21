@@ -8,6 +8,13 @@ defined('ABSPATH') || exit;
 $heading   = get_sub_field('testi_heading');
 $highlight = get_sub_field('testi_highlight');
 $items     = get_sub_field('testi_items');
+$footer_quote = get_sub_field('testi_footer_quote') ?: 'Veel makkelijker dan bestaande hulpmiddelen. Eindelijk iets wat echt werkt.';
+$footer_meta_title = get_sub_field('testi_footer_meta_title') ?: 'Gebruikerstests';
+$footer_meta_text  = get_sub_field('testi_footer_meta_text') ?: '150+ ouderen getest';
+
+if (is_array($items)) {
+  $items = array_slice($items, 0, 2);
+}
 
 if (empty($items)) return;
 
@@ -95,6 +102,14 @@ if ($heading) {
 
       <?php endforeach; ?>
 
+    </div>
+
+    <div class="ls-testi-quote-bar">
+      <p class="ls-testi-quote-bar__text"><?= esc_html($footer_quote); ?></p>
+      <div class="ls-testi-quote-bar__meta">
+        <strong><?= esc_html($footer_meta_title); ?></strong>
+        <span><?= esc_html($footer_meta_text); ?></span>
+      </div>
     </div>
 
   </div>

@@ -31,6 +31,14 @@ endif;
     ?>
 
     <?php
+    // 1b. Hoe-het-werkt stappen (alleen op hoe-het-werkt pagina)
+    if (is_page('hoe-het-werkt') || is_page('hoe-werkt-het')) {
+      get_template_part('template-parts/sections/how-steps-page');
+      get_template_part('template-parts/sections/how-tips-page');
+    }
+    ?>
+
+    <?php
     // 2. Uitgelichte producten (direct na hero)
     if (is_front_page() && get_field('show_featured_products')) {
       get_template_part('template-parts/sections/featured-products');

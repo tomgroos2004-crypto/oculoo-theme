@@ -53,10 +53,10 @@ function es_enqueue_assets() {
   $scripts = [
     'reveal',
     'header',
+    'how-steps-page',
     'animations',
     'gsap-hero',
-    'case-showcase',
-    'partners-slider'
+    'case-showcase'
   ];
 
   foreach ($scripts as $script) {
@@ -115,6 +115,30 @@ function es_flush_rewrite() {
   flush_rewrite_rules();
 }
 add_action('after_switch_theme', 'es_flush_rewrite');
+
+/* =========================================================
+   ACF OPTIONS PAGES
+========================================================= */
+function es_register_acf_options_pages() {
+  if (!function_exists('acf_add_options_page')) return;
+
+  acf_add_options_page([
+    'page_title' => 'Thema instellingen',
+    'menu_title' => 'Thema instellingen',
+    'menu_slug'  => 'oculoo-theme-settings',
+    'capability' => 'edit_posts',
+    'redirect'   => false,
+  ]);
+
+  acf_add_options_sub_page([
+    'page_title'  => 'Erkend door',
+    'menu_title'  => 'Erkend door',
+    'parent_slug' => 'oculoo-theme-settings',
+    'menu_slug'   => 'oculoo-erkend-door',
+    'capability'  => 'edit_posts',
+  ]);
+}
+add_action('acf/init', 'es_register_acf_options_pages');
 
 
 /* =========================================================

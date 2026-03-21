@@ -15,6 +15,11 @@
 /* subfolders */
 
 @import url("./widgets/hero.css");
+@import url("./widgets/problem.css");
+@import url("./widgets/how.css");
+@import url("./widgets/how-steps-page.css");
+@import url("./widgets/how-tips-page.css");
+@import url("./widgets/about-intro.css");
 @import url("./widgets/cta.css");
 @import url("./widgets/cards.css");
 @import url("./widgets/content.css");

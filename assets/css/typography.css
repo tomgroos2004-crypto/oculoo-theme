@@ -1,118 +1,62 @@
 /* =========================================================
-   Oculoo – Typography
+   Oculoo - Typography system
 ========================================================= */
 
-/* =========================================================
-   Google Fonts – Khula, Inter, Open Sans
-========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Khula:wght@700&family=Inter:wght@400;700&family=Open+Sans:wght@400&display=swap');
-
-/* =========================================================
-   Font – Montserrat (local)
-========================================================= */
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/wp-content/themes/leadsprint-child/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+body {
+  font-family: 'SF Pro Display', -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  color: var(--color-inverted);
+  -webkit-font-smoothing: antialiased;
 }
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/wp-content/themes/leadsprint-child/assets/fonts/Montserrat-SemiBold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/wp-content/themes/leadsprint-child/assets/fonts/Montserrat-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* =========================================================
-   Body
-========================================================= */
-
-body{
-  font-family:'Montserrat', Helvetica, Arial, sans-serif;
-  font-size:clamp(14px, 1.37vw, 18px);
-  line-height:1.6;
-  font-weight:300;
-  color:#0F2438;
-}
-
-/* =========================================================
-   H1
-========================================================= */
 
 h1,
-.h1{
-  font-family:'Khula', sans-serif;
-  font-size:clamp(64px, 17.36vw, 250px);
-  line-height:0.9;
-  font-weight:700;
-  letter-spacing:-0.05em;
+.h1 {
+  font-size: clamp(36px, 4.8vw, 64px);
+  line-height: 1.04;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-inverted);
 }
-
-/* =========================================================
-   H2
-========================================================= */
 
 h2,
-.h2{
-  font-family:'Montserrat', Helvetica, Arial, sans-serif;
-  font-size:clamp(40px, 70vw, 85px);
-  line-height:1.1;
-  font-weight:700;
-  letter-spacing:-0.01em;
+.h2 {
+  font-size: clamp(28px, 3.5vw, 48px);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--color-inverted);
 }
-
-/* =========================================================
-   H3
-========================================================= */
 
 h3,
-.h3{
-  font-family:'Inter', Helvetica, Arial, sans-serif;
-  font-size:clamp(24px, 2.72vw, 39px);
-  line-height:1.25;
-  font-weight:400;
+.h3 {
+  font-size: clamp(22px, 2.4vw, 34px);
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-inverted);
 }
 
-/* =========================================================
-   Paragraph
-========================================================= */
-
-p{
-  font-size:clamp(16px, 1.67vw, 24px);
-  line-height:1.6;
-  color:#0F2438;
+p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--color-inverted-muted);
 }
 
-/* =========================================================
-   Lead
-========================================================= */
-
-.lead{
-  font-size:clamp(16px, 1.71vw, 24px);
-  line-height:1.45;
-  max-width:60ch;
-  font-weight:500;
+.lead {
+  font-size: 17px;
+  line-height: 1.65;
+  font-weight: 300;
+  max-width: 540px;
+  color: var(--color-inverted-muted);
 }
 
-/* =========================================================
-   Small / Meta
-========================================================= */
-
-.small{
-  font-family:'Inter', Helvetica, Arial, sans-serif;
-  font-size:clamp(15px, 1.53vw, 22px);
-  line-height:1.5;
+.small {
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 500;
+  color: var(--color-inverted-muted);
 }

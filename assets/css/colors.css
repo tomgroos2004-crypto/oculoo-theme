@@ -8,14 +8,14 @@
    BRAND
 ====================================================== */
 
---color-primary: #0F2438;
---color-accent: #2E6DA4;
+--color-primary: #1D1D1F;
+--color-accent: #1DA1C8;
 
 --brand-gradient:
 linear-gradient(
-109deg,
-#2E6DA4,
-#5BA3D9
+120deg,
+#1DA1C8,
+#0D7FA0
 );
 
 
@@ -24,15 +24,15 @@ linear-gradient(
 ====================================================== */
 
 /* pure color */
---color-bg: #FFFAFA;
+--color-bg: #FFFFFF;
 
 /* ambient overlay */
 --canvas-overlay:
 linear-gradient(
 180deg,
-rgba(0,0,0,.20) 0%,
-rgba(0,0,0,.05) 40%,
-rgba(0,0,0,0) 70%
+rgba(29,29,31,.03) 0%,
+rgba(29,29,31,.01) 45%,
+rgba(29,29,31,0) 75%
 );
 
 /* final page canvas */
@@ -45,40 +45,40 @@ var(--color-bg);
    SURFACES
 ====================================================== */
 
---color-surface: #FFFAFA;
---ls-surface-soft: #FFFAFA;
---color-surface-muted: #FFFAFA;
+--color-surface: #FFFFFF;
+--ls-surface-soft: #F9FAFB;
+--color-surface-muted: #F0F2F5;
 
 
 /* ======================================================
    DARK SURFACES
 ====================================================== */
 
---color-surface-dark: #1B1E26;
---color-surface-darker: #1B1E26;
+--color-surface-dark: #1D1D1F;
+--color-surface-darker: #1D1D1F;
 
---color-surface-accent: rgba(46,109,164,.08);
+--color-surface-accent: #E6F7FB;
 
 
 /* ======================================================
    TEXT
 ====================================================== */
 
---color-inverted: #1B1E26;
---color-inverted-muted: #5E646B;
+--color-inverted: #1D1D1F;
+--color-inverted-muted: #6E6E73;
 
---color-text: #E8EAED;
---color-muted: rgba(232,234,237,.72);
+--color-text: #FFFFFF;
+--color-muted: rgba(255,255,255,.72);
 
 
 /* ======================================================
    BORDERS
 ====================================================== */
 
---color-border: rgba(20,22,28,.14);
---color-border-dark: rgba(255,255,255,.09);
+--color-border: #D2D5D9;
+--color-border-dark: rgba(255,255,255,.12);
 
---color-accent-soft: rgba(46,109,164,.18);
+--color-accent-soft: rgba(29,161,200,.22);
 
 
 /* ======================================================
@@ -105,9 +105,9 @@ var(--color-bg);
 ====================================================== */
 
 --shadow-soft:
-0 24px 56px rgba(20,22,28,.20);
+0 2px 16px rgba(0,0,0,.06);
 
 --shadow-card:
-0 18px 42px rgba(0,0,0,.38);
+0 8px 40px rgba(0,0,0,.10);
 
 }

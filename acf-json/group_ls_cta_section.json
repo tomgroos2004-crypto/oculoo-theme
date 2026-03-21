@@ -173,9 +173,9 @@
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "comment",
                 "operator": "==",
-                "value": "page"
+                "value": "onderzoek"
             }
         ]
     ],
@@ -189,5 +189,5 @@
     "description": "CTA sectie met optioneel 2 knoppen naast elkaar. Gebruikt door template-parts\/sections\/cta.php",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1773081000
+    "modified": 1774003269
 }
