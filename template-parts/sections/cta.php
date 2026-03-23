@@ -15,19 +15,29 @@ defined('ABSPATH') || exit;
 ============================= */
 
 /* Per-page optional toggle. No value means enabled by default. */
-$cta_enabled_meta = get_post_meta(get_the_ID(), 'cta_enabled', true);
+$context_id = 0;
+
+if (is_singular()) {
+  $context_id = (int) get_the_ID();
+} elseif (function_exists('is_shop') && is_shop()) {
+  $context_id = (int) wc_get_page_id('shop');
+} else {
+  $context_id = (int) get_queried_object_id();
+}
+
+$cta_enabled_meta = $context_id > 0 ? get_post_meta($context_id, 'cta_enabled', true) : '';
 if ((string) $cta_enabled_meta === '0') return;
 
-$eyebrow  = get_field('cta_eyebrow');
-$title    = get_field('cta_title') ?: 'Vraag uw apotheek naar Oculoo';
-$text     = get_field('cta_text') ?: 'Verkrijgbaar bij 230+ apotheken in Nederland. Of bestel direct online — gratis verzending, 30 dagen retourrecht.';
+$eyebrow  = $context_id > 0 ? get_field('cta_eyebrow', $context_id) : '';
+$title    = ($context_id > 0 ? get_field('cta_title', $context_id) : '') ?: 'Vraag uw apotheek naar Oculoo';
+$text     = ($context_id > 0 ? get_field('cta_text', $context_id) : '') ?: 'Verkrijgbaar bij 230+ apotheken in Nederland. Of bestel direct online.';
 
-$btn1_text = get_field('cta_btn1_text') ?: 'Nu bestellen — €18,95';
-$btn1_url  = get_field('cta_btn1_url') ?: home_url('/winkel/');
-$btn2_text = get_field('cta_btn2_text') ?: 'Zakelijk inkopen';
-$btn2_url  = get_field('cta_btn2_url') ?: home_url('/#zakelijk');
+$btn1_text = ($context_id > 0 ? get_field('cta_btn1_text', $context_id) : '') ?: 'Nu bestellen — €18,95';
+$btn1_url  = ($context_id > 0 ? get_field('cta_btn1_url', $context_id) : '') ?: home_url('/winkel/');
+$btn2_text = ($context_id > 0 ? get_field('cta_btn2_text', $context_id) : '') ?: 'Zakelijk inkopen';
+$btn2_url  = ($context_id > 0 ? get_field('cta_btn2_url', $context_id) : '') ?: home_url('/#zakelijk');
 
-$variant = get_field('cta_variant') ?: 'dark';
+$variant = ($context_id > 0 ? get_field('cta_variant', $context_id) : '') ?: 'dark';
 
 if (!$title) return;
 

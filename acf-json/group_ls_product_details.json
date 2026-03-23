@@ -1,14 +1,14 @@
 {
     "key": "group_ls_product_details",
-    "title": "Product – Extra inhoud",
+    "title": "Product - Productpagina inhoud",
     "fields": [
         {
             "key": "field_ls_product_intro",
-            "label": "Korte intro",
+            "label": "Intro onder titel",
             "name": "product_intro",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "Korte tekst onder prijs op de productpagina.",
+            "instructions": "Korte beschrijving naast de productafbeelding.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -24,11 +24,11 @@
         },
         {
             "key": "field_ls_product_usps",
-            "label": "USP's",
+            "label": "USP bullets",
             "name": "product_usps",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "Korte bullets naast de productinfo.",
+            "instructions": "Korte voordelen onder de intro (optioneel).",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -67,11 +67,11 @@
         },
         {
             "key": "field_ls_product_cta_link",
-            "label": "Secundaire CTA",
+            "label": "Knop: Direct bestellen",
             "name": "product_cta_link",
             "aria-label": "",
             "type": "link",
-            "instructions": "Optionele tweede knop naast toevoegen aan winkelwagen.",
+            "instructions": "Donkere knop onder de winkelwagenknop (optioneel).",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -80,6 +80,266 @@
                 "id": ""
             },
             "return_format": "array"
+        },
+        {
+            "key": "field_ls_product_how_link",
+            "label": "Link onder knop",
+            "name": "product_how_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Kleine link onder 'Direct bestellen' (bijv. Hoe werkt het?).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_ls_product_reviews_eyebrow",
+            "label": "Reviews: kleine titel",
+            "name": "product_reviews_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Bijv. Beoordelingen",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Beoordelingen"
+        },
+        {
+            "key": "field_ls_product_reviews_title",
+            "label": "Reviews: titel",
+            "name": "product_reviews_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Bijv. Wat gebruikers zeggen",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Wat gebruikers zeggen"
+        },
+        {
+            "key": "field_ls_product_reviews",
+            "label": "Reviews (max 3)",
+            "name": "product_reviews",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Cards onder de producthero.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "min": 0,
+            "max": 3,
+            "button_label": "Review toevoegen",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_ls_product_review_quote",
+                    "label": "Quote",
+                    "name": "quote",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "rows": 3,
+                    "new_lines": "br",
+                    "parent_repeater": "field_ls_product_reviews"
+                },
+                {
+                    "key": "field_ls_product_review_name",
+                    "label": "Naam",
+                    "name": "name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_ls_product_reviews"
+                },
+                {
+                    "key": "field_ls_product_review_role",
+                    "label": "Functie / context",
+                    "name": "role",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_ls_product_reviews"
+                },
+                {
+                    "key": "field_ls_product_review_stars",
+                    "label": "Sterren (1-5)",
+                    "name": "stars",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 5,
+                    "min": 1,
+                    "max": 5,
+                    "step": 1,
+                    "parent_repeater": "field_ls_product_reviews"
+                }
+            ]
+        },
+        {
+            "key": "field_ls_product_specs_eyebrow",
+            "label": "Specificaties: kleine titel",
+            "name": "product_specs_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Bijv. Specificaties",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Specificaties"
+        },
+        {
+            "key": "field_ls_product_specs_title",
+            "label": "Specificaties: titel",
+            "name": "product_specs_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Bijv. Oculoo Minim - details",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
+            "key": "field_ls_product_specs",
+            "label": "Specificaties (rijen)",
+            "name": "product_specs",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Tabel met eigenschappen en waarden.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "min": 0,
+            "max": 20,
+            "button_label": "Rij toevoegen",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_ls_product_spec_label",
+                    "label": "Eigenschap",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_ls_product_specs"
+                },
+                {
+                    "key": "field_ls_product_spec_value",
+                    "label": "Waarde",
+                    "name": "value",
+                    "aria-label": "",
+                    "type": "text",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_ls_product_specs"
+                }
+            ]
+        },
+        {
+            "key": "field_ls_product_related_title",
+            "label": "Gerelateerd: titel",
+            "name": "product_related_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Titel boven de gerelateerde producten.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Mensen kochten ook"
         }
     ],
     "location": [
@@ -98,7 +358,7 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Extra contentvelden voor WooCommerce productpagina's.",
+    "description": "Duidelijke invulvelden voor de WooCommerce single productpagina.",
     "show_in_rest": 0,
-    "modified": 1773400001
+    "modified": 1773400003
 }

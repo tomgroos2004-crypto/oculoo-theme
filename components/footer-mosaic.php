@@ -31,7 +31,7 @@ $over_url  = $over_page ? get_permalink($over_page->ID) : home_url('/over-ons/')
       <div>
         <p class="f-col-title">Zakelijk</p>
         <ul class="f-links">
-          <li><a href="<?= esc_url(home_url('/#zakelijk')); ?>">log in</a></li>
+          <li><a href="<?= esc_url(home_url('/#zakelijk')); ?>">Log in</a></li>
           <li><a href="<?= esc_url(home_url('/#zakelijk')); ?>">Aanvragen</a></li>
           <li><a href="mailto:zakelijk@oculoo.nl">Contact</a></li>
         </ul>

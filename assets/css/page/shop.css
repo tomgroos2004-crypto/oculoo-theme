@@ -8,34 +8,42 @@
 --------------------------------------------------------- */
 
 .ls-shop-hero {
-  background: linear-gradient(160deg, #eef4fa 0%, var(--color-bg) 65%);
-  border-bottom: 1px solid rgba(15, 36, 56, .07);
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(15, 36, 56, .08);
 }
 
 .ls-shop-hero__eyebrow {
   margin: 0 0 10px;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: .14em;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--color-accent);
 }
 
 .ls-shop-hero__title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(28px, 4vw, 52px);
+  font-size: clamp(44px, 5.2vw, 72px);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.04;
   letter-spacing: -0.02em;
   color: var(--color-primary);
-  margin: 0 0 10px;
+  margin: 0 0 12px;
 }
 
 .ls-shop-hero__sub {
   margin: 0;
-  max-width: 50ch;
+  max-width: 62ch;
+  font-size: 18px;
+  line-height: 1.6;
   color: var(--color-inverted-muted);
+}
+
+.ls-shop-page {
+  background: #f6f8fb;
+}
+
+.ls-shop-grid.section-sm {
+  padding-top: 34px;
 }
 
 /* ---------------------------------------------------------
@@ -43,7 +51,7 @@
 --------------------------------------------------------- */
 
 .ls-shop-grid__toolbar {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
@@ -92,7 +100,7 @@
   padding: 0 !important;
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(18px, 2.4vw, 28px);
+  gap: 20px;
 }
 
 .ls-shop-page ul.products::before,
@@ -112,20 +120,15 @@
   height: 100%;           /* fill the grid cell so rows stay even */
   background: #fff;
   border: 1px solid rgba(15, 36, 56, .09);
-  border-radius: var(--radius-lg);
+  border-radius: 14px;
   overflow: hidden;
   margin: 0;
-  box-shadow:
-    0 2px 4px rgba(15, 36, 56, .04),
-    0 12px 30px rgba(15, 36, 56, .07);
-  transition: transform .24s ease, box-shadow .24s ease;
+  box-shadow: 0 4px 12px rgba(15, 36, 56, .06);
+  transition: box-shadow .22s ease;
 }
 
 .ls-sc:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    0 4px 8px rgba(15, 36, 56, .06),
-    0 20px 44px rgba(15, 36, 56, .12);
+  box-shadow: 0 8px 20px rgba(15, 36, 56, .09);
 }
 
 /* ----- Media ----- */
@@ -133,21 +136,22 @@
 .ls-sc__media {
   display: block;
   position: relative;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: #eef1f5;
+  background: #ffffff;
   flex-shrink: 0;
+  border-bottom: 1px solid rgba(15, 36, 56, .07);
 }
 
 .ls-sc__media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform .38s ease;
 }
 
 .ls-sc:hover .ls-sc__media img {
-  transform: scale(1.04);
+  transform: scale(1.02);
 }
 
 .ls-sc__no-image {
@@ -181,8 +185,8 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: clamp(16px, 2vw, 22px);
-  gap: 7px;
+  padding: 12px 14px 14px;
+  gap: 6px;
 }
 
 /* ----- Categorie ----- */
@@ -201,10 +205,9 @@
 
 .ls-sc__name {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(18px, 1.6vw, 24px);
+  font-size: clamp(20px, 1.9vw, 28px);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.1;
   letter-spacing: -0.01em;
 }
 
@@ -222,32 +225,40 @@
 
 .ls-sc__excerpt {
   margin: 0;
-  font-size: clamp(13px, 1vw, 15px);
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.45;
   color: var(--color-inverted-muted);
+  min-height: 38px;
 }
 
 /* ----- Footer ----- */
 
 .ls-sc__footer {
   margin-top: auto;
-  padding-top: 14px;
+  padding-top: 12px;
   border-top: 1px solid rgba(15, 36, 56, .08);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
 }
 
 .ls-sc__price-wrap {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
+}
+
+.ls-sc__price-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: rgba(15, 36, 56, .42);
 }
 
 .ls-sc__price {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(18px, 1.6vw, 24px);
+  font-size: clamp(26px, 2.2vw, 34px);
   font-weight: 700;
   color: var(--color-primary);
   line-height: 1;
@@ -257,7 +268,7 @@
 .ls-sc__price del  { font-size: .7em; font-weight: 400; opacity: .40; margin-right: 4px; }
 
 .ls-sc__stock {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 5px;
   font-family: 'Inter', sans-serif;
@@ -285,24 +296,24 @@
   align-items: center;
   gap: 6px;
   flex-shrink: 0;
-  padding: 10px 18px;
-  background: var(--color-primary);
+  padding: 7px 13px;
+  background: var(--color-accent);
   color: #fff;
   border-radius: 999px;
   font-family: 'Inter', sans-serif;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: .03em;
   text-decoration: none;
   white-space: nowrap;
-  box-shadow: 0 5px 14px rgba(15, 36, 56, .20);
+  box-shadow: none;
   transition: background .18s ease, transform .18s ease, box-shadow .18s ease;
 }
 
 .ls-sc__cta:hover {
-  background: var(--color-accent);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(46, 109, 164, .35);
+  background: #0d7fa0;
+  transform: translateY(-1px);
+  box-shadow: none;
 }
 
 .ls-sc__cta svg {
@@ -318,40 +329,7 @@
 --------------------------------------------------------- */
 
 .ls-shop-grid__pagination {
-  margin-top: clamp(24px, 3vw, 40px);
-  text-align: center;
-}
-
-.ls-shop-grid__pagination .woocommerce-pagination ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: inline-flex;
-  gap: 6px;
-}
-
-.ls-shop-grid__pagination .woocommerce-pagination li a,
-.ls-shop-grid__pagination .woocommerce-pagination li span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border: 1.5px solid rgba(15, 36, 56, .18);
-  border-radius: 10px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: background .16s ease, border-color .16s ease, color .16s ease;
-}
-
-.ls-shop-grid__pagination .woocommerce-pagination li .current,
-.ls-shop-grid__pagination .woocommerce-pagination li a:hover {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: #fff;
+  display: none;
 }
 
 /* =========================================================
@@ -557,6 +535,35 @@
   transform: translateY(-1px) !important;
 }
 
+.ls-wc-page .wc-block-components-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-primary) !important;
+  color: #fff !important;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(15, 36, 56, .18);
+  transition: background .18s ease, transform .18s ease;
+}
+
+.ls-wc-page .wc-block-components-button:hover {
+  background: var(--color-accent) !important;
+  transform: translateY(-1px);
+}
+
+.ls-wc-page .wc-block-components-button .wc-block-components-button__text {
+  color: inherit;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
 /* Secundaire knop (coupon, bijwerken) */
 .ls-wc-page .woocommerce .button.alt,
 .ls-wc-page .woocommerce [name="update_cart"],
@@ -730,6 +737,10 @@
 
   .ls-shop-page ul.products {
     grid-template-columns: 1fr;
+  }
+
+  .ls-shop-hero__title {
+    font-size: clamp(36px, 12vw, 52px);
   }
 
   .ls-sc__footer {

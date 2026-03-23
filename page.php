@@ -19,6 +19,18 @@ if (function_exists('is_woocommerce') && (is_cart() || is_checkout() || is_accou
   get_footer();
   return;
 endif;
+
+if (is_page('privacybeleid') || is_page('privacyverklaring') || is_privacy_policy()) :
+?>
+<main id="primary" class="site-main ls-privacy-page">
+  <?php while (have_posts()) : the_post(); ?>
+    <?php get_template_part('template-parts/sections/legal-privacy'); ?>
+  <?php endwhile; ?>
+</main>
+<?php
+  get_footer();
+  return;
+endif;
 ?>
 
 <main id="primary" class="site-main">
@@ -28,6 +40,14 @@ endif;
     <?php
     // 1. Hero
     get_template_part('template-parts/hero');
+    ?>
+
+    <?php
+    // 1b. Over Oculoo - ontstaan (alleen op over-pagina)
+    if (is_page('over-oculoo') || is_page('over-ons')) {
+      get_template_part('template-parts/sections/over-origin');
+      get_template_part('template-parts/sections/over-team');
+    }
     ?>
 
     <?php

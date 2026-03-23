@@ -19,6 +19,8 @@
 @import url("./widgets/how.css");
 @import url("./widgets/how-steps-page.css");
 @import url("./widgets/how-tips-page.css");
+@import url("./widgets/over-origin.css");
+@import url("./widgets/over-team.css");
 @import url("./widgets/about-intro.css");
 @import url("./widgets/cta.css");
 @import url("./widgets/cards.css");
@@ -33,6 +35,7 @@
 @import url("./page/product-single.css");
 @import url("./page/shop.css");
 @import url("./page/blog.css");
+@import url("./page/privacy.css");
 /* =========================================================
    Global canvas enforcement (AFTER imports)
 ========================================================= */

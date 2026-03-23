@@ -54,6 +54,7 @@ function es_enqueue_assets() {
     'reveal',
     'header',
     'how-steps-page',
+    'product-single',
     'animations',
     'gsap-hero',
     'case-showcase'
