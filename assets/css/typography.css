@@ -2,59 +2,60 @@
    Oculoo - Typography system
 ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap');
+/* Custom fonts: @font-face wordt nu dynamisch in de <head> gezet
+   via functions.php (es_fonts_head) met het juiste theme-pad. */
 
 body {
-  font-family: 'SF Pro Display', -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Onest', -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   font-weight: 400;
   color: var(--color-inverted);
   -webkit-font-smoothing: antialiased;
 }
-
 h1,
 .h1 {
+  font-family: 'Landour', Georgia, sans-serif;
   font-size: clamp(36px, 4.8vw, 64px);
   line-height: 1.04;
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-weight: 500;
+  letter-spacing: 0;
   color: var(--color-inverted);
 }
-
 h2,
 .h2 {
-  font-size: clamp(28px, 3.5vw, 48px);
+  font-family: 'Landour', Georgia, serif;
+  font-size: clamp(28px, 3.8vw, 52px);
   line-height: 1.08;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: -0.025em;
   color: var(--color-inverted);
 }
-
 h3,
 .h3 {
-  font-size: clamp(22px, 2.4vw, 34px);
-  line-height: 1.15;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-family: 'Onest', -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: normal;
   color: var(--color-inverted);
 }
-
 p {
+  font-family: 'Onest', -apple-system, sans-serif;
   font-size: 16px;
   line-height: 1.65;
   color: var(--color-inverted-muted);
 }
-
 .lead {
+  font-family: 'Onest', -apple-system, sans-serif;
   font-size: 17px;
   line-height: 1.65;
   font-weight: 300;
   max-width: 540px;
   color: var(--color-inverted-muted);
 }
-
 .small {
+  font-family: 'Onest', -apple-system, sans-serif;
   font-size: 13px;
   line-height: 1.45;
   font-weight: 500;

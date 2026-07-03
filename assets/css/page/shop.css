@@ -8,7 +8,7 @@
 --------------------------------------------------------- */
 
 .ls-shop-hero {
-  background: var(--color-bg);
+  background: var(--color-primary);
   border-bottom: 1px solid rgba(15, 36, 56, .08);
 }
 
@@ -23,10 +23,10 @@
 
 .ls-shop-hero__title {
   font-size: clamp(44px, 5.2vw, 72px);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.04;
   letter-spacing: -0.02em;
-  color: var(--color-primary);
+  color: #fff;
   margin: 0 0 12px;
 }
 
@@ -35,15 +35,15 @@
   max-width: 62ch;
   font-size: 18px;
   line-height: 1.6;
-  color: var(--color-inverted-muted);
+  color: #fff;
 }
 
 .ls-shop-page {
-  background: #f6f8fb;
+  background: var(--color-secondary-soft);
 }
 
-.ls-shop-grid.section-sm {
-  padding-top: 34px;
+.ls-shop-grid.section-md {
+  background: var(--color-secondary-soft);
 }
 
 /* ---------------------------------------------------------
@@ -119,39 +119,46 @@
   flex-direction: column;
   height: 100%;           /* fill the grid cell so rows stay even */
   background: #fff;
-  border: 1px solid rgba(15, 36, 56, .09);
-  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   margin: 0;
-  box-shadow: 0 4px 12px rgba(15, 36, 56, .06);
-  transition: box-shadow .22s ease;
+  box-shadow: var(--shadow-soft);
+  transition: transform .26s ease, box-shadow .26s ease;
+  color: var(--color-inverted);
 }
 
 .ls-sc:hover {
-  box-shadow: 0 8px 20px rgba(15, 36, 56, .09);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
 }
 
 /* ----- Media ----- */
 
 .ls-sc__media {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--ls-surface-soft);
   flex-shrink: 0;
-  border-bottom: 1px solid rgba(15, 36, 56, .07);
+  padding: 0;
 }
 
 .ls-sc__media img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  transition: transform .38s ease;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  display: block;
+  transition: transform .40s ease;
 }
 
 .ls-sc:hover .ls-sc__media img {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
 .ls-sc__no-image {
@@ -185,17 +192,17 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 12px 14px 14px;
-  gap: 6px;
+  padding: clamp(24px, 2.8vw, 36px);
+  gap: 10px;
 }
 
 /* ----- Categorie ----- */
 
 .ls-sc__cat {
   margin: 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
+  font-family: 'Onest', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
   letter-spacing: .10em;
   text-transform: uppercase;
   color: var(--color-accent);
@@ -203,12 +210,15 @@
 
 /* ----- Naam ----- */
 
+.ls-shop-page .ls-sc .ls-sc__name,
+.ls-shop-page ul.products li.product .woocommerce-loop-product__title,
 .ls-sc__name {
   margin: 0;
-  font-size: clamp(20px, 1.9vw, 28px);
-  font-weight: 700;
+  font-family: 'Landour', Georgia, serif;
+  font-size: clamp(28px, 2.8vw, 40px) !important;
+  font-weight: 500;
   line-height: 1.1;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .ls-sc__name a {
@@ -225,43 +235,46 @@
 
 .ls-sc__excerpt {
   margin: 0;
-  font-size: 13px;
-  line-height: 1.45;
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(15px, 1.15vw, 16px);
+  line-height: 1.65;
   color: var(--color-inverted-muted);
-  min-height: 38px;
 }
 
 /* ----- Footer ----- */
 
 .ls-sc__footer {
   margin-top: auto;
-  padding-top: 12px;
-  border-top: 1px solid rgba(15, 36, 56, .08);
+  padding-top: 22px;
+  border-top: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
 }
 
 .ls-sc__price-wrap {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .ls-sc__price-label {
-  font-size: 10px;
-  font-weight: 700;
+  font-family: 'Onest', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .1em;
-  color: rgba(15, 36, 56, .42);
+  color: var(--color-inverted-muted);
 }
 
 .ls-sc__price {
-  font-size: clamp(26px, 2.2vw, 34px);
-  font-weight: 700;
+  font-family: 'Landour', Georgia, serif;
+  font-size: clamp(19px, 1.9vw, 23px);
+  font-weight: 500;
   color: var(--color-primary);
   line-height: 1;
+  letter-spacing: -0.01em;
 }
 
 .ls-sc__price ins  { text-decoration: none; }
@@ -294,30 +307,30 @@
 .ls-sc__cta {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   flex-shrink: 0;
-  padding: 7px 13px;
-  background: var(--color-accent);
-  color: #fff;
+  padding: 12px 20px;
+  background: var(--color-secondary);
+  color: var(--color-primary);
   border-radius: 999px;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
+  font-family: 'Onest', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: .03em;
   text-decoration: none;
   white-space: nowrap;
-  box-shadow: none;
-  transition: background .18s ease, transform .18s ease, box-shadow .18s ease;
+  box-shadow: 0 6px 18px rgba(165, 220, 252, .45);
+  transition: background .20s ease, transform .20s ease, box-shadow .20s ease;
 }
 
 .ls-sc__cta:hover {
-  background: #0d7fa0;
-  transform: translateY(-1px);
-  box-shadow: none;
+  background: var(--color-secondary-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(165, 220, 252, .55);
 }
 
 .ls-sc__cta svg {
-  transition: transform .16s ease;
+  transition: transform .18s ease;
 }
 
 .ls-sc__cta:hover svg {
@@ -353,7 +366,7 @@
 .ls-wc-page h1 {
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(28px, 4vw, 44px);
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: -0.02em;
   color: var(--color-primary);
   margin: 0 0 clamp(24px, 3vw, 40px);
@@ -364,7 +377,7 @@
 .ls-wc-page h2,
 .ls-wc-page h3 {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--color-primary);
   letter-spacing: -0.01em;
 }
@@ -452,7 +465,7 @@
 .ls-wc-page .shop_table .product-name a {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--color-primary);
   text-decoration: none;
 }
@@ -751,5 +764,368 @@
   .ls-sc__cta {
     width: 100%;
     justify-content: center;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   Branded empty cart
+--------------------------------------------------------- */
+
+/* Verberg de default emoji + tekst + separator binnen het
+   woocommerce empty-cart blok (de "Nieuw in de winkel"
+   producten worden NIET verborgen). */
+.ls-wc-page .wp-block-woocommerce-empty-cart-block > .wc-block-empty-cart__image,
+.ls-wc-page .wp-block-woocommerce-empty-cart-block > h2,
+.ls-wc-page .wp-block-woocommerce-empty-cart-block > p,
+.ls-wc-page .wp-block-woocommerce-empty-cart-block > .wp-block-separator,
+.ls-wc-page .wp-block-woocommerce-empty-cart-block > hr {
+  display: none !important;
+}
+
+/* Verberg ook de standaard "Winkelwagen" entry-title boven het blok */
+.ls-wc-page:has(.wp-block-woocommerce-empty-cart-block) .entry-title {
+  display: none;
+}
+
+.ls-empty-cart {
+  margin: 0 0 48px;
+}
+
+.ls-empty-cart__hero {
+  position: relative;
+  text-align: center;
+  background:
+    radial-gradient(120% 100% at 50% 0%, rgba(98, 4, 195, .07) 0%, rgba(98, 4, 195, 0) 60%),
+    var(--ls-surface-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(40px, 6vw, 72px) clamp(20px, 5vw, 56px);
+  box-shadow: var(--shadow-soft);
+}
+
+.ls-empty-cart__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--color-secondary-soft);
+  color: var(--color-primary);
+  margin-bottom: 20px;
+}
+
+.ls-empty-cart__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(28px, 3.6vw, 40px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-primary);
+  margin: 0 0 12px;
+}
+
+.ls-empty-cart__lead {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.55;
+  color: var(--color-inverted-muted);
+  max-width: 520px;
+  margin: 0 auto 28px;
+}
+
+.ls-empty-cart__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.ls-empty-cart__usps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--color-inverted);
+}
+
+.ls-empty-cart__usps li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ls-empty-cart__usps svg {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* "Nieuw in de winkel" sectie binnen het lege-cart blok */
+.ls-wc-page .wp-block-woocommerce-empty-cart-block .wp-block-woocommerce-product-new {
+  margin-top: 8px;
+}
+
+.ls-wc-page .wp-block-woocommerce-empty-cart-block .wc-block-grid__products + *,
+.ls-wc-page .wp-block-woocommerce-empty-cart-block .wp-block-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 700;
+  color: var(--color-inverted);
+  text-align: center;
+  margin: 8px 0 24px;
+}
+
+@media (max-width: 600px) {
+  .ls-empty-cart__hero {
+    padding: 40px 20px;
+  }
+
+  .ls-empty-cart__actions .btn {
+    width: 100%;
+  }
+
+  .ls-empty-cart__usps {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   "Nieuw in de winkel" — product grid binnen empty cart
+--------------------------------------------------------- */
+
+/* Bredere container op de Winkelwagen-pagina zodat de hero +
+   product grid lekker ademen. Checkout blijft wél smal. */
+body.page-winkelwagen .ls-wc-page .ls-container {
+  width: min(
+    var(--ls-container-wide),
+    calc(100% - (var(--ls-gutter) * 2))
+  );
+}
+
+/* Hero blijft visueel rustig — niet meegroeien met de wide container */
+body.page-winkelwagen .ls-empty-cart {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ls-wc-page .wp-block-woocommerce-product-new {
+  margin: 0;
+}
+
+/* Reset WC default flex/columns layout en gebruik onze grid.
+   Extra specificiteit nodig om has-2/3/4-columns regels te
+   overschrijven. */
+.ls-wc-page .wp-block-woocommerce-product-new.wc-block-grid.has-1-columns .wc-block-grid__products,
+.ls-wc-page .wp-block-woocommerce-product-new.wc-block-grid.has-2-columns .wc-block-grid__products,
+.ls-wc-page .wp-block-woocommerce-product-new.wc-block-grid.has-3-columns .wc-block-grid__products,
+.ls-wc-page .wp-block-woocommerce-product-new.wc-block-grid.has-4-columns .wc-block-grid__products,
+.ls-wc-page .wp-block-woocommerce-product-new.wc-block-grid.has-5-columns .wc-block-grid__products,
+.ls-wc-page .wp-block-woocommerce-product-new.wc-block-grid.has-6-columns .wc-block-grid__products,
+.ls-wc-page .wp-block-woocommerce-product-new .wc-block-grid__products {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 2.8vw, 32px);
+}
+
+/* Reset WC width/flex op individuele product items */
+.ls-wc-page .wc-block-grid.has-1-columns .wc-block-grid__product,
+.ls-wc-page .wc-block-grid.has-2-columns .wc-block-grid__product,
+.ls-wc-page .wc-block-grid.has-3-columns .wc-block-grid__product,
+.ls-wc-page .wc-block-grid.has-4-columns .wc-block-grid__product,
+.ls-wc-page .wc-block-grid.has-5-columns .wc-block-grid__product,
+.ls-wc-page .wc-block-grid.has-6-columns .wc-block-grid__product,
+.ls-wc-page .wc-block-grid__product {
+  width: auto;
+  max-width: none;
+  flex: initial;
+  min-width: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: transform .26s ease, box-shadow .26s ease;
+  padding: 0;
+  margin: 0;
+}
+
+.ls-wc-page .wc-block-grid__product:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+/* Link bevat afbeelding + titel */
+.ls-wc-page .wc-block-grid__product-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Image */
+.ls-wc-page .wc-block-grid__product-image {
+  display: block;
+  background: var(--ls-surface-soft);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  margin: 0;
+}
+
+.ls-wc-page .wc-block-grid__product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .40s ease;
+}
+
+.ls-wc-page .wc-block-grid__product:hover .wc-block-grid__product-image img {
+  transform: scale(1.05);
+}
+
+/* Titel */
+.ls-wc-page .wc-block-grid__product-title {
+  font-family: 'Landour', Georgia, serif;
+  font-size: clamp(20px, 1.9vw, 26px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--color-primary);
+  padding: 24px clamp(20px, 2.4vw, 28px) 0;
+  margin: 0;
+  text-align: left;
+  transition: color .18s ease;
+}
+
+.ls-wc-page .wc-block-grid__product:hover .wc-block-grid__product-title {
+  color: var(--color-accent);
+}
+
+/* Prijs */
+.ls-wc-page .wc-block-grid__product-price {
+  font-family: 'Landour', Georgia, serif;
+  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 500;
+  color: var(--color-primary);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-align: left;
+  padding: 10px clamp(20px, 2.4vw, 28px) 0;
+  margin: 0;
+}
+
+.ls-wc-page .wc-block-grid__product-price ins {
+  text-decoration: none;
+}
+
+.ls-wc-page .wc-block-grid__product-price del {
+  font-size: .7em;
+  font-weight: 400;
+  opacity: .40;
+  margin-right: 5px;
+}
+
+.ls-wc-page .wc-block-grid__product-price .wc-block-grid__product-price__suffix,
+.ls-wc-page .wc-block-grid__product-price small {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-inverted-muted);
+  margin-left: 6px;
+  letter-spacing: 0;
+}
+
+/* Add to cart button */
+.ls-wc-page .wc-block-grid__product .wp-block-button.wc-block-grid__product-add-to-cart {
+  padding: clamp(20px, 2.4vw, 28px);
+  margin-top: auto;
+}
+
+.ls-wc-page .wc-block-grid__product .wp-block-button.wc-block-grid__product-add-to-cart .wp-block-button__link,
+.ls-wc-page .wc-block-grid__product .wc-block-grid__product-add-to-cart a.button,
+.ls-wc-page .wc-block-grid__product .wc-block-grid__product-add-to-cart button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  font-family: 'Onest', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  padding: 13px 22px;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .18s ease, transform .18s ease, opacity .18s ease;
+}
+
+.ls-wc-page .wc-block-grid__product .wp-block-button.wc-block-grid__product-add-to-cart .wp-block-button__link:hover,
+.ls-wc-page .wc-block-grid__product .wc-block-grid__product-add-to-cart a.button:hover,
+.ls-wc-page .wc-block-grid__product .wc-block-grid__product-add-to-cart button:hover {
+  background: #4A0397;
+  transform: translateY(-1px);
+}
+
+/* Overschrijf de generieke heading-styling boven het product-blok */
+.ls-wc-page .wp-block-woocommerce-empty-cart-block .wc-block-grid__products + *,
+.ls-wc-page .wp-block-woocommerce-empty-cart-block .wp-block-heading {
+  font-family: 'Landour', Georgia, serif;
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--color-primary);
+  text-align: center;
+  margin: 16px 0 28px;
+}
+
+@media (max-width: 700px) {
+  .ls-wc-page .wp-block-woocommerce-product-new.wc-block-grid.has-1-columns .wc-block-grid__products,
+  .ls-wc-page .wp-block-woocommerce-product-new.wc-block-grid.has-2-columns .wc-block-grid__products,
+  .ls-wc-page .wp-block-woocommerce-product-new.wc-block-grid.has-3-columns .wc-block-grid__products,
+  .ls-wc-page .wp-block-woocommerce-product-new.wc-block-grid.has-4-columns .wc-block-grid__products,
+  .ls-wc-page .wp-block-woocommerce-product-new.wc-block-grid.has-5-columns .wc-block-grid__products,
+  .ls-wc-page .wp-block-woocommerce-product-new.wc-block-grid.has-6-columns .wc-block-grid__products,
+  .ls-wc-page .wp-block-woocommerce-product-new .wc-block-grid__products {
+    grid-template-columns: 1fr;
+  }
+
+  /* Prevent ugly mid-word wrap on the add-to-cart label */
+  .ls-wc-page .wc-block-grid__product .wp-block-button.wc-block-grid__product-add-to-cart .wp-block-button__link,
+  .ls-wc-page .wc-block-grid__product .wc-block-grid__product-add-to-cart a.button,
+  .ls-wc-page .wc-block-grid__product .wc-block-grid__product-add-to-cart button {
+    padding: 13px 16px;
+    font-size: 13.5px;
+    line-height: 1.2;
+    word-break: normal;
+    overflow-wrap: normal;
+    white-space: normal;
+    text-align: center;
+  }
+
+  /* Product title shouldn't break mid-word either */
+  .ls-wc-page .wc-block-grid__product-title {
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: none;
   }
 }

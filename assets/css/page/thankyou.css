@@ -1,0 +1,359 @@
+/* =========================================================
+   PAGE — Thank You / Order Received
+   Custom layout in Oculoo design system
+========================================================= */
+
+.oculoo-thankyou {
+  color: var(--color-inverted);
+}
+
+.oculoo-thankyou .ls-container--narrow {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 48px);
+}
+
+/* ======================================================
+   HERO
+====================================================== */
+
+.oculoo-thankyou__hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: clamp(24px, 4vw, 48px) 0 clamp(24px, 4vw, 40px);
+  position: relative;
+}
+
+.oculoo-thankyou__hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(98, 4, 195, 0.06), transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.oculoo-thankyou__check {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--color-success);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 30px rgba(52, 211, 153, 0.25);
+  margin-bottom: 6px;
+}
+
+.oculoo-thankyou__check svg {
+  width: 36px;
+  height: 36px;
+}
+
+.oculoo-thankyou__eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: rgba(98, 4, 195, 0.08);
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.oculoo-thankyou__title {
+  font-size: clamp(2.25rem, 4.6vw, 3.25rem);
+  line-height: 1.05;
+  margin: 0;
+  color: var(--color-inverted);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  max-width: 18ch;
+}
+
+.oculoo-thankyou__title--failed {
+  color: var(--color-danger);
+}
+
+.oculoo-thankyou__lead {
+  font-size: clamp(1.0625rem, 1.4vw, 1.1875rem);
+  color: var(--color-inverted-muted);
+  max-width: 52ch;
+  margin: 4px 0 0;
+  line-height: 1.55;
+}
+
+.oculoo-thankyou__lead strong {
+  color: var(--color-inverted);
+  font-weight: 600;
+}
+
+.oculoo-thankyou__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ======================================================
+   CARD — shared box style
+====================================================== */
+
+.oculoo-thankyou__card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: clamp(20px, 3vw, 32px);
+  box-shadow: var(--shadow-soft);
+}
+
+.oculoo-thankyou__card--sm {
+  padding: clamp(18px, 2.4vw, 24px);
+}
+
+.oculoo-thankyou__card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 18px;
+  color: var(--color-inverted);
+  letter-spacing: -0.005em;
+}
+
+/* ======================================================
+   ORDER ITEMS
+====================================================== */
+
+.oculoo-thankyou__items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.oculoo-thankyou__item {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.oculoo-thankyou__item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.oculoo-thankyou__item-media {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--ls-surface-soft);
+}
+
+.oculoo-thankyou__item-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.oculoo-thankyou__item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.oculoo-thankyou__item-name {
+  font-weight: 600;
+  color: var(--color-inverted);
+  font-size: 0.975rem;
+}
+
+.oculoo-thankyou__item-qty {
+  font-size: 0.875rem;
+  color: var(--color-inverted-muted);
+}
+
+.oculoo-thankyou__item-price {
+  font-weight: 600;
+  color: var(--color-inverted);
+  white-space: nowrap;
+}
+
+/* ======================================================
+   TOTALS
+====================================================== */
+
+.oculoo-thankyou__totals {
+  margin: 0;
+  padding: 18px 0 0;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.oculoo-thankyou__total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  font-size: 0.95rem;
+  color: var(--color-inverted-muted);
+}
+
+.oculoo-thankyou__total-row dt,
+.oculoo-thankyou__total-row dd {
+  margin: 0;
+}
+
+.oculoo-thankyou__total-row dd {
+  color: var(--color-inverted);
+  font-weight: 500;
+}
+
+.oculoo-thankyou__total-row.is-grand {
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+  font-size: 1.125rem;
+}
+
+.oculoo-thankyou__total-row.is-grand dt,
+.oculoo-thankyou__total-row.is-grand dd {
+  color: var(--color-inverted);
+  font-weight: 700;
+}
+
+/* ======================================================
+   GRID — adres cards
+====================================================== */
+
+.oculoo-thankyou__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2vw, 24px);
+}
+
+@media (max-width: 720px) {
+  .oculoo-thankyou__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.oculoo-thankyou__card address {
+  font-style: normal;
+  line-height: 1.55;
+  color: var(--color-inverted-muted);
+  font-size: 0.95rem;
+}
+
+.oculoo-thankyou__payment {
+  margin: 14px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.9rem;
+  color: var(--color-inverted-muted);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.oculoo-thankyou__payment strong {
+  color: var(--color-inverted);
+}
+
+/* ======================================================
+   STEPS — "Wat gebeurt er nu"
+====================================================== */
+
+.oculoo-thankyou__steps {
+  background: var(--color-secondary-soft);
+  border-radius: var(--radius-md);
+  padding: clamp(22px, 3vw, 32px);
+}
+
+.oculoo-thankyou__steps-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.oculoo-thankyou__step {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.oculoo-thankyou__step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.oculoo-thankyou__step h4 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-inverted);
+}
+
+.oculoo-thankyou__step p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-inverted-muted);
+  line-height: 1.5;
+}
+
+/* ======================================================
+   CONTACT
+====================================================== */
+
+.oculoo-thankyou__contact {
+  text-align: center;
+  padding: clamp(20px, 3vw, 28px) 0 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.oculoo-thankyou__contact h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--color-inverted);
+}
+
+.oculoo-thankyou__contact p {
+  margin: 0;
+  color: var(--color-inverted-muted);
+  font-size: 0.975rem;
+}
+
+.oculoo-thankyou__contact a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.oculoo-thankyou__contact a:hover {
+  text-decoration: none;
+}

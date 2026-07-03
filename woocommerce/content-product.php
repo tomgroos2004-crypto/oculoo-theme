@@ -38,7 +38,7 @@ $intro_field = get_field('product_intro', get_the_ID());
     <div class="ls-sc__footer">
 
       <div class="ls-sc__price-wrap">
-        <div class="ls-sc__price-label">Consumentenprijs</div>
+        <div class="ls-sc__price-label">Bestel direct voor:</div>
         <div class="ls-sc__price"><?= wp_kses_post($product->get_price_html()); ?></div>
       </div>
 

@@ -7,10 +7,7 @@
 }
 
 .oculoo-hero--statement {
-  background:
-    radial-gradient(circle at 10% 10%, rgba(29, 161, 200, 0.15), transparent 45%),
-    radial-gradient(circle at 90% 80%, rgba(29, 161, 200, 0.1), transparent 40%),
-    #15181f;
+  background: var(--color-primary);
 }
 
 .oculoo-hero.section-md {
@@ -22,6 +19,20 @@
   padding-bottom: clamp(72px, 10vw, 136px);
 }
 
+/* Laat de paarse statement-hero onder de transparante sticky header doorlopen
+   zodat de overloop overal hetzelfde voelt als op de homepage.
+   Padding-top blijft de oorspronkelijke waarde — content komt visueel
+   dichter onder de header te zitten (oude ruimte). */
+body.has-hero-overlap .oculoo-hero--statement {
+  margin-top: -78px;
+}
+
+@media (max-width: 960px) {
+  body.has-hero-overlap .oculoo-hero--statement {
+    margin-top: -68px;
+  }
+}
+
 .oculoo-hero__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -30,7 +41,7 @@
 }
 
 .oculoo-hero__content {
-  max-width: 640px;
+  max-width: 840px;
 }
 
 .oculoo-hero--statement .oculoo-hero__content {
@@ -56,12 +67,12 @@
   gap: 2px;
   font-size: clamp(36px, 4.8vw, 64px);
   line-height: 1.04;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--color-inverted);
 }
 
 .oculoo-hero__title-highlight {
-  color: var(--color-accent);
+  color: var(--color-primary);
 }
 
 .oculoo-hero--statement .oculoo-hero__title {
@@ -78,7 +89,7 @@
 .oculoo-hero--statement .oculoo-hero__title-highlight {
   display: block;
   margin-top: 4px;
-  color: #24a6d1;
+  color: #fff;
   font-style: italic;
 }
 
@@ -93,7 +104,7 @@
 
 .oculoo-hero--statement .oculoo-hero__eyebrow {
   margin-bottom: 20px;
-  color: #6fd2f5;
+  color: var(--color-accent);
 }
 
 .oculoo-hero--statement .oculoo-hero__intro {
@@ -123,8 +134,8 @@
   font-size: 13px;
   line-height: 1;
   font-weight: 500;
-  color: #0A5F78;
-  background: #E6F7FB;
+  color: var(--color-bg);
+  background: var(--color-accent);
 }
 
 .oculoo-hero--statement .oculoo-hero__usp-list {
@@ -135,8 +146,8 @@
 .oculoo-hero--statement .oculoo-hero__usp-item {
   min-height: 38px;
   padding: 10px 18px;
-  color: #64c9ea;
-  background: rgba(29, 161, 200, 0.18);
+  color: #fff;
+  background: var(--color-accent);
   border: 1px solid rgba(74, 170, 204, 0.34);
 }
 
@@ -166,13 +177,13 @@
 }
 
 .oculoo-hero__button--primary {
-  color: #fff;
-  background: var(--color-accent);
+  color: var(--color-primary);
+  background: var(--color-secondary);
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
 }
 
 .oculoo-hero__button--primary:hover {
-  background: #0D7FA0;
+  background: var(--color-secondary-soft);
   box-shadow: 0 8px 28px rgba(29, 161, 200, 0.35);
 }
 
@@ -285,4 +296,23 @@
     justify-self: stretch;
     width: 100%;
   }
+}
+
+
+/* =========================================================
+   Pagina-specifiek — Over Oculoo
+   Header transparant maken bovenaan zodat de hero er gewoon
+   onder loopt. Bij scroll (.is-scrolled) keert de header terug
+   naar z'n normale achtergrond.
+========================================================= */
+
+body.page-over-oculoo .ls-header-wrap:not(.is-scrolled),
+body.page-over-oculoo .ls-header-wrap:not(.is-scrolled) .ls-header,
+body.page-over-oculoo .ls-header-wrap:not(.is-scrolled) .site-header,
+body[class*="over-oculoo"] .ls-header-wrap:not(.is-scrolled),
+body[class*="over-oculoo"] .ls-header-wrap:not(.is-scrolled) .ls-header,
+body[class*="over-oculoo"] .ls-header-wrap:not(.is-scrolled) .site-header {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
 }

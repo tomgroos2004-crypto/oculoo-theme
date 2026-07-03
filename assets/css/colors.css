@@ -8,8 +8,10 @@
    BRAND
 ====================================================== */
 
---color-primary: #1D1D1F;
---color-accent: #1DA1C8;
+--color-primary: #6204C3;
+--color-accent: #FF6319;
+--color-secondary: #A5DCFC;
+--color-secondary-soft: #EBFDFE;
 
 --brand-gradient:
 linear-gradient(

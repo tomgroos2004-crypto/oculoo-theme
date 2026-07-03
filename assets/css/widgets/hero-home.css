@@ -1,0 +1,323 @@
+/* =========================================================
+   OCULOO HOME HERO — "Easy as that"
+   Big purple full-bleed hero with the giant "oo" brand mark,
+   review row, oversized headline and pill CTAs.
+   Tokens reused from /assets/css/colors.css + spacing.css.
+========================================================= */
+
+.oculoo-hero-home {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--color-primary);
+  color: var(--color-text);
+  /* Header sits transparent on top of the hero (margin-top: -78px below),
+     so a 100vh hero means header + hero combined occupy the full screen. */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-block: clamp(140px, 14vw, 200px) clamp(72px, 12vw, 160px);
+  padding-inline: clamp(20px, 4vw, 56px);
+}
+
+/* Account for the WP admin bar so the hero still ends at viewport bottom. */
+body.admin-bar .oculoo-hero-home {
+  min-height: calc(100vh - 32px);
+}
+
+@media (max-width: 782px) {
+  body.admin-bar .oculoo-hero-home {
+    min-height: calc(100vh - 46px);
+  }
+}
+
+/* Bleed the hero up underneath the transparent sticky home header so the
+   purple background reaches the very top of the viewport.
+   Home header height: 78px desktop, 68px mobile (no announce bar). */
+body.has-hero-overlap .oculoo-hero-home {
+  margin-top: -78px;
+}
+
+@media (max-width: 960px) {
+  body.has-hero-overlap .oculoo-hero-home {
+    margin-top: -68px;
+  }
+}
+
+/* =========================================================
+   Decorative giant "oo" mark
+========================================================= */
+.oculoo-hero-home__rings {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.oculoo-hero-home__mark {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: auto;
+  height: min(115vh, 88vw);
+  display: block;
+  /* Center of 2nd "o" sits at ~73% of SVG width; pushing the SVG right by 27%
+     of its own width lands that center exactly on the viewport right edge,
+     so the 2nd "o" is cropped 50/50. Bleed down 10vh for the bottom bleed. */
+  transform: translate(27%, calc(-50% + 10vh));
+}
+
+/* =========================================================
+   Model cut-out — bottom-right, arm reaching toward the CTAs.
+   Anchored to the right edge & viewport bottom. Sits above the
+   rings and content so the head/hand overlaps the headline a touch,
+   but is positioned so the arm stays just below the CTA pills.
+========================================================= */
+.oculoo-hero-home__model {
+  position: absolute;
+  right: clamp(-30px, -1.5vw, 0px);
+  bottom: 0;
+  z-index: 3;
+  width: clamp(340px, 37vw, 600px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  /* Heel subtiele extra belichting zodat het model iets meer pop krijgt
+     tegen de paarse achtergrond. */
+  filter: brightness(1.06) contrast(1.02) saturate(1.03);
+}
+
+/* =========================================================
+   Content stack
+========================================================= */
+.oculoo-hero-home__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(28px, 4vw, 44px);
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   Review row
+========================================================= */
+.oculoo-hero-home__reviews {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+}
+
+.oculoo-hero-home__stars {
+  display: inline-flex;
+  gap: 2px;
+  color: var(--color-secondary);
+}
+
+.oculoo-hero-home__stars svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+.oculoo-hero-home__review-text {
+  opacity: 0.95;
+}
+
+/* =========================================================
+   Headline — bleeds wide, single line
+========================================================= */
+.oculoo-hero-home__headline {
+  margin: 0;
+  font-weight: 500;
+  font-size: clamp(72px, 13vw, 200px);
+  line-height: 0.92;
+  letter-spacing: 0;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+/* =========================================================
+   CTA row
+========================================================= */
+.oculoo-hero-home__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+.oculoo-hero-home__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: 100px;
+  font-family: 'Onest', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  border: 1.5px solid transparent;
+  transition:
+    transform 0.18s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.oculoo-hero-home__btn:hover {
+  transform: translateY(-1px);
+}
+
+.oculoo-hero-home__btn:active {
+  transform: translateY(0);
+}
+
+.oculoo-hero-home__btn--primary {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.oculoo-hero-home__btn--primary:hover {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  opacity: 0.92;
+}
+
+.oculoo-hero-home__btn--ghost {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.oculoo-hero-home__btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.7);
+  color: #fff;
+}
+
+/* =========================================================
+   Responsive
+========================================================= */
+@media (max-width: 1024px) {
+  .oculoo-hero-home__mark {
+    height: min(110vh, 105vw);
+    transform: translate(27%, calc(-50% + 8vh));
+  }
+}
+
+@media (max-width: 820px) {
+  .oculoo-hero-home {
+    min-height: 88vh;
+    padding-block: clamp(120px, 24vw, 160px) clamp(56px, 12vw, 96px);
+  }
+
+  .oculoo-hero-home__mark {
+    height: min(85vh, 120vw);
+    transform: translate(27%, calc(-50% + 6vh));
+  }
+
+  .oculoo-hero-home__headline {
+    font-size: clamp(52px, 13vw, 96px);
+    white-space: normal;
+    line-height: 1;
+  }
+
+  .oculoo-hero-home__btn {
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+
+  .oculoo-hero-home__model {
+    width: clamp(300px, 50vw, 440px);
+    right: -6vw;
+  }
+}
+
+@media (max-width: 560px) {
+  /* Match the private-label hero composition: content bottom-left,
+     mark anchored to the right edge but less dominant. */
+  .oculoo-hero-home,
+  body.admin-bar .oculoo-hero-home {
+    min-height: 0;
+    /* Header is 68px tall + 16px breathing room. Bottom keeps space for mark. */
+    padding-block: 92px 48px;
+    padding-inline: 24px;
+    align-items: flex-end;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .oculoo-hero-home__mark {
+    /* Anchor mark to bottom-right, push 2nd "o" off-screen so only
+       the orange ring peeks behind content — like private-label. */
+    top: auto;
+    bottom: 0;
+    right: 0;
+    height: auto;
+    width: min(110vw, 520px);
+    transform: translate(28%, 18%);
+    opacity: 0.9;
+  }
+
+  .oculoo-hero-home__model {
+    /* Peek from the bottom-right behind the left-aligned content. */
+    width: min(78vw, 340px);
+    right: -14vw;
+    z-index: 1;
+    opacity: 0.95;
+  }
+
+  .oculoo-hero-home__content {
+    align-items: flex-start;
+    text-align: left;
+    gap: 24px;
+    max-width: none;
+  }
+
+  .oculoo-hero-home__reviews {
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .oculoo-hero-home__stars svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .oculoo-hero-home__headline {
+    font-size: clamp(56px, 17vw, 84px);
+    line-height: 0.95;
+    letter-spacing: -0.015em;
+    text-align: left;
+  }
+
+  .oculoo-hero-home__actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .oculoo-hero-home__btn {
+    width: 100%;
+    flex: 0 0 auto;
+    padding: 16px 24px;
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,99 @@
+/* =========================================================
+   ACF EDITOR — admin styling
+   Maakt de ACF-velden in de WordPress-beheeromgeving
+   overzichtelijker voor de redacteur. Raakt alleen het
+   admin-scherm (post/pagina bewerken + optiepagina's).
+   Merknamen: navy #0F2438, oranje #EC6907.
+========================================================= */
+
+:root {
+  --ls-admin-navy: #0F2438;
+  --ls-admin-accent: #EC6907;
+  --ls-admin-border: #e2e6ea;
+  --ls-admin-muted: #6b7785;
+  --ls-admin-soft: #f6f8fa;
+}
+
+/* ---- Veldgroep-titel (postbox header) ---- */
+.acf-postbox > .postbox-header h2,
+.acf-postbox > .hndle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ls-admin-navy);
+  border-left: 4px solid var(--ls-admin-accent);
+  padding-left: 12px;
+}
+
+/* Beschrijving onder de groepstitel */
+.acf-postbox .acf-field-group-description,
+.acf-fields > .description {
+  color: var(--ls-admin-muted);
+  font-size: 13px;
+}
+
+/* ---- Individuele velden meer lucht + scheiding ---- */
+.acf-fields > .acf-field {
+  padding: 16px 12px;
+  border-top: 1px solid var(--ls-admin-border);
+}
+.acf-fields > .acf-field:first-child {
+  border-top: 0;
+}
+
+/* ---- Labels duidelijker ---- */
+.acf-field .acf-label label {
+  font-weight: 600;
+  color: var(--ls-admin-navy);
+  font-size: 13.5px;
+}
+
+/* Verplicht-markering opvallender */
+.acf-field .acf-label label .acf-required {
+  color: var(--ls-admin-accent);
+}
+
+/* Instructies leesbaar maar rustig */
+.acf-field .acf-label .description {
+  color: var(--ls-admin-muted);
+  font-size: 12.5px;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+/* ---- Tabbladen prominenter ---- */
+.acf-fields > .acf-tab-wrap .acf-tab-group {
+  border-bottom: 2px solid var(--ls-admin-border);
+}
+.acf-tab-group li a {
+  font-weight: 600;
+  color: var(--ls-admin-muted);
+}
+.acf-tab-group li.active a {
+  color: var(--ls-admin-navy);
+  border-bottom: 2px solid var(--ls-admin-accent);
+  margin-bottom: -2px;
+}
+
+/* ---- "Sectie tonen"-toggle (true_false) laten opvallen ---- */
+.acf-field-true-false {
+  background: var(--ls-admin-soft);
+  border-radius: 6px;
+}
+
+/* ---- Repeater / flexible content rijen ---- */
+.acf-repeater .acf-row,
+.acf-flexible-content .layout {
+  border-radius: 6px;
+}
+.acf-flexible-content .layout > .acf-fc-layout-handle {
+  font-weight: 600;
+  color: var(--ls-admin-navy);
+  background: var(--ls-admin-soft);
+}
+
+/* Knoppen in merk-accent */
+.acf-repeater .acf-actions .acf-button.button-primary,
+.acf-flexible-content > .acf-actions .acf-button {
+  border-color: var(--ls-admin-accent);
+  color: var(--ls-admin-accent);
+}

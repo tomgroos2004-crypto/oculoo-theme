@@ -12,7 +12,7 @@
 }
 
 .ls-cta--light {
-  background: var(--color-bg);
+  background: var(--color-primary);
 }
 
 .ls-cta--dark {
@@ -79,7 +79,7 @@
 
 .ls-cta-title {
   font-size: clamp(42px, 4.5vw, 64px);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.08;
   letter-spacing: -0.03em;
   margin: 0;
@@ -134,68 +134,57 @@
   justify-content: center;
 
   min-height: 44px;
-  padding: 10px 28px;
-  border-radius: 999px;
+  padding: 13px 28px;
+  border-radius: 100px;
+  border: 1.5px solid transparent;
 
+  font-family: 'Onest', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
+  line-height: 1;
   letter-spacing: 0;
   text-decoration: none;
   white-space: nowrap;
 
   transition:
     transform .18s ease,
-    box-shadow .18s ease,
-    background .18s ease;
+    background .18s ease,
+    color .18s ease,
+    border-color .18s ease,
+    opacity .18s ease;
 }
 
-/* Primary — light variant: dark navy fill */
-.ls-cta--light .ls-cta-btn--primary {
-  background: var(--color-primary);
-  color: #fff;
-  box-shadow: 0 8px 24px rgba(15, 36, 56, .25);
+.ls-cta-btn:hover {
+  transform: translateY(-1px);
 }
 
-.ls-cta--light .ls-cta-btn--primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 36px rgba(15, 36, 56, .35);
-}
-
-/* Primary — dark variant: blue gradient */
+/* Primary — light blue bg + purple tekst */
+.ls-cta--light .ls-cta-btn--primary,
 .ls-cta--dark .ls-cta-btn--primary {
-  background: #fff;
-  color: #0a5f78;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, .08);
+  background: var(--color-secondary);
+  color: var(--color-primary);
 }
 
+.ls-cta--light .ls-cta-btn--primary:hover,
 .ls-cta--dark .ls-cta-btn--primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, .14);
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  opacity: 0.92;
 }
 
-/* Secondary — light variant: navy outline */
-.ls-cta--light .ls-cta-btn--secondary {
-  background: transparent;
-  border: 2px solid rgba(15, 36, 56, .22);
-  color: var(--color-inverted);
-}
-
-.ls-cta--light .ls-cta-btn--secondary:hover {
-  background: rgba(15, 36, 56, .05);
-  transform: translateY(-2px);
-}
-
-/* Secondary — dark variant: white outline */
+/* Secondary — ghost met witte rand */
+.ls-cta--light .ls-cta-btn--secondary,
 .ls-cta--dark .ls-cta-btn--secondary {
   background: transparent;
-  border: 1.5px solid rgba(255, 255, 255, .5);
-  color: rgba(255, 255, 255, .92);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #fff;
 }
 
+.ls-cta--light .ls-cta-btn--secondary:hover,
 .ls-cta--dark .ls-cta-btn--secondary:hover {
-  background: rgba(255, 255, 255, .1);
-  border-color: rgba(255, 255, 255, .85);
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.7);
+  color: #fff;
 }
 
 /* ---------------------------------------------------------
@@ -218,12 +207,13 @@
 }
 
 /* =========================================================
-   Oculoo CTA parity (match provided HTML design)
+   Oculoo CTA parity (match Easy as that design)
+   Paarse card op lichte ice achtergrond, met oranje glow.
 ========================================================= */
 
 .ls-cta--light,
 .ls-cta--dark {
-  background: var(--color-accent);
+  background: var(--color-secondary-soft);
 }
 
 .ls-cta.section-md {
@@ -233,61 +223,74 @@
 
 .ls-cta--light .ls-cta-card,
 .ls-cta--dark .ls-cta-card {
-  max-width: 680px;
-  background: transparent;
+  max-width: none;
+  background: var(--color-primary);
   border: 0;
-  border-top: 0;
-  border-radius: 0;
+  border-radius: 24px;
   box-shadow: none;
-  padding: 0;
+  padding: clamp(48px, 6vw, 72px) clamp(28px, 5vw, 64px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Oculoo "oo" beeldmerk — bleed groot in de card, met oranje gradient */
+.ls-cta-mark {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ls-cta-mark svg {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: auto;
+  height: 200%;
+  transform: translate(20%, -50%);
+  display: block;
+}
+
+.ls-cta--light .ls-cta-eyebrow,
+.ls-cta--dark .ls-cta-eyebrow {
+  color: var(--color-accent);
+  position: relative;
+  z-index: 1;
 }
 
 .ls-cta--light .ls-cta-title,
 .ls-cta--dark .ls-cta-title {
-  font-size: clamp(32px, 4.5vw, 56px);
-  line-height: 1.06;
+  font-size: clamp(32px, 4.5vw, 60px);
+  line-height: 1.05;
   letter-spacing: -0.03em;
   color: #fff;
+  position: relative;
+  z-index: 1;
 }
 
 .ls-cta--light .ls-cta-text,
 .ls-cta--dark .ls-cta-text {
   font-size: 17px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.68);
   margin-top: 18px;
+  position: relative;
+  z-index: 1;
 }
 
-.ls-cta--light .ls-cta-btn--primary,
-.ls-cta--dark .ls-cta-btn--primary {
-  background: #fff;
-  color: #0a5f78;
-  border: 0;
-  min-height: 44px;
-  padding: 14px 30px;
-  border-radius: 980px;
-  box-shadow: none;
-}
-
-.ls-cta--light .ls-cta-btn--secondary,
-.ls-cta--dark .ls-cta-btn--secondary {
-  background: transparent;
-  color: rgba(255, 255, 255, 0.9);
-  border: 1.5px solid rgba(255, 255, 255, 0.5);
-  min-height: 44px;
-  padding: 13px 28px;
-  border-radius: 980px;
-}
-
-.ls-cta--light .ls-cta-btn--secondary:hover,
-.ls-cta--dark .ls-cta-btn--secondary:hover {
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.1);
+.ls-cta-actions {
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 960px) {
   .ls-cta.section-md {
     padding-top: 72px;
     padding-bottom: 72px;
+  }
+  .ls-cta--light .ls-cta-card,
+  .ls-cta--dark .ls-cta-card {
+    padding: 48px 28px;
   }
 }

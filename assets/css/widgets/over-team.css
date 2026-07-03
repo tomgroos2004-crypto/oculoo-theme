@@ -1,0 +1,191 @@
+.over-team {
+  background: var(--color-secondary-soft);
+}
+
+/* Header: two-col title + intro */
+.over-team__head {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(24px, 6vw, 80px);
+  align-items: start;
+  margin-bottom: 48px;
+}
+
+.over-team__eyebrow {
+  margin: 0 0 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.over-team__eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--color-accent);
+}
+
+.over-team__title {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+  color: var(--color-inverted);
+}
+
+.over-team__title em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.over-team__intro {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-inverted-muted);
+}
+
+/* Founders grid */
+.over-team__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.over-team-card {
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.over-team-card:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+}
+
+.over-team-card__avatar {
+  width: 122px;
+  height: 122px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.03em;
+  margin-bottom: 16px;
+}
+
+/* ----- Photo card: large image + compact name strip ----- */
+
+.over-team-card:has(.over-team-card__avatar--photo) {
+  padding: 0;
+  overflow: hidden;
+}
+
+.over-team-card__avatar--photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 0;
+  margin-bottom: 0;
+  background: none;
+  overflow: hidden;
+}
+
+.over-team-card__avatar--photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.over-team-card:has(.over-team-card__avatar--photo) h3 {
+  padding: 14px 14px 0;
+}
+
+.over-team-card:has(.over-team-card__avatar--photo) .over-team-card__role {
+  padding: 0 14px 14px;
+}
+
+.over-team-card h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.over-team-card__role {
+  margin: 4px 0 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-accent);
+}
+
+/* Mission block — oranje card */
+.over-team__mission {
+  margin-top: 48px;
+  background: var(--color-accent);
+  border-radius: 24px;
+  padding: clamp(24px, 3.2vw, 40px) clamp(28px, 4vw, 56px);
+  position: relative;
+  overflow: hidden;
+}
+
+.over-team__mission-quote {
+  margin: 0 0 16px;
+  font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 700;
+  line-height: 1.35;
+  color: #fff;
+  letter-spacing: -0.02em;
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+}
+
+.over-team__mission-meta {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  opacity: 0.85;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .over-team__head {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+
+  .over-team__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .over-team__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -9,4 +9,8 @@
 
 <body <?php body_class(); ?>>
 
-<?php get_template_part('components/header'); ?>
+<?php
+/* Eén header voor alle pagina's — transparante overloop over de hero
+   met scroll-state (witte glass pill) zodra de gebruiker scrolt. */
+get_template_part('components/header-home');
+?>

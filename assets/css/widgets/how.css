@@ -1,0 +1,113 @@
+/* =========================================================
+   How It Works Section
+========================================================= */
+
+.how-section {
+  background: #fff;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.how-section .section-inner {
+  max-width: 1100px;
+}
+
+.how-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.how-header .eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.how-header .h2 {
+  margin-bottom: 16px;
+}
+
+.how-header .lead {
+  margin: 0 auto;
+}
+
+.how-section .steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.how-section .step {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 28px;
+  padding: 44px 32px 40px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.how-section .step:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card);
+}
+
+.how-section .step:not(:last-child)::after {
+  content: "\2192";
+  position: absolute;
+  right: -20px;
+  top: 52px;
+  font-size: 22px;
+  color: var(--color-border);
+}
+
+.how-section .step-n {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 28px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 8px 24px rgba(29, 161, 200, 0.35);
+}
+
+.how-section .step-title {
+  margin: 0 0 12px;
+  font-size: 19px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: var(--color-inverted);
+}
+
+.how-section .step-text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--color-inverted-muted);
+}
+
+@media (max-width: 960px) {
+  .how-header {
+    margin-bottom: 40px;
+  }
+
+  .how-section .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .how-section .step:not(:last-child)::after {
+    display: none;
+  }
+}

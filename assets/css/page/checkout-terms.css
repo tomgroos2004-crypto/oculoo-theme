@@ -1,0 +1,76 @@
+/* =========================================================
+   Checkout — Verplichte AV/Privacybeleid checkbox
+   Wordt gerenderd via ExperimentalOrderMeta SlotFill,
+   in de order-summary kolom op de block checkout pagina.
+========================================================= */
+
+.oculoo-terms {
+  margin: 16px 16px 20px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  font-family: 'Onest', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+/* WC blocks CheckboxControl — reset + restyle */
+.oculoo-terms .wc-block-components-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.oculoo-terms .wc-block-components-checkbox__input {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--color-primary, #6204C3);
+  cursor: pointer;
+}
+
+.oculoo-terms .wc-block-components-checkbox__label {
+  flex: 1;
+  min-width: 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--color-inverted, #1D1D1F);
+  cursor: pointer;
+  text-wrap: balance;
+  hyphens: none;
+}
+
+.oculoo-terms .oculoo-terms__label {
+  display: inline;
+}
+
+/* Links naar AV en Privacybeleid */
+.oculoo-terms .oculoo-terms__label a {
+  color: #0066cc;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  font-weight: 500;
+  transition: color .16s ease;
+}
+
+.oculoo-terms .oculoo-terms__label a:hover,
+.oculoo-terms .oculoo-terms__label a:focus {
+  color: #004999;
+  text-decoration-thickness: 2px;
+}
+
+/* Verplicht-asterisk */
+.oculoo-terms__required {
+  color: #d32f2f;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+/* Focus visible */
+.oculoo-terms .wc-block-components-checkbox__input:focus-visible {
+  outline: 2px solid var(--color-primary, #6204C3);
+  outline-offset: 2px;
+}

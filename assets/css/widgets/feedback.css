@@ -1,0 +1,512 @@
+/* =========================================================
+   FEEDBACK FORMULIER
+   Gebruikt thema design tokens uit colors.css / layout.css.
+========================================================= */
+
+/* ===========================================================
+   HEADER OVERRIDE — paars op feedback pagina (top, unscrolled)
+   Bij scroll valt de header terug op z'n standaard glass-card.
+=========================================================== */
+
+/* Announce bar — altijd paars op feedback pagina */
+body.page-feedback .ls-announce {
+  background: var(--color-primary);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+body.page-feedback .ls-announce-inner,
+body.page-feedback .ls-announce-sep {
+  color: #fff;
+}
+
+body.page-feedback .ls-announce a {
+  color: var(--color-secondary);
+}
+
+/* Header — alleen paars zolang niet gescrolld */
+body.page-feedback .ls-header-wrap:not(.is-scrolled) .ls-header {
+  background: var(--color-primary);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+body.page-feedback .ls-header-wrap:not(.is-scrolled) .ls-header-brand img {
+  /* logo wit maken — alleen in unscrolled (paarse) state */
+  filter: brightness(0) invert(1);
+}
+
+body.page-feedback .ls-header-wrap:not(.is-scrolled) .ls-header-nav a {
+  color: #fff;
+}
+
+body.page-feedback .ls-header-wrap:not(.is-scrolled) .ls-header-nav a:hover,
+body.page-feedback .ls-header-wrap:not(.is-scrolled) .ls-header-nav a.is-active {
+  color: var(--color-secondary);
+}
+
+
+
+.feedback-section {
+  --fb-line: rgba(98, 4, 195, 0.12);
+  --fb-soft: var(--color-secondary-soft);
+  --fb-ink:  #1F1F21;
+  --fb-mute: #6b6b70;
+  --fb-bad:  #c62828;
+
+  background: var(--fb-soft);
+  min-height: 100vh;
+  padding-bottom: 48px;
+}
+
+
+/* ----------- HERO ----------- */
+.feedback-hero {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 56px 0 96px;
+  border-radius: 0 0 32px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.feedback-hero__title {
+  font-size: 34px;
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  margin: 0 0 14px;
+  max-width: 480px;
+  color: #fff;
+}
+
+.feedback-hero__intro {
+  font-size: 16px;
+  opacity: 0.85;
+  max-width: 480px;
+  margin: 0;
+  color: #fff;
+}
+
+
+/* ----------- CARD ----------- */
+.feedback-container {
+  position: relative;
+  z-index: 2;
+}
+
+.feedback-card {
+  background: #fff;
+  margin: -64px auto 24px;
+  max-width: 640px;
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  box-shadow: 0 12px 40px -12px rgba(98, 4, 195, 0.18);
+}
+
+
+/* ----------- PROGRESS BAR ----------- */
+.feedback-progress {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 28px;
+}
+
+.feedback-progress__step {
+  flex: 1;
+  height: 4px;
+  background: var(--fb-line);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.feedback-progress__step.is-active::after,
+.feedback-progress__step.is-current::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  background: var(--color-primary);
+}
+
+.feedback-progress__step.is-current::after {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+}
+
+
+/* ----------- STEP ----------- */
+.feedback-step {
+  display: none;
+  animation: feedbackFade 0.35s ease;
+}
+.feedback-step.is-active { display: block; }
+
+@keyframes feedbackFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.feedback-step__label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-primary);
+  background: var(--color-secondary);
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+
+.feedback-step__title {
+  font-size: 24px;
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  margin: 0 0 8px;
+}
+
+.feedback-step__sub {
+  font-size: 14px;
+  color: var(--fb-mute);
+  margin: 0 0 22px;
+}
+
+
+/* ----------- FIELD ----------- */
+.feedback-field { margin-bottom: 22px; }
+
+.feedback-field__label {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--fb-ink);
+  margin-bottom: 10px;
+}
+
+.feedback-field__meta {
+  font-weight: 400;
+  color: var(--fb-mute);
+  font-size: 13px;
+}
+
+.feedback-field__hint {
+  font-size: 13px;
+  color: var(--fb-mute);
+  margin: -4px 0 10px;
+}
+
+
+/* ----------- CHOICES (pills) ----------- */
+.feedback-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.feedback-choices label {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 16px;
+  background: var(--fb-soft);
+  border: 1.5px solid transparent;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--fb-ink);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+  min-height: 44px;
+}
+
+.feedback-choices input[type="radio"],
+.feedback-choices input[type="checkbox"] {
+  display: none;
+}
+
+.feedback-choices label:hover {
+  background: var(--color-secondary);
+}
+
+.feedback-choices label:has(input:checked) {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+
+/* ----------- STARS ----------- */
+.feedback-stars {
+  display: flex;
+  gap: 6px;
+  direction: rtl;
+  justify-content: flex-end;
+}
+
+.feedback-stars input { display: none; }
+
+.feedback-stars label {
+  cursor: pointer;
+  font-size: 38px;
+  line-height: 1;
+  color: var(--fb-line);
+  transition: color 0.12s ease, transform 0.12s ease;
+  min-height: 44px;
+}
+
+.feedback-stars label:hover,
+.feedback-stars label:hover ~ label,
+.feedback-stars input:checked ~ label {
+  color: var(--color-accent);
+}
+
+.feedback-stars label:hover { transform: scale(1.1); }
+
+
+/* ----------- EMOJI ROW ----------- */
+.feedback-emoji-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.feedback-emoji-row label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 4px;
+  background: var(--fb-soft);
+  border-radius: 14px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-height: 44px;
+}
+
+.feedback-emoji-row input { display: none; }
+.feedback-emoji-row label:hover { background: var(--color-secondary); }
+.feedback-emoji-row label:has(input:checked) {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.feedback-emoji-icon {
+  font-size: 26px;
+  transition: transform 0.2s ease;
+}
+.feedback-emoji-row label:has(input:checked) .feedback-emoji-icon {
+  transform: scale(1.15);
+}
+
+.feedback-emoji-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.2;
+}
+
+
+/* ----------- INPUTS ----------- */
+.feedback-card input[type="text"],
+.feedback-card input[type="email"],
+.feedback-card textarea,
+.feedback-card select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid var(--fb-line);
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--fb-ink);
+  background: #fff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.feedback-card textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.feedback-card input:focus,
+.feedback-card textarea:focus,
+.feedback-card select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(98, 4, 195, 0.08);
+}
+
+
+/* ----------- CONSENT ----------- */
+.feedback-consent {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--fb-soft);
+  padding: 14px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.feedback-consent input[type="checkbox"] {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--color-primary);
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 1px;
+  position: relative;
+  transition: background 0.15s ease;
+}
+
+.feedback-consent input[type="checkbox"]:checked {
+  background: var(--color-primary);
+}
+
+.feedback-consent input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 11px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.feedback-consent span {
+  font-size: 13px;
+  color: var(--fb-mute);
+  line-height: 1.45;
+}
+
+.feedback-consent a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+
+/* ----------- NAV (buttons) ----------- */
+.feedback-nav {
+  display: flex;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.feedback-nav .btn {
+  flex: 1;
+  padding: 14px 22px;
+  font-size: 15px;
+  min-height: 44px;
+  border-radius: 999px;
+}
+
+.feedback-nav .btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.feedback-nav .btn-primary:hover {
+  background: #4A0397;
+  transform: none;
+  box-shadow: none;
+}
+.feedback-nav .btn-primary:disabled {
+  background: var(--fb-line);
+  color: var(--fb-mute);
+  cursor: not-allowed;
+}
+
+.feedback-nav .btn-secondary {
+  background: var(--fb-soft);
+  color: var(--color-primary);
+  border: 1.5px solid var(--fb-line);
+}
+.feedback-nav .btn-secondary:hover {
+  background: var(--color-secondary);
+}
+
+
+/* ----------- ERROR BANNER ----------- */
+.feedback-error {
+  display: none;
+  background: #fdecea;
+  color: var(--fb-bad);
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+.feedback-error a { color: var(--fb-bad); text-decoration: underline; }
+.feedback-error.is-visible { display: block; }
+
+
+/* ----------- SUCCESS ----------- */
+.feedback-success {
+  text-align: center;
+  padding: 16px 4px;
+}
+
+.feedback-success__mark {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 22px;
+}
+
+.feedback-success__title {
+  font-size: 26px;
+  color: var(--color-primary);
+  margin: 0 0 10px;
+}
+
+.feedback-success__text {
+  color: var(--fb-mute);
+  font-size: 15px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.feedback-success__tagline {
+  margin-top: 22px;
+  font-size: 14px;
+  color: var(--color-primary);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+
+/* ----------- SPINNER ----------- */
+.feedback-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: feedbackSpin 0.7s linear infinite;
+  margin-right: 8px;
+  vertical-align: -3px;
+}
+@keyframes feedbackSpin { to { transform: rotate(360deg); } }
+
+
+/* ----------- CONDITIONAL FIELDS ----------- */
+.feedback-conditional { display: none; }
+.feedback-conditional.is-visible {
+  display: block;
+  animation: feedbackFade 0.3s ease;
+}
+
+
+/* ----------- RESPONSIVE ----------- */
+@media (min-width: 640px) {
+  .feedback-hero { padding: 64px 0 112px; }
+  .feedback-hero__title { font-size: 42px; }
+  .feedback-card { padding: 40px; margin-top: -72px; }
+}

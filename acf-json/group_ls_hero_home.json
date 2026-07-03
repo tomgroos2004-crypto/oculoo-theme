@@ -1,0 +1,106 @@
+{
+    "key": "group_ls_hero_home",
+    "title": "Hero — homepage",
+    "fields": [
+        {
+            "key": "field_ls_hero_home_enabled",
+            "label": "Hero tonen",
+            "name": "hero_home_enabled",
+            "type": "true_false",
+            "instructions": "Toon of verberg de \"Easy as that\" hero op de homepage.",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Aan",
+            "ui_off_text": "Uit"
+        },
+        {
+            "key": "field_ls_hero_home_review_text",
+            "label": "Reviews tekst",
+            "name": "hero_home_review_text",
+            "type": "text",
+            "instructions": "Tekst naast de sterren.",
+            "default_value": "200+ positieve reviews",
+            "placeholder": "Bijv. 200+ positieve reviews",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_ls_hero_home_enabled",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_ls_hero_home_headline",
+            "label": "Headline",
+            "name": "hero_home_headline",
+            "type": "text",
+            "instructions": "De grote headline midden op de hero. Kort houden — past op één regel.",
+            "required": 1,
+            "default_value": "Easy as that",
+            "placeholder": "Bijv. Easy as that",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_ls_hero_home_enabled",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_ls_hero_home_btn_primary",
+            "label": "Knop 1 (primair)",
+            "name": "hero_home_btn_primary",
+            "type": "link",
+            "instructions": "Sky-blauwe primaire knop.",
+            "return_format": "array",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_ls_hero_home_enabled",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_ls_hero_home_btn_secondary",
+            "label": "Knop 2 (ghost)",
+            "name": "hero_home_btn_secondary",
+            "type": "link",
+            "instructions": "Outlined ghost knop ernaast. Optioneel.",
+            "return_format": "array",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_ls_hero_home_enabled",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": -11,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Velden voor de \"Easy as that\" homepage hero. Wordt gerenderd door template-parts/sections/hero-home.php.",
+    "show_in_rest": 0
+}

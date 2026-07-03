@@ -3,6 +3,17 @@ defined('ABSPATH') || exit;
 
 get_header();
 
+// Order-received (bedankt-pagina) — eigen hero in thankyou.php, geen wrapper of h1
+if (function_exists('is_wc_endpoint_url') && is_wc_endpoint_url('order-received')) :
+?>
+<main id="primary" class="site-main ls-wc-page ls-wc-page--thankyou">
+  <?php while (have_posts()) : the_post(); the_content(); endwhile; ?>
+</main>
+<?php
+  get_footer();
+  return;
+endif;
+
 // WooCommerce-pagina's (cart, checkout, my account, etc.) hebben eigen templates
 // via the_content() — geef ze een simpele wrapper en stap uit.
 if (function_exists('is_woocommerce') && (is_cart() || is_checkout() || is_account_page())) :
@@ -25,6 +36,34 @@ if (is_page('privacybeleid') || is_page('privacyverklaring') || is_privacy_polic
 <main id="primary" class="site-main ls-privacy-page">
   <?php while (have_posts()) : the_post(); ?>
     <?php get_template_part('template-parts/sections/legal-privacy'); ?>
+  <?php endwhile; ?>
+</main>
+<?php
+  get_footer();
+  return;
+endif;
+
+if (
+  is_page('algemene-verkoop-en-leveringsvoorwaarden-oculoo-b-v') ||
+  is_page('algemene-voorwaarden') ||
+  is_page('algemene-verkoop-en-leveringsvoorwaarden')
+) :
+?>
+<main id="primary" class="site-main ls-privacy-page">
+  <?php while (have_posts()) : the_post(); ?>
+    <?php get_template_part('template-parts/sections/legal-terms'); ?>
+  <?php endwhile; ?>
+</main>
+<?php
+  get_footer();
+  return;
+endif;
+
+if (is_page('retourbeleid')) :
+?>
+<main id="primary" class="site-main ls-privacy-page">
+  <?php while (have_posts()) : the_post(); ?>
+    <?php get_template_part('template-parts/sections/legal-returns'); ?>
   <?php endwhile; ?>
 </main>
 <?php
@@ -59,14 +98,7 @@ endif;
     ?>
 
     <?php
-    // 2. Uitgelichte producten (direct na hero)
-    if (is_front_page() && get_field('show_featured_products')) {
-      get_template_part('template-parts/sections/featured-products');
-    }
-    ?>
-
-    <?php
-    // 3. ACF Flexible Content
+    // 2. ACF Flexible Content
     if (have_rows('page_sections')) :
 
       while (have_rows('page_sections')) : the_row();
@@ -95,7 +127,7 @@ endif;
 
 
   <?php
-    // 1. Hero
+    // 3. CTA
     get_template_part('template-parts/sections/cta');
     ?>
 

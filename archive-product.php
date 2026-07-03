@@ -16,7 +16,7 @@ get_header();
   </section>
 
   <!-- Product grid -->
-  <section class="ls-shop-grid section-sm">
+  <section class="ls-shop-grid section-md">
     <div class="ls-container">
 
       <?php if (woocommerce_product_loop()) : ?>

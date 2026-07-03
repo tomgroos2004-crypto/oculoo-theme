@@ -1,46 +1,20 @@
 /* =========================================================
    LeadSprint – Main stylesheet
+
+   LET OP: de modulaire CSS-bestanden worden NIET meer via
+   @import geladen (dat blokkeert rendering serieel). Ze worden
+   nu afzonderlijk en parallel ge-enqueued via functions.php
+   (es_enqueue_assets). De volgorde daar bepaalt de cascade.
+
+   Dit bestand bevat alleen nog de globale canvas-override en
+   wordt als laatste ingeladen.
 ========================================================= */
 
-@import url("./colors.css");
-@import url("./typography.css");
-@import url("./layout.css");
-@import url("./spacing.css");
-@import url("./buttons.css");
-@import url("./header.css");
-@import url("./card.css");
-@import url("./case-breakdown.css");
-@import url("./footer.css");
-
-/* subfolders */
-
-@import url("./widgets/hero.css");
-@import url("./widgets/problem.css");
-@import url("./widgets/how.css");
-@import url("./widgets/how-steps-page.css");
-@import url("./widgets/how-tips-page.css");
-@import url("./widgets/over-origin.css");
-@import url("./widgets/over-team.css");
-@import url("./widgets/about-intro.css");
-@import url("./widgets/cta.css");
-@import url("./widgets/cards.css");
-@import url("./widgets/content.css");
-@import url("./widgets/contact.css");
-@import url("./widgets/case-showcase.css");
-@import url("./widgets/partners-slider.css");
-@import url("./widgets/testimonials.css");
-@import url("./widgets/featured-products.css");
-
-
-@import url("./page/product-single.css");
-@import url("./page/shop.css");
-@import url("./page/blog.css");
-@import url("./page/privacy.css");
 /* =========================================================
-   Global canvas enforcement (AFTER imports)
+   Global canvas enforcement (laatste in de cascade)
 ========================================================= */
 
 html,
 body {
-  background: var(--color-bg) !important;
+  background: #fff !important;
 }

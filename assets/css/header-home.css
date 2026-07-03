@@ -1,0 +1,582 @@
+/* =========================================================
+   HOME HEADER
+   - Fully transparent over the purple hero
+   - Logo left, nav links + cart + "Bestel nu" CTA right
+   - Floating white glass pill with branded colors on scroll
+========================================================= */
+
+.ls-header-wrap--home {
+  position: sticky;
+  /* Schuif de sticky header onder de Leadsprint announcement banner
+     (.nk-announce). Het parent-thema zet --nk-announce-h op <html>
+     met de daadwerkelijke banner-hoogte; we gebruiken die hier. */
+  top: var(--nk-announce-h, 0px);
+  z-index: 200;
+  padding-top: 0;
+  background: transparent;
+  transition: padding 0.3s ease;
+}
+
+.admin-bar .ls-header-wrap--home {
+  top: calc(32px + var(--nk-announce-h, 0px));
+}
+
+@media (max-width: 782px) {
+  .admin-bar .ls-header-wrap--home {
+    top: calc(46px + var(--nk-announce-h, 0px));
+  }
+}
+
+/* =========================================================
+   Elementor header offset onder announcement banner
+   Sites die via een Elementor header template (i.p.v. de
+   custom .ls-header-wrap) draaien — push de sticky/fixed
+   Elementor header onder de .nk-announce banner.
+========================================================= */
+
+/* Reserveer ruimte voor de fixed announcement banner zodat
+   de pagina-inhoud (incl. niet-sticky Elementor header) niet
+   onder de banner verdwijnt. Werkt op alle pagina's. */
+body:has(.nk-announce) {
+  padding-top: var(--nk-announce-h, 0px);
+}
+
+.elementor-location-header.elementor-sticky--active,
+.elementor-location-header .elementor-sticky--active,
+header[data-elementor-type="header"].elementor-sticky--active,
+header[data-elementor-type="header"] .elementor-sticky--active {
+  top: var(--nk-announce-h, 0px) !important;
+}
+
+.admin-bar .elementor-location-header.elementor-sticky--active,
+.admin-bar .elementor-location-header .elementor-sticky--active,
+.admin-bar header[data-elementor-type="header"].elementor-sticky--active,
+.admin-bar header[data-elementor-type="header"] .elementor-sticky--active {
+  top: calc(32px + var(--nk-announce-h, 0px)) !important;
+}
+
+@media (max-width: 782px) {
+  .admin-bar .elementor-location-header.elementor-sticky--active,
+  .admin-bar .elementor-location-header .elementor-sticky--active,
+  .admin-bar header[data-elementor-type="header"].elementor-sticky--active,
+  .admin-bar header[data-elementor-type="header"] .elementor-sticky--active {
+    top: calc(46px + var(--nk-announce-h, 0px)) !important;
+  }
+}
+
+.ls-header--home {
+  height: 78px;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  color: #fff;
+  box-shadow: none;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    height 0.3s ease,
+    border-radius 0.3s ease,
+    color 0.3s ease,
+    margin 0.3s ease,
+    width 0.3s ease,
+    backdrop-filter 0.3s ease,
+    -webkit-backdrop-filter 0.3s ease;
+}
+
+.ls-header--home .ls-container {
+  height: 100%;
+}
+
+/* Non-scrolled transparent state — much wider container so the logo
+   sits flush left and the nav/actions sit flush right, matching the
+   design reference. Switches back to the regular site container width
+   the moment the floating glass pill kicks in. */
+.ls-header-wrap--home:not(.is-scrolled) .ls-header--home .ls-container {
+  width: min(1640px, calc(100% - clamp(24px, 4vw, 64px)));
+  max-width: none;
+}
+
+.ls-header-inner--home {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* =========================================================
+   Logo (from theme settings)
+   - Renders much larger in the transparent state
+   - Optional second logo (oculoo_logo_scrolled) crossfades in
+     when the floating glass pill state activates
+========================================================= */
+.ls-header--home .ls-header-brand {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  line-height: 0;
+}
+
+.ls-header--home .ls-header-brand__logo {
+  height: 56px;
+  width: auto;
+  display: block;
+  transition: height 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* Single-logo fallback — invert to white over the purple hero,
+   restore original colors in the scrolled glass-pill state. */
+.ls-header--home .ls-header-brand:not(.ls-header-brand--dual) .ls-header-brand__logo--default {
+  filter: brightness(0) invert(1);
+}
+
+.ls-header-wrap--home.is-scrolled
+.ls-header--home .ls-header-brand:not(.ls-header-brand--dual) .ls-header-brand__logo--default {
+  filter: none;
+  height: 36px;
+}
+
+/* Dual-logo crossfade — stack both images and toggle opacity. */
+.ls-header--home .ls-header-brand--dual {
+  display: inline-block;
+}
+
+.ls-header--home .ls-header-brand--dual .ls-header-brand__logo--scrolled {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: auto;
+  opacity: 0;
+}
+
+.ls-header-wrap--home.is-scrolled
+.ls-header--home .ls-header-brand--dual .ls-header-brand__logo--default {
+  opacity: 0;
+}
+
+.ls-header-wrap--home.is-scrolled
+.ls-header--home .ls-header-brand--dual .ls-header-brand__logo--scrolled {
+  opacity: 1;
+}
+
+.ls-header-wrap--home.is-scrolled
+.ls-header--home .ls-header-brand--dual .ls-header-brand__logo {
+  height: 36px;
+}
+
+/* =========================================================
+   Nav
+========================================================= */
+.ls-header-nav--home {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  /* Push nav to the right so it groups with the actions; only the
+     logo stays on the left. */
+  margin-left: auto;
+}
+
+.ls-header-nav--home .link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: -0.005em;
+  opacity: 0.95;
+  transition: color 0.3s ease, opacity 0.2s ease;
+}
+
+.ls-header-nav--home .link:hover {
+  opacity: 0.7;
+}
+
+/* =========================================================
+   Dropdown (Zakelijk)
+========================================================= */
+.ls-header-nav--home .ls-header-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ls-header-nav--home .ls-header-dropdown__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.ls-header-nav--home .ls-header-dropdown__caret {
+  width: 11px;
+  height: 11px;
+  transition: transform 0.2s ease;
+}
+
+.ls-header-nav--home .ls-header-dropdown:hover .ls-header-dropdown__caret,
+.ls-header-nav--home .ls-header-dropdown:focus-within .ls-header-dropdown__caret {
+  transform: rotate(180deg);
+}
+
+/* Invisible bridge so menu stays open when moving cursor down */
+.ls-header-nav--home .ls-header-dropdown::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: -8px;
+  right: -8px;
+  height: 14px;
+}
+
+.ls-header-nav--home .ls-header-dropdown__menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translate(-50%, 4px);
+  min-width: 200px;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(15, 36, 56, 0.14);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 220;
+}
+
+.ls-header-nav--home .ls-header-dropdown:hover .ls-header-dropdown__menu,
+.ls-header-nav--home .ls-header-dropdown:focus-within .ls-header-dropdown__menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.ls-header-nav--home .ls-header-dropdown__menu a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-primary);
+  white-space: nowrap;
+  opacity: 1;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.ls-header-nav--home .ls-header-dropdown__menu a:hover,
+.ls-header-nav--home .ls-header-dropdown__menu a.is-active {
+  background: rgba(98, 4, 195, 0.06);
+  color: var(--color-accent);
+}
+
+/* =========================================================
+   Right actions group (cart + CTA + mobile toggle)
+========================================================= */
+.ls-header-actions--home {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* --- Cart icon --- */
+.ls-header--home .ls-header-cart {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  color: #fff;
+  transition: background 0.2s ease, color 0.3s ease;
+}
+
+.ls-header--home .ls-header-cart:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.ls-header--home .ls-header-cart svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ls-header--home .ls-header-cart__count {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+}
+
+/* --- "Bestel nu" CTA — sky-blue pill --- */
+.ls-header--home .ls-header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 22px;
+  border-radius: 999px;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 14.5px;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+.ls-header--home .ls-header-cta:hover {
+  background: var(--color-secondary-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================================
+   Mobile toggle
+========================================================= */
+.ls-header-toggle--home {
+  display: none;
+  width: 40px;
+  height: 40px;
+  padding: 10px 9px;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.2s ease;
+}
+
+.ls-header-toggle--home span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 3px 0;
+  background: #fff;
+  border-radius: 10px;
+  transition: transform 0.22s ease, opacity 0.22s ease, background 0.3s ease;
+}
+
+.ls-header-toggle--home:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================================
+   Mobile dropdown
+========================================================= */
+.ls-header-mobile--home {
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+  background: rgba(98, 4, 195, 0.96);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-top: 0 solid rgba(255, 255, 255, 0.08);
+  transition: max-height 0.28s ease, background 0.3s ease, border-top-width 0.2s ease;
+}
+
+body.ls-nav-open .ls-header-mobile--home {
+  border-top-width: 1px;
+}
+
+.ls-header-mobile--home .ls-header-mobile-nav {
+  display: grid;
+  gap: 2px;
+  padding: 12px 0 20px;
+}
+
+.ls-header-mobile--home .ls-header-mobile-nav a {
+  display: block;
+  padding: 12px 4px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.ls-header-mobile--home .ls-header-mobile-cta {
+  margin-top: 10px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  text-align: center;
+  font-weight: 600;
+}
+
+body.ls-nav-open .ls-header-mobile--home {
+  max-height: 360px;
+}
+
+body.ls-nav-open .ls-header-toggle--home span:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+body.ls-nav-open .ls-header-toggle--home span:nth-child(2) {
+  opacity: 0;
+}
+
+body.ls-nav-open .ls-header-toggle--home span:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+/* =========================================================
+   SOLID HEADER — pagina's zonder paarse hero
+   (shop, single product/blog, account etc.)
+   In non-scrolled state krijgt de header dan een paarse achtergrond
+   zodat het witte logo en links leesbaar blijven.
+========================================================= */
+body.has-solid-header .ls-header-wrap--home:not(.is-scrolled) .ls-header--home {
+  background: var(--color-primary);
+}
+
+
+/* =========================================================
+   SCROLLED — floating white glass pill, branded colors
+========================================================= */
+.ls-header-wrap--home.is-scrolled {
+  padding-top: 12px;
+}
+
+.ls-header-wrap--home.is-scrolled .ls-header--home {
+  height: 64px;
+  margin: 0 auto;
+  width: min(var(--ls-container, 1100px), calc(100% - 24px));
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-color: rgba(0, 0, 0, 0.05);
+  color: var(--color-primary);
+  box-shadow:
+    0 10px 30px rgba(15, 36, 56, 0.10),
+    0 2px 6px rgba(15, 36, 56, 0.05);
+}
+
+.ls-header-wrap--home.is-scrolled .ls-header--home .ls-container {
+  padding-left: 24px;
+  padding-right: 10px;
+  width: 100%;
+}
+
+
+.ls-header-wrap--home.is-scrolled .ls-header-nav--home .link {
+  color: var(--color-primary);
+  opacity: 1;
+}
+
+.ls-header-wrap--home.is-scrolled .ls-header-nav--home .link:hover {
+  color: var(--color-accent);
+}
+
+.ls-header-wrap--home.is-scrolled .ls-header--home .ls-header-cart {
+  color: var(--color-primary);
+}
+
+.ls-header-wrap--home.is-scrolled .ls-header--home .ls-header-cart:hover {
+  background: rgba(98, 4, 195, 0.08);
+  color: var(--color-accent);
+}
+
+.ls-header-wrap--home.is-scrolled .ls-header--home .ls-header-cta {
+  padding: 9px 18px;
+  font-size: 14px;
+}
+
+.ls-header-wrap--home.is-scrolled .ls-header-toggle--home {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.ls-header-wrap--home.is-scrolled .ls-header-toggle--home span {
+  background: var(--color-primary);
+}
+
+.ls-header-wrap--home.is-scrolled .ls-header-mobile--home {
+  background: rgba(255, 255, 255, 0.98);
+  border-top-color: rgba(0, 0, 0, 0.06);
+}
+
+.ls-header-wrap--home.is-scrolled .ls-header-mobile--home .ls-header-mobile-nav a {
+  color: var(--color-primary);
+}
+
+/* =========================================================
+   Mobile breakpoint
+========================================================= */
+@media (max-width: 960px) {
+  .ls-header--home {
+    height: 68px;
+  }
+
+  .ls-header-nav--home {
+    display: none;
+  }
+
+  .ls-header-toggle--home {
+    display: inline-block;
+  }
+
+  .ls-header-mobile--home {
+    display: block;
+  }
+
+  .ls-header--home .ls-header-brand__logo {
+    height: 30px;
+  }
+
+  .ls-header-wrap--home.is-scrolled
+  .ls-header--home .ls-header-brand:not(.ls-header-brand--dual) .ls-header-brand__logo--default,
+  .ls-header-wrap--home.is-scrolled
+  .ls-header--home .ls-header-brand--dual .ls-header-brand__logo {
+    height: 26px;
+  }
+
+  .ls-header--home .ls-header-cta {
+    padding: 9px 16px;
+    font-size: 13.5px;
+    white-space: nowrap;
+  }
+
+  .ls-header-actions--home {
+    gap: 10px;
+  }
+
+  .ls-header-wrap--home.is-scrolled .ls-header--home {
+    height: 58px;
+    width: calc(100% - 20px);
+  }
+
+  .ls-header-wrap--home.is-scrolled .ls-header--home .ls-container {
+    padding-left: 18px;
+    padding-right: 8px;
+  }
+
+  .ls-header-wrap--home.is-scrolled
+  .ls-header--home .ls-header-brand:not(.ls-header-brand--dual) .ls-header-brand__logo--default,
+  .ls-header-wrap--home.is-scrolled
+  .ls-header--home .ls-header-brand--dual .ls-header-brand__logo {
+    height: 26px;
+  }
+}

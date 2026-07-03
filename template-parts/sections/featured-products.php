@@ -14,11 +14,11 @@ if (empty($items) || !is_array($items)) {
 }
 ?>
 
-<section class="ls-featured-products section-md">
+<section class="ls-featured-products section-sm">
   <div class="ls-container">
 
     <header class="ls-featured-products__header">
-      <p class="ls-featured-products__eyebrow">Shop</p>
+      <p class="ls-featured-products__eyebrow">De oplossing</p>
       <h2 class="ls-featured-products__title"><?= esc_html($title); ?></h2>
       <?php if (!empty($intro)) : ?>
         <p class="ls-featured-products__intro"><?= esc_html($intro); ?></p>
@@ -40,9 +40,7 @@ if (empty($items) || !is_array($items)) {
         if (empty($excerpt) && !empty($intro_field)) $excerpt = $intro_field;
         $price_html  = $wc_product->get_price_html();
         $on_sale     = $wc_product->is_on_sale();
-        $in_stock    = $wc_product->is_in_stock();
         $cats        = get_the_terms($product_id, 'product_cat');
-        $cat_name    = (!empty($cats) && !is_wp_error($cats)) ? $cats[0]->name : '';
       ?>
 
         <article class="ls-fp-card">
@@ -64,9 +62,7 @@ if (empty($items) || !is_array($items)) {
 
           <div class="ls-fp-card__body">
 
-            <?php if (!empty($cat_name)) : ?>
-              <p class="ls-fp-card__cat"><?= esc_html($cat_name); ?></p>
-            <?php endif; ?>
+       
 
             <h3 class="ls-fp-card__name">
               <a href="<?= esc_url($link); ?>"><?= esc_html($name); ?></a>
@@ -82,10 +78,6 @@ if (empty($items) || !is_array($items)) {
                 <?php if (!empty($price_html)) : ?>
                   <div class="ls-fp-card__price"><?= wp_kses_post($price_html); ?></div>
                 <?php endif; ?>
-                <div class="ls-fp-card__stock <?= $in_stock ? 'is-in' : 'is-out'; ?>">
-                  <span class="ls-fp-card__dot"></span>
-                  <?= $in_stock ? 'Op voorraad' : 'Niet op voorraad'; ?>
-                </div>
               </div>
 
               <a class="ls-fp-card__cta" href="<?= esc_url($link); ?>">

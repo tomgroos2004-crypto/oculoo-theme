@@ -29,7 +29,6 @@ get_header();
       $product_usps     = get_field('product_usps');
       $product_cta      = get_field('product_cta_link');
       $product_how_link = get_field('product_how_link');
-      $product_price_note = get_field('product_price_note') ?: 'Incl. btw - Gratis verzending vanaf €25';
       $product_faqs     = get_field('product_faqs');
       $product_reviews  = get_field('product_reviews');
       $product_specs    = get_field('product_specs');
@@ -46,8 +45,8 @@ get_header();
       if (empty($product_faqs) || !is_array($product_faqs)) {
         $product_faqs = [
           ['question' => 'Wat maakt Oculoo uniek?', 'answer' => 'Oculoo combineert richten en krachtloos knijpen in een handeling.'],
-          ['question' => 'Voor wie is de Oculoo Minim?', 'answer' => 'Voor mensen met trillende handen, weinig kracht of slecht zicht.'],
-          ['question' => 'Verzending & retour', 'answer' => 'Snelle levering en 30 dagen retourrecht.'],
+          ['question' => 'Voor wie is de Oculoo Minim?', 'answer' => 'Voor mensen die moeite hebben met zelfstandig oogdruppelen, zoals bij trillende handen, reuma of beperkte kracht.'],
+          ['question' => 'Verzending & retour', 'answer' => 'Snelle levering en 30 dagen retourrecht (ongeopend en ongebruikt).'],
         ];
       }
 
@@ -77,126 +76,161 @@ get_header();
        HERO
   ==================================================== -->
 
-  <section class="ls-ph section-md">
-    <div class="ls-container">
+<section class="ls-ph section-md">
+  <div class="ls-container">
 
-      <nav class="ls-ph__breadcrumb" aria-label="Kruimelpad">
-        <?php
-        if (function_exists('woocommerce_breadcrumb')) {
-          woocommerce_breadcrumb([
-            'delimiter'   => '<span aria-hidden="true"> / </span>',
-            'wrap_before' => '<ol class="ls-breadcrumb">',
-            'wrap_after'  => '</ol>',
-            'before'      => '<li>',
-            'after'       => '</li>',
-          ]);
-        }
-        ?>
-      </nav>
+    <nav class="ls-ph__breadcrumb" aria-label="Kruimelpad">
+      <?php
+      if (function_exists('woocommerce_breadcrumb')) {
+        woocommerce_breadcrumb([
+          'delimiter'   => '<span aria-hidden="true"> / </span>',
+          'wrap_before' => '<ol class="ls-breadcrumb">',
+          'wrap_after'  => '</ol>',
+          'before'      => '<li>',
+          'after'       => '</li>',
+        ]);
+      }
+      ?>
+    </nav>
 
-      <div class="ls-ph__grid">
+    <div class="ls-ph__grid">
 
-        <!-- Visueel: hoofd + galerij -->
-        <div class="ls-ph__visual">
+      <!-- LEFT: Visueel -->
+      <div class="ls-ph__visual">
 
-          <div class="ls-ph__main-image">
-            <?php if (has_post_thumbnail()) : ?>
-              <?php the_post_thumbnail('large', [
-                'loading'  => 'eager',
-                'decoding' => 'async',
-                'class'    => 'ls-ph__img',
-              ]); ?>
-            <?php else : ?>
-              <div class="ls-ph__no-image"></div>
-            <?php endif; ?>
-          </div>
-
+        <div class="ls-ph__main-image">
+          <?php if (has_post_thumbnail()) : ?>
+            <?php the_post_thumbnail('large', [
+              'loading'  => 'eager',
+              'decoding' => 'async',
+              'class'    => 'ls-ph__img',
+            ]); ?>
+          <?php else : ?>
+            <div class="ls-ph__no-image"></div>
+          <?php endif; ?>
         </div>
 
-        <!-- Inhoud: titel, prijs, USP's, acties -->
-        <div class="ls-ph__content">
+        <!-- Thumbnails -->
+        <div class="ls-ph__gallery">
+          <?php
+          global $product;
 
-          <p class="ls-ph__stock-pill is-in">dit is een pre sale - levering Q3</p>
+          if ($product) {
+            $attachment_ids = $product->get_gallery_image_ids();
 
-          <h1 class="ls-ph__title"><?php the_title(); ?></h1>
+            if (!empty($attachment_ids)) {
+              echo '<div class="ls-ph__thumbs">';
 
-          <?php if (!empty($product_intro)) : ?>
-            <p class="ls-ph__intro lead"><?= esc_html($product_intro); ?></p>
-          <?php elseif (!empty($short_desc)) : ?>
-            <div class="ls-ph__intro lead"><?= wp_kses_post($short_desc); ?></div>
-          <?php endif; ?>
+              foreach ($attachment_ids as $attachment_id) {
+                echo wp_get_attachment_image($attachment_id, 'thumbnail', false, [
+                  'class' => 'ls-ph__thumb',
+                  'data-full' => wp_get_attachment_image_url($attachment_id, 'large'),
+                ]);
+              }
 
-          <?php if ($review_count > 0) : ?>
-            <p class="ls-ph__rating"><?= esc_html(str_repeat('★', 5)); ?> <span><?= esc_html(number_format_i18n($average_rating, 1)); ?> - <?= esc_html($review_count); ?> beoordelingen</span></p>
-          <?php endif; ?>
-
-          <?php if (!empty($price_html)) : ?>
-            <div class="ls-ph__price"><?= wp_kses_post($price_html); ?></div>
-          <?php endif; ?>
-          <p class="ls-ph__price-note"><?= esc_html($product_price_note); ?></p>
-
-          <div class="ls-ph__divider" aria-hidden="true"></div>
-
-          <div class="ls-ph__actions">
-            <?php
-            if (function_exists('woocommerce_template_single_add_to_cart')) {
-              woocommerce_template_single_add_to_cart();
+              echo '</div>';
             }
-            ?>
-            <?php if (!empty($product_cta['url'])) : ?>
-              <a class="ls-ph__secondary-cta" href="<?= esc_url($product_cta['url']); ?>" target="<?= esc_attr($product_cta['target'] ?: '_self'); ?>">
-                <?= esc_html($product_cta['title'] ?: 'Direct bestellen'); ?>
-              </a>
-            <?php endif; ?>
-
-            <?php
-            $how_link_url = is_array($product_how_link) ? ($product_how_link['url'] ?? '') : '';
-            $how_link_title = is_array($product_how_link) ? ($product_how_link['title'] ?? '') : '';
-            $how_link_target = is_array($product_how_link) ? ($product_how_link['target'] ?? '_self') : '_self';
-
-            if (empty($how_link_url)) {
-              $how_link_url = home_url('/hoe-werkt-het/');
-              $how_link_title = 'Hoe werkt het?';
-              $how_link_target = '_self';
-            }
-            ?>
-            <a class="ls-ph__how-link" href="<?= esc_url($how_link_url); ?>" target="<?= esc_attr($how_link_target); ?>">
-              <?= esc_html($how_link_title ?: 'Hoe werkt het?'); ?>
-            </a>
-          </div>
-
-          <?php if (!empty($product_usps) && is_array($product_usps)) : ?>
-            <ul class="ls-ph__mini-usps">
-              <?php foreach (array_slice($product_usps, 0, 2) as $usp) :
-                $txt = $usp['text'] ?? '';
-                if (!$txt) continue;
-              ?>
-                <li><?= esc_html($txt); ?></li>
-              <?php endforeach; ?>
-            </ul>
-          <?php endif; ?>
-
-          <?php if (!empty($product_faqs)) : ?>
-            <div class="ls-ph__accordion" data-product-accordion>
-              <?php foreach ($product_faqs as $i => $item) :
-                $q = isset($item['question']) ? trim((string) $item['question']) : '';
-                $a = isset($item['answer']) ? trim((string) $item['answer']) : '';
-                if ($q === '' && $a === '') continue;
-                $open = $i === 0;
-              ?>
-                <details class="ls-ph__acc-item" <?= $open ? 'open' : ''; ?>>
-                  <summary><?= esc_html($q); ?></summary>
-                  <?php if ($a !== '') : ?><p><?= esc_html($a); ?></p><?php endif; ?>
-                </details>
-              <?php endforeach; ?>
-            </div>
-          <?php endif; ?>
-
+          }
+          ?>
         </div>
 
       </div>
+
+      <!-- RIGHT: Content -->
+      <div class="ls-ph__content">
+
+        <p class="ls-ph__stock-pill is-in">dit is een pre sale - levering Q3</p>
+
+        <h1 class="ls-ph__title"><?php the_title(); ?></h1>
+
+        <?php if (!empty($product_intro)) : ?>
+          <p class="ls-ph__intro lead"><?= esc_html($product_intro); ?></p>
+        <?php elseif (!empty($short_desc)) : ?>
+          <div class="ls-ph__intro lead"><?= wp_kses_post($short_desc); ?></div>
+        <?php endif; ?>
+
+        <?php if ($review_count > 0) : ?>
+          <p class="ls-ph__rating">
+            <?= esc_html(str_repeat('★', 5)); ?>
+            <span><?= esc_html(number_format_i18n($average_rating, 1)); ?> - <?= esc_html($review_count); ?> beoordelingen</span>
+          </p>
+        <?php endif; ?>
+
+        <?php if (!empty($price_html)) : ?>
+          <div class="ls-ph__price"><?= wp_kses_post($price_html); ?></div>
+        <?php endif; ?>
+
+
+        <div class="ls-ph__divider" aria-hidden="true"></div>
+
+        <div class="ls-ph__actions">
+          <?php
+          if (function_exists('woocommerce_template_single_add_to_cart')) {
+            woocommerce_template_single_add_to_cart();
+          }
+          ?>
+
+          <?php if (!empty($product_cta['url'])) : ?>
+            <a class="ls-ph__secondary-cta"
+               href="<?= esc_url($product_cta['url']); ?>"
+               target="<?= esc_attr($product_cta['target'] ?: '_self'); ?>">
+              <?= esc_html($product_cta['title'] ?: 'Direct bestellen'); ?>
+            </a>
+          <?php endif; ?>
+
+          <?php
+          $how_link_url = is_array($product_how_link) ? ($product_how_link['url'] ?? '') : '';
+          $how_link_title = is_array($product_how_link) ? ($product_how_link['title'] ?? '') : '';
+          $how_link_target = is_array($product_how_link) ? ($product_how_link['target'] ?? '_self') : '_self';
+
+          if (empty($how_link_url)) {
+            $how_link_url = home_url('/hoe-werkt-het/');
+            $how_link_title = 'Hoe werkt het?';
+            $how_link_target = '_self';
+          }
+          ?>
+
+          <a class="ls-ph__how-link"
+             href="<?= esc_url($how_link_url); ?>"
+             target="<?= esc_attr($how_link_target); ?>">
+            <?= esc_html($how_link_title ?: 'Hoe werkt het?'); ?>
+          </a>
+        </div>
+
+        <?php if (!empty($product_usps) && is_array($product_usps)) : ?>
+          <ul class="ls-ph__mini-usps">
+            <?php foreach (array_slice($product_usps, 0, 2) as $usp) :
+              $txt = $usp['text'] ?? '';
+              if (!$txt) continue;
+            ?>
+              <li><?= esc_html($txt); ?></li>
+            <?php endforeach; ?>
+          </ul>
+        <?php endif; ?>
+
+        <?php if (!empty($product_faqs)) : ?>
+          <div class="ls-ph__accordion" data-product-accordion>
+            <?php foreach ($product_faqs as $i => $item) :
+              $q = trim((string) ($item['question'] ?? ''));
+              $a = trim((string) ($item['answer'] ?? ''));
+              if ($q === '' && $a === '') continue;
+              $open = $i === 0;
+            ?>
+              <details class="ls-ph__acc-item" <?= $open ? 'open' : ''; ?>>
+                <summary><?= esc_html($q); ?></summary>
+                <?php if ($a !== '') : ?>
+                  <p><?= esc_html($a); ?></p>
+                <?php endif; ?>
+              </details>
+            <?php endforeach; ?>
+          </div>
+        <?php endif; ?>
+
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <?php if (!empty($product_reviews) && is_array($product_reviews)) : ?>
     <section class="ls-product-reviews section-sm">
@@ -301,5 +335,17 @@ get_header();
   endif; ?>
 
 </main>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.ls-ph__thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const mainImg = document.querySelector('.ls-ph__img');
+      if (!mainImg) return;
 
+      mainImg.src = thumb.dataset.full;
+      mainImg.srcset = ''; // belangrijk
+    });
+  });
+});
+</script>
 <?php get_footer(); ?>

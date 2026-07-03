@@ -1,0 +1,130 @@
+.over-origin {
+  background: var(--color-secondary-soft);
+}
+
+/* Two-column inner grid */
+.over-origin__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+}
+
+/* Left column: text */
+.over-origin__eyebrow {
+  margin: 0 0 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.over-origin__eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--color-accent);
+}
+
+.over-origin__title {
+  margin: 0 0 28px;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--color-inverted);
+  font-weight: 500;
+}
+
+.over-origin__title em {
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+.over-origin__body {
+  margin: 0 0 20px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-inverted-muted);
+}
+
+.over-origin__pull-quote {
+  margin: 32px 0;
+  padding: 8px 0 8px 24px;
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0;
+  background: none;
+}
+
+.over-origin__pull-quote p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-inverted);
+  letter-spacing: -0.01em;
+}
+
+/* Right column: sticky photo */
+.over-origin__photo-col {
+  position: sticky;
+  top: 88px;
+}
+
+.over-origin__photo-wrap {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-muted);
+}
+
+.over-origin__photo-wrap img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  max-height: 560px;
+  object-position: center top;
+}
+
+.over-origin__photo-placeholder {
+  min-height: 400px;
+  background: var(--color-surface-muted);
+}
+
+.over-origin__photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(98, 4, 195, 0.92) 0%, transparent 100%);
+  padding: 48px 24px 20px;
+}
+
+.over-origin__caption-text {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.04em;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .over-origin__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .over-origin__photo-col {
+    position: static;
+    order: -1;
+  }
+
+  .over-origin__title {
+    font-size: clamp(28px, 7vw, 42px);
+  }
+}

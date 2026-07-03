@@ -28,7 +28,6 @@
 .section-sm {
   padding-top: var(--ls-section-sm);
   padding-bottom: var(--ls-section-sm);
-  background: var(--color-bg);
 }
 
 .section-md {

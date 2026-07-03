@@ -1,7 +1,23 @@
 /* =========================================================
-   Base
+   BUTTONS — Oculoo "Easy as that" stijl
+   =========================================================
+   Pill button, Onest, 13px/28px padding, radius 100px.
+
+   Modifiers (BEM):
+     .btn--white          wit op donker
+     .btn--ghost          transparant met witte rand (op donker)
+     .btn--orange         oranje fill
+     .btn--orange-outline oranje rand
+     .btn--purple         paars fill
+     .btn--purple-outline paarse rand
+
+   Aliassen (backwards compat met bestaande templates):
+     .btn-primary  / .btn--primary  → oranje fill
+     .btn-secondary                 → paarse rand
 ========================================================= */
 
+
+/* ---------- BASE ---------- */
 .btn {
   position: relative;
   display: inline-flex;
@@ -9,68 +25,155 @@
   justify-content: center;
   gap: 8px;
 
-  font-family: 'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-family: 'Onest', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 15px;
   font-weight: 500;
   letter-spacing: 0;
+  line-height: 1;
+
+  padding: 13px 28px;
+  border-radius: 100px;
+  border: 1.5px solid transparent;
 
   text-decoration: none;
   white-space: nowrap;
+  cursor: pointer;
 
   transition:
     transform .18s ease,
-    box-shadow .18s ease,
-    background .18s ease;
+    background .18s ease,
+    color .18s ease,
+    border-color .18s ease,
+    opacity .18s ease,
+    box-shadow .18s ease;
 }
 
-/* =========================================================
-   HERO CTA
-========================================================= */
+.btn:hover {
+  transform: translateY(-1px);
+}
 
-.btn-primary {
+.btn:active {
+  transform: translateY(0);
+}
 
-  padding: 13px 28px;
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
 
+
+/* ---------- PRIMARY — light blue bg + purple tekst ---------- */
+.btn-primary,
+.btn--primary {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  border-color: transparent;
+}
+
+.btn-primary:hover,
+.btn--primary:hover {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  opacity: 0.92;
+  box-shadow: none;
+}
+
+
+/* ---------- ORANGE (extra modifier voor accent-CTA's) ---------- */
+.btn--orange {
   background: var(--color-accent);
   color: #fff;
-
-  border-radius: 999px;
-
-  font-size: 15px;
-  font-weight: 500;
-
-  box-shadow:
-    0 2px 16px rgba(0,0,0,.06);
+  border-color: transparent;
 }
 
-.btn-primary:hover{
-  transform: translateY(-2px);
-  background: #0D7FA0;
-
-  box-shadow:
-    0 8px 28px rgba(29,161,200,.35);
+.btn--orange:hover {
+  background: var(--color-accent);
+  color: #fff;
+  opacity: 0.92;
 }
 
-/* =========================================================
-   HEADER OUTLINE
-========================================================= */
-
-.btn-secondary {
-  padding: 0;
-  font-size: 15px;
-  font-weight: 500;
-  border: 0;
-  border-radius: 0;
+.btn--orange-outline {
   background: transparent;
-
   color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
-.btn-secondary:hover{
-  color: #0D7FA0;
+.btn--orange-outline:hover {
+  background: var(--color-accent);
+  color: #fff;
 }
 
-.btn-secondary::after {
-  content: '\203a';
-  font-size: 18px;
+
+/* ---------- PURPLE ---------- */
+.btn--purple {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: transparent;
+}
+
+.btn--purple:hover {
+  background: #4A0397;
+  color: #fff;
+}
+
+.btn--purple-outline,
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  padding: 13px 28px;
+  border-radius: 100px;
+  font-family: 'Onest', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
   line-height: 1;
+}
+
+.btn--purple-outline:hover,
+.btn-secondary:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* reset of de oude .btn-secondary chevron */
+.btn-secondary::after {
+  content: none;
+}
+
+
+/* ---------- WHITE (op donkere achtergrond) ---------- */
+.btn--white {
+  background: #fff;
+  color: var(--color-primary);
+  border-color: transparent;
+}
+
+.btn--white:hover {
+  background: #fff;
+  color: var(--color-primary);
+  opacity: 0.92;
+}
+
+
+/* ---------- GHOST (op donkere achtergrond) ---------- */
+.btn--ghost {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.7);
+  color: #fff;
+}
+
+
+/* ---------- DISABLED ---------- */
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
